@@ -1,0 +1,89 @@
+.profile {
+   margin: 65px 30px 32px;
+   display: grid;
+   grid-template-rows: auto 1fr auto;
+}
+
+.profile-title {
+   margin: 0 0 69px;
+   text-align: center;
+   font-size: 24px;
+   font-weight: 500;
+   line-height: normal;
+}
+
+.profile-form-element {
+   display: grid;
+   grid-template-columns: auto 1fr;
+   font-family: Inter;
+   font-size: 11px;
+   font-weight: 400;
+   line-height: normal;
+}
+
+.profile-form-description {
+   font-weight: 500;
+   min-width: 40px;
+}
+
+.profile-form-input {
+   margin: 0;
+   padding: 5px 0 5px 0;
+   text-align: right;
+   border: none;
+}
+
+.profile-form-element:first-child {
+   padding-bottom: 5px;
+   border-bottom: 1px solid #E8E8E8;
+   margin: 0 0 6px;
+}
+
+.profile-form {
+   display: grid;
+   grid-template-rows: auto 1fr auto;
+}
+
+.profile-btn {
+   text-align: center;
+   font-size: 12px;
+   font-weight: 400;
+   line-height: normal;
+   padding: 8px;
+}
+
+.profile-btn-signout {
+   color: #FF3055;
+}
+
+@media screen and (min-width: 767px) {
+   .profile {
+      margin: 231px 179px 164px;
+   }
+
+   .profile-title {
+      margin: 0 2px 85px 0;
+   }
+
+   .profile-btn {
+      font-size: 13px;
+   }
+}
+
+@media screen and (min-width: 1279px) {
+   .profile {
+      margin: 69px 435px 62px;
+   }
+
+   .profile-title {
+      margin: 0 2px 112px 0px;
+   }
+
+   .profile-btn-signout {
+      margin-left: 0px;
+   }
+
+   .profile-btn-edit {
+      margin-left: 0px;
+   }
+}

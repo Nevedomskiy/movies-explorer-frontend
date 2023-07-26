@@ -1,0 +1,64 @@
+.not-found {
+   display: grid;
+   grid-template-rows: 1fr auto;
+}
+
+.not-found-profile {
+   margin: 0 auto 18px;
+   padding: 0;
+   color: #3456F3;
+   font-size: 12px;
+   font-weight: 400;
+   line-height: normal;
+   position: relative;
+}
+
+.not-found-button-text {
+   margin: 10px 15px;
+}
+
+.not-found-container {
+   margin: auto;
+}
+
+.not-found-title {
+   margin: 54px 0 10px;
+   text-align: center;
+   font-size: 80px;
+   font-weight: 400;
+   line-height: normal;
+}
+
+.not-found-description {
+   margin: 0;
+   text-align: center;
+   font-size: 12px;
+   font-weight: 400;
+   line-height: normal;
+}
+
+@media screen and (min-width: 767px) {
+   .not-found-title {
+      font-size: 140px;
+      margin: 233px 0 5px;
+   }
+
+   .not-found-description {
+      font-size: 16px;
+   }
+
+   .not-found-profile {
+      font-size: 14px;
+      margin: 0 auto 113px;
+   }
+}
+
+@media screen and (min-width: 1279px) {
+   .not-found-profile {
+      margin: 0 auto 48px;
+   }
+
+   .not-found-title {
+      margin: 71px 0 4px;
+   }
+}

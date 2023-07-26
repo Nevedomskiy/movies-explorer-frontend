@@ -1,0 +1,120 @@
+.promo-conteiner {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   background-color: #073042;
+}
+
+.promo-logo {
+   margin-top: 70px;
+   display: block;
+   max-width: 210px;
+   min-height: 206px;
+   object-fit: cover;
+   margin-bottom: 44px;
+}
+
+.promo-title {
+   color: #FFF;
+   text-align: center;
+   font-size: 30px;
+   font-weight: 400;
+   line-height: 38px;
+   letter-spacing: -1.2px;
+   margin: 0 10px 24px;
+
+}
+
+.promo-word_nowrap {
+   white-space: nowrap;
+}
+
+.promo-subtitle {
+   color: #FFF;
+   text-align: center;
+   font-size: 13px;
+   font-weight: 400;
+   line-height: normal;
+   margin: 0 30px 80px;
+   opacity: 0.5;
+}
+
+.promo-button {
+   display: block;
+   border-radius: 3px;
+   border: 1px solid #FFF;
+   opacity: 0.6000000238418579;
+   text-align: center;
+   padding: 9px 19px;
+   color: #FFFFFF;
+   margin: 0 auto 30px;
+   font-size: 12px;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 16px;
+}
+
+
+@media screen and (min-width: 767px) {
+   .promo-logo {
+      margin-top: 140px;
+      display: block;
+      max-width: 310px;
+      min-height: 304px;
+      margin-bottom: 49px;
+   }
+
+   .promo-title {
+      font-feature-settings: 'clig' off, 'liga' off;
+      font-size: 40px;
+      line-height: 50px;
+      margin: 0 42px 21px;
+      letter-spacing: normal;
+   }
+
+   .promo-subtitle {
+      margin: 0 254px 92px;
+      font-feature-settings: 'clig' off, 'liga' off;
+   }
+
+   .promo-button {
+      margin: 0 auto 76px;
+   }
+
+}
+
+
+
+@media screen and (min-width: 1279px) {
+   .promo-conteiner {
+      display: flex;
+      flex-direction: row;
+      gap: 198px;
+      padding: 0 70px;
+      align-items: flex-start;
+   }
+
+   .promo-content {
+      order: -1;
+   }
+
+   .promo-logo {
+      margin-top: 75px;
+   }
+
+   .promo-title {
+      font-size: 50px;
+      line-height: 58px;
+      margin: 75px 0 36px;
+      text-align: start;
+   }
+
+   .promo-subtitle {
+      text-align: left;
+      margin: 0 300px 0 0;
+   }
+
+   .promo-button {
+      margin: 146px 0 75px;
+   }
+}

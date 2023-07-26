@@ -1,4 +1,5 @@
 import './Footer.css';
+import HoverLink from '../../blocks/HoverLink/HoverLink';
 
 function Footer() {
 
@@ -9,25 +10,21 @@ function Footer() {
             <div className='footer-content'>
                <ul className='list footer-list'>
                   <li className='footer-element '>
-                     <a
-                        href='https://practicum.yandex.ru/'
-                        className='footer-link footer-link_yandex link'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                     >
-                        Яндекс.Практикум
-                     </a>
+                     <HoverLink
+                        link={'https://practicum.yandex.ru/'}
+                        modificBlock={'footer-link footer-link_yandex'}
+
+                        text={'Яндекс.Практикум'} >
+                     </HoverLink>
 
                   </li>
                   <li className='footer-element'>
-                     <a
-                        href='https://github.com/Nevedomskiy'
-                        className='footer-link footer-link_git link'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                     >
-                        Github
-                     </a>
+                     <HoverLink
+                        link={'https://github.com/Nevedomskiy'}
+                        modificBlock={'footer-link footer-link_git'}
+
+                        text={'Github'} >
+                     </HoverLink>
                   </li>
                </ul>
                <p className='footer-data'>© 2023</p>

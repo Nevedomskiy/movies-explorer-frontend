@@ -14,7 +14,6 @@ function Main() {
          <Techs />
          <AboutMe />
          <Portfolio />
-
       </main>
    );
 }

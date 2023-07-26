@@ -27,7 +27,7 @@
 }
 
 .about-me-description {
-   margin: 0 0 38px;
+   margin: 0 0 31px;
    font-feature-settings: 'clig' off, 'liga' off;
    font-size: 11px;
    font-weight: 400;
@@ -38,11 +38,17 @@
    margin: 83px 0 60px;
 }
 
-.about-me-button {
+.about-me-link-git {
+   display: inline-block;
+   max-width: auto;
+   margin: 0 auto 59px 0;
+}
+
+.about-me-link-git__text {
+   padding: 9px 0px;
    font-size: 14px;
    font-weight: 500;
    line-height: normal;
-   margin-bottom: 70px;
 }
 
 @media screen and (min-width: 767px) {
@@ -65,7 +71,7 @@
    .about-me-description {
       font-size: 12px;
       line-height: 18px;
-      margin: 0 304px 85px 0;
+      margin: 0 304px 78px 0;
    }
 
    .about-me-subtitle {
@@ -82,7 +88,7 @@
       line-height: 18px;
    }
 
-   .about-me-button {
+   .about-me-link-git {
       margin-bottom: 0;
    }
 
@@ -113,7 +119,7 @@
    .about-me-description {
       font-size: 14px;
       line-height: 22px;
-      margin: 0 544px 97px 0;
+      margin: 0 544px 90px 0;
    }
 
    .about-me-avatar {
@@ -123,5 +129,5 @@
       right: 0;
       top: 117px;
    }
-   
+
 }

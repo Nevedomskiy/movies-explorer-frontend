@@ -22,7 +22,6 @@
 }
 
 .portfolio-element-description {
-   margin: 0;
    padding: 10px 0;
    font-size: 18px;
    font-weight: 400;
@@ -39,8 +38,6 @@
 }
 
 .portfolio-element-link {
-   text-decoration: none;
-   color: black;
    display: flex;
    padding-right: 5px;
    justify-content: space-between;
@@ -50,7 +47,7 @@
 
 @media screen and (min-width: 767px) {
    .portfolio-title {
-      margin: 92px 0 38px;
+      margin: 81px 0 39px;
       font-size: 18px;
    }
 
@@ -79,7 +76,7 @@
    }
 
    .portfolio-title {
-      margin: 101px 0 39px;
+      margin: 91px 0 39px;
       font-size: 18px;
    }
 

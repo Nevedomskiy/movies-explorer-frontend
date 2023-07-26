@@ -22,7 +22,6 @@
    line-height: 38px;
    letter-spacing: -1.2px;
    margin: 0 10px 24px;
-
 }
 
 .promo-word_nowrap {
@@ -40,18 +39,31 @@
 }
 
 .promo-button {
-   display: block;
+   all: unset;
+   cursor: pointer;
    border-radius: 3px;
    border: 1px solid #FFF;
    opacity: 0.6000000238418579;
    text-align: center;
-   padding: 9px 19px;
-   color: #FFFFFF;
    margin: 0 auto 30px;
    font-size: 12px;
    font-style: normal;
    font-weight: 500;
    line-height: 16px;
+   transition: all 0.3s ease;
+   display: block;
+}
+
+.promo-button-text {
+   text-decoration: none;
+   display: block;
+   color: #FFFFFF;
+   margin: 9px 19px;
+}
+
+
+.promo-button:hover {
+   transform: translate(2px, 2px);
 }
 
 

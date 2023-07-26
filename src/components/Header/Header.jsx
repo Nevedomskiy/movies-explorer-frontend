@@ -27,7 +27,7 @@ function Header() {
                   <div className='header-container'>
                      <ButtonHome modification={'header-link'}></ButtonHome>
                      <ul className='list header-list'>
-                        <li className='header-element'><button className='button'><Link to='/sign-up' className='header-link'>Регистрация</Link></button></li>
+                        <li className='header-element'><button className='button'><Link to='/sign-up' className='header-link header-link-black '>Регистрация</Link></button></li>
                         <li className='header-element'><button className='button'><Link to='/sign-in' className='header-link header-link-green'>Войти</Link></button></li>
                      </ul>
                   </div>

@@ -19,18 +19,29 @@
    margin: 0;
    padding: 0;
    display: flex;
-   gap: 14px;
+   gap: 3px;
 }
 
 .header-link {
    all: unset;
    cursor: pointer;
+   display: block;
+   transition: all 0.3s ease;
+}
+
+
+.header-link:hover {
+   transform: translate(2px, 2px);
+}
+
+.header-link-black {
+   padding: 5px 12px;
 }
 
 .header-link-green {
    border-radius: 3px;
    background: #2BE080;
-   padding: 7px 12px;
+   padding: 5px 12px;
 }
 
 .header-element {
@@ -63,7 +74,7 @@
    }
 
    .header-list {
-      gap: 31px;
+      gap: 19px;
    }
 }
 

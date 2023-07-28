@@ -7,12 +7,12 @@ function NotFound() {
    return (
 
       <div className='not-found'>
-         <div className='not-found-container'>
-            <h1 className='not-found-title'>404</h1>
-            <p className='not-found-description'>Страница не найдена</p>
+         <div className='not-found__container'>
+            <h1 className='not-found__title'>404</h1>
+            <p className='not-found__description'>Страница не найдена</p>
          </div>
-         <button onClick={() => navigate(-1)} className='button not-found-profile hover-link'>
-            <p className='not-found-button-text'>Назад</p>
+         <button onClick={() => navigate(-1)} className='button not-found__comeback hover-link'>
+            <p className='not-found__text-btn'>Назад</p>
          </button>
       </div>
 

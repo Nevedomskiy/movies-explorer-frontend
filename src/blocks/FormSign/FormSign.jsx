@@ -8,38 +8,39 @@ function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, textLin
       <form
          name={'form-sign'}
          className='form-sign'
-         noValidate
       >
-         <ButtonHome modification={'form-sign-button-home'}></ButtonHome>
-         <h1 className='form-sign-title'>{title}</h1>
-         <div className={`form-sign-container ${modific}`}>
-            <ul className='form-sign-inputs-list list'>
+         <ButtonHome modification={'form-sign__button-home'}></ButtonHome>
+         <h1 className='form-sign__title'>{title}</h1>
+         <div className={`form-sign__container ${modific}`}>
+            <ul className='form-sign__list list'>
                {inputList.map((element) => {
+                  console.log(element)
                   return (
-                     <li className='form-sign-inputs-element'>
-                        <p className='form-sign-input-description'>{element.text}</p>
+                     <li className='form-sign__element'>
+                        <label htmlFor={element.type} className='form-sign__description'>{element.description}</label>
                         <input
                            required
-                           className='form-sign-input'
-                           id={element.value}
-                           name={element.value}
-                           type={element.value}
+                           className='form-sign__input'
+                           id={element.type}
+                           name={element.type}
+                           type={element.type}
+                           placeholder={element.description}
                         />
                      </li>
                   );
                })}
             </ul >
 
-            <div className='form-sign-whitespace'></div>
+            <div className='form-sign__whitespace'></div>
 
-            <div className='form-sign-block-submit' >
+            <div className='form-sign__block-submit' >
                <button
                   type="submit"
-                  className="form-sign-submit-btn button"
+                  className="form-sign__button-submit button"
                >
                   {nameButtonSubmit}
                </button>
-               <p className='form-sign-block-submit__text'>{textAfterButton}<Link to={`/${linkValue}`} className="form-sign-block-submit__text_link">{textLink}</Link ></p>
+               <p className='form-sign__text'>{textAfterButton}<Link to={`/${linkValue}`} className="form-sign__link">{textLink}</Link ></p>
 
             </div>
          </div >

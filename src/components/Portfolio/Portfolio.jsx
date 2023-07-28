@@ -5,43 +5,43 @@ import HoverLink from '../../blocks/HoverLink/HoverLink';
 function Portfolio() {
 
    return (
-      <section className='container portfolio-container' aria-label='Портфолио'>
-         <h2 className='portfolio-title'>Портфолио</h2>
-         <ul className='list portfolio-list'>
-            <li className='portfolio-element '>
+      <section className='container portfolio__container' aria-label='Портфолио'>
+         <h2 className='portfolio__title'>Портфолио</h2>
+         <ul className='list portfolio__list'>
+            <li className='portfolio__element'>
                <HoverLink
                   link={'https://github.com/Nevedomskiy/how-to-learn'}
-                  modificBlock={'portfolio-element-link'}
-                  modificText={'portfolio-element-description'}
+                  modificBlock={'portfolio__link'}
+                  modificText={'portfolio__description'}
                   text={'Статичный сайт'} >
                   <img
-                     class='portfolio-link-icon'
+                     class='portfolio__link-icon'
                      src={arrow}
                      alt='Стрелка'
                   />
                </HoverLink>
             </li>
-            <li className='portfolio-element '>
+            <li className='portfolio__element'>
                <HoverLink
                   link={'https://github.com/Nevedomskiy/Travel-to-Russia'}
-                  modificBlock={'portfolio-element-link'}
-                  modificText={'portfolio-element-description'}
+                  modificBlock={'portfolio__link'}
+                  modificText={'portfolio__description'}
                   text={'Адаптивный сайт'} >
                   <img
-                     class='portfolio-link-icon'
+                     class='portfolio__link-icon'
                      src={arrow}
                      alt='Стрелка'
                   />
                </HoverLink>
             </li>
-            <li className='portfolio-element '>
+            <li className='portfolio__element '>
                <HoverLink
                   link={'https://github.com/Nevedomskiy/react-mesto-auth'}
-                  modificBlock={'portfolio-element-link'}
-                  modificText={'portfolio-element-description'}
+                  modificBlock={'portfolio__link'}
+                  modificText={'portfolio__description'}
                   text={'Одностраничное приложение'} >
                   <img
-                     class='portfolio-link-icon'
+                     class='portfolio__link-icon'
                      src={arrow}
                      alt='Стрелка'
                   />

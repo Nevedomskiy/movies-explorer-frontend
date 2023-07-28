@@ -1,4 +1,4 @@
-.form-sign-container {
+.form-sign__container {
    display: flex;
    align-items: stretch;
    display: grid;
@@ -14,7 +14,7 @@
    width: 100%;
 }
 
-.form-sign-title {
+.form-sign__title {
    margin: 0 0 80px;
    text-align: center;
    font-size: 24px;
@@ -22,11 +22,11 @@
    line-height: normal;
 }
 
-.form-sign-button-home {
+.form-sign__button-home {
    margin: 0 auto 50px;
 }
 
-.form-sign-input-description {
+.form-sign__description {
    margin: 0 0 10px;
    color: #A0A0A0;
    font-size: 10px;
@@ -34,7 +34,7 @@
    line-height: normal;
 }
 
-.form-sign-submit-btn {
+.form-sign__button-submit {
    display: block;
    border: none;
    min-width: 260px;
@@ -50,12 +50,12 @@
    margin: 0 auto 14px;
 }
 
-.form-sign-inputs-list {
+.form-sign__list {
    display: flex;
    flex-direction: column;
 }
 
-.form-sign-input {
+.form-sign__input {
    display: block;
    width: calc(100% - 30px);
    border-radius: 8px;
@@ -68,13 +68,13 @@
    margin: 0 0 20px;
 }
 
-.form-sign-block-submit__text_link {
+.form-sign__link {
    color: #3456F3;
    text-decoration: none;
    cursor: pointer;
 }
 
-.form-sign-block-submit__text {
+.form-sign__text {
    color: #A0A0A0;
    text-align: center;
    font-size: 12px;
@@ -88,32 +88,32 @@
       margin: auto;
    }
 
-   .form-sign-button-home {
+   .form-sign__button-home {
       margin: 0 0 40px;
    }
 
-   .form-sign-title {
+   .form-sign__title {
       text-align: start;
       margin: 0 0 40px;
    }
 
-   .form-sign-container {
+   .form-sign__container {
       justify-content: stretch;
       grid-template-rows: auto minmax(159px, 1fr) auto;
    }
 
-   .form-sign-inputs-list {
+   .form-sign__list {
       margin: 0;
    }
 
-   .form-sign-submit-btn {
+   .form-sign__button-submit {
       font-size: 14px;
       padding: 13px 0 15px;
       margin: 0 0 16px;
       min-width: 396px;
    }
 
-   .form-sign-block-submit__text {
+   .form-sign__text {
       font-size: 14px;
    }
 
@@ -123,5 +123,5 @@
    .form-sign {
       margin: 70px auto 56px;
    }
-   
+
 }

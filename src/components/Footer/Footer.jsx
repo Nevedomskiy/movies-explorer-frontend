@@ -5,29 +5,29 @@ function Footer() {
 
    return (
       <footer className='footer'>
-         <div className='footer-container' aria-label='Описание сайта'>
-            <h2 className='footer-title'>Учебный проект Яндекс.Практикум х BeatFilm.</h2>
-            <div className='footer-content'>
-               <ul className='list footer-list'>
-                  <li className='footer-element '>
+         <div className='footer__container' aria-label='Описание сайта'>
+            <h2 className='footer__title'>Учебный проект Яндекс.Практикум х BeatFilm.</h2>
+            <div className='footer__content'>
+               <ul className='list footer__list'>
+                  <li className='footer__element '>
                      <HoverLink
                         link={'https://practicum.yandex.ru/'}
-                        modificBlock={'footer-link footer-link_yandex'}
+                        modificBlock={'footer__link footer__link_yandex'}
 
                         text={'Яндекс.Практикум'} >
                      </HoverLink>
 
                   </li>
-                  <li className='footer-element'>
+                  <li className='footer__element'>
                      <HoverLink
                         link={'https://github.com/Nevedomskiy'}
-                        modificBlock={'footer-link footer-link_git'}
+                        modificBlock={'footer__link footer__link_git'}
 
                         text={'Github'} >
                      </HoverLink>
                   </li>
                </ul>
-               <p className='footer-data'>© 2023</p>
+               <p className='footer__data'>© 2023</p>
             </div>
          </div>
       </footer >

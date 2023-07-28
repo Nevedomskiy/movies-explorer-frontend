@@ -4,39 +4,38 @@ import './Profile.css';
 function Profile() {
    return (
       <section className='profile'>
-         <h1 className='profile-title'>Привет, Виталий!</h1>
+         <h1 className='profile__title'>Привет, Виталий!</h1>
          <form
             name={'profile-edit'}
-            className="profile-form"
-            noValidate
+            className="profile__form"
          >
-            <ul className='profile-form-inputs-list list'>
-               <li className='profile-form-element'>
-                  <p className='profile-form-description'>Имя</p>
+            <ul className='profile__list list'>
+               <li className='profile__element'>
+                  <p className='profile__description'>Имя</p>
                   <input
                      required
-                     className='profile-form-input'></input>
+                     className='profile__input'></input>
                </li>
-               <li className='profile-form-element'>
-                  <p className='profile-form-description'>E-mail</p>
+               <li className='profile__element'>
+                  <p className='profile__description'>E-mail</p>
                   <input
                      required
-                     className='profile-form-input'></input>
+                     className='profile__input'></input>
                </li>
             </ul >
 
-            <div className='profile-whitespace'></div>
+            <div className='profile__whitespace'></div>
 
             <button
                type="submit"
-               className="profile-btn button profile-btn-edit"
+               className="profile__btn button profile__btn_edit hover-link"
             >
                Редактировать
             </button>
          </form >
          <button
             type="submit"
-            className="profile-btn button profile-btn-signout"
+            className="profile__btn button profile__btn_signout hover-link"
          >
             Выйти из аккаунта
          </button>

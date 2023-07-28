@@ -4,7 +4,7 @@
    grid-template-rows: auto 1fr auto;
 }
 
-.profile-title {
+.profile__title {
    margin: 0 0 69px;
    text-align: center;
    font-size: 24px;
@@ -12,7 +12,7 @@
    line-height: normal;
 }
 
-.profile-form-element {
+.profile__element {
    display: grid;
    grid-template-columns: auto 1fr;
    font-family: Inter;
@@ -21,30 +21,30 @@
    line-height: normal;
 }
 
-.profile-form-description {
+.profile__description {
    font-weight: 500;
    min-width: 40px;
 }
 
-.profile-form-input {
+.profile__input {
    margin: 0;
    padding: 5px 0 5px 0;
    text-align: right;
    border: none;
 }
 
-.profile-form-element:first-child {
+.profile__element:first-child {
    padding-bottom: 5px;
    border-bottom: 1px solid #E8E8E8;
    margin: 0 0 6px;
 }
 
-.profile-form {
+.profile__form {
    display: grid;
    grid-template-rows: auto 1fr auto;
 }
 
-.profile-btn {
+.profile__btn {
    text-align: center;
    font-size: 12px;
    font-weight: 400;
@@ -52,20 +52,20 @@
    padding: 8px;
 }
 
-.profile-btn-signout {
+.profile__btn_signout {
    color: #FF3055;
 }
 
 @media screen and (min-width: 767px) {
    .profile {
-      margin: 231px 179px 164px;
+      margin: 231px 179px 157px;
    }
 
-   .profile-title {
+   .profile__title {
       margin: 0 2px 85px 0;
    }
 
-   .profile-btn {
+   .profile__btn {
       font-size: 13px;
    }
 }
@@ -75,15 +75,15 @@
       margin: 69px 435px 62px;
    }
 
-   .profile-title {
+   .profile__title {
       margin: 0 2px 112px 0px;
    }
 
-   .profile-btn-signout {
+   .profile__btn_signout {
       margin-left: 0px;
    }
 
-   .profile-btn-edit {
+   .profile__btn_edit {
       margin-left: 0px;
    }
 }

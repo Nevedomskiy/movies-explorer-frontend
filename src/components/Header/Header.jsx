@@ -24,11 +24,11 @@ function Header() {
          <Routes>
             <Route path='/'
                element={
-                  <div className='header-container'>
-                     <ButtonHome modification={'header-link'}></ButtonHome>
-                     <ul className='list header-list'>
-                        <li className='header-element'><button className='button'><Link to='/sign-up' className='header-link header-link-black '>Регистрация</Link></button></li>
-                        <li className='header-element'><button className='button'><Link to='/sign-in' className='header-link header-link-green'>Войти</Link></button></li>
+                  <div className='header__container'>
+                     <ButtonHome modification={'header__link'}></ButtonHome>
+                     <ul className='list header__list'>
+                        <li className='header__element'><button className='button'><Link to='/sign-up' className='header__link header__link_black '>Регистрация</Link></button></li>
+                        <li className='header__element'><button className='button'><Link to='/sign-in' className='header__link header__link_green'>Войти</Link></button></li>
                      </ul>
                   </div>
                }>

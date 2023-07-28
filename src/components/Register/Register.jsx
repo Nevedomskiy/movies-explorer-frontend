@@ -6,18 +6,18 @@ import FormSign from '../../blocks/FormSign/FormSign';
 function Register() {
    const inputList = [
       {
-         value: 'name',
-         text: 'Имя',
+         type: 'name',
+         description: 'Имя',
 
       },
       {
-         value: 'email',
-         text: 'E-mail',
+         type: 'email',
+         description: 'E-mail',
 
       },
       {
-         value: 'password',
-         text: 'Пароль',
+         type: 'password',
+         description: 'Пароль',
       }]
 
    return (
@@ -32,7 +32,7 @@ function Register() {
                      textAfterButton={'Уже зарегистрированы? '}
                      textLink={'Войти'}
                      linkValue={'sign-in'}
-                     modific={'register-mod-container'} >
+                     modific={'register_mod-container'} >
                   </FormSign>
                }>
             </Route >

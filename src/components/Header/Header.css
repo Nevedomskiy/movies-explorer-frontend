@@ -3,7 +3,7 @@
    background-color: #073042;
 }
 
-.header-container {
+.header__container {
    position: relative;
    padding: 18px 14px;
    display: flex;
@@ -11,18 +11,18 @@
    align-items: center;
 }
 
-.header-container_profile {
+.header__container_profile {
    background-color: #ffffff;
 }
 
-.header-list {
+.header__list {
    margin: 0;
    padding: 0;
    display: flex;
    gap: 3px;
 }
 
-.header-link {
+.header__link {
    all: unset;
    cursor: pointer;
    display: block;
@@ -30,21 +30,21 @@
 }
 
 
-.header-link:hover {
+.header__link:hover {
    transform: translate(2px, 2px);
 }
 
-.header-link-black {
+.header__link_black {
    padding: 5px 12px;
 }
 
-.header-link-green {
+.header__link_green {
    border-radius: 3px;
    background: #2BE080;
    padding: 5px 12px;
 }
 
-.header-element {
+.header__element {
    text-align: right;
    font-size: 10px;
    font-weight: 500;
@@ -52,34 +52,34 @@
    line-height: 16px;
 }
 
-.header-link-home_profile {
+.header__link_home-profile {
    margin: 0 0 5px;
 }
 
-.header-element:first-child {
+.header__element:first-child {
    color: #FFF;
 }
 
 @media screen and (min-width: 767px) {
-   .header-container {
+   .header__container {
       padding: 18px 30px;
    }
 
-   .header-element {
+   .header__element {
       font-size: 12px;
    }
 
-   .header-link-green {
+   .header__link_green {
       padding: 8px 20px 9px;
    }
 
-   .header-list {
+   .header__list {
       gap: 19px;
    }
 }
 
 @media screen and (min-width: 1279px) {
-   .header-container {
+   .header__container {
       padding: 18px 70px;
    }
 

@@ -56,6 +56,26 @@ function App() {
          time: '27 минут',
          img: pic
       },
+      {
+         name: "В погоне за Бенкси",
+         time: '27 минут',
+         img: pic
+      },
+      {
+         name: "В погоне за Бенкси",
+         time: '27 минут',
+         img: pic
+      },
+      {
+         name: "В погоне за Бенкси",
+         time: '27 минут',
+         img: pic
+      },
+      {
+         name: "В погоне за Бенкси",
+         time: '27 минут',
+         img: pic
+      },
    ]
 
    const savedFilmList = [
@@ -88,7 +108,7 @@ function App() {
             <Routes >
                <Route path='/sign-up' element={<Register />} />
                <Route path='/sign-in' element={<Login />} />
-               <Route path='/movies' element={<Movies moviesList={filmList}><button className='button movies-add-more-film'>Ещё</button></Movies>} />
+               <Route path='/movies' element={<Movies moviesList={filmList}><button className='button movies__button-add-more-film'>Ещё</button></Movies>} />
                <Route path='/saved-movies' element={<Movies moviesList={savedFilmList} />} />
                <Route path='/profile' element={<Profile />} />
                <Route path='/' element={<Main />} />

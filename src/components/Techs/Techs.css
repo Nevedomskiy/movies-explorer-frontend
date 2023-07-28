@@ -1,4 +1,4 @@
-.techs-subtitle {
+.techs__subtitle {
    text-align: center;
    margin: 0 0 24px;
    font-size: 30px;
@@ -7,7 +7,7 @@
    letter-spacing: -1.2px;
 }
 
-.techs-description {
+.techs__description {
    text-align: center;
    margin: 0 0 50px 0;
    font-size: 11px;
@@ -16,7 +16,7 @@
    letter-spacing: -0.44px;
 }
 
-.techs-table {
+.techs__table {
    display: grid;
    margin: 0 auto;
    grid-template-columns: 84px 84px;
@@ -24,7 +24,7 @@
    gap: 10px 10px;
 }
 
-.techs-table-element {
+.techs__element {
    padding: 21px 15px;
    text-align: center;
    background-color: #E8E8E8;
@@ -35,30 +35,30 @@
    letter-spacing: -0.48px;
 }
 
-.techs-title {
+.techs__title {
    margin: 55px 0 60px;
 }
 
 @media screen and (min-width: 767px) {
-   .techs-container {
+   .techs__container {
       margin: 0;
       padding-bottom: 90px;
       background-color: #F5F5F5;
    }
 
-   .techs-title {
+   .techs__title {
       margin: 0 50px 80px;
       padding-top: 91px;
    }
 
-   .techs-subtitle {
+   .techs__subtitle {
       margin: 0 2px 22px 0;
       font-size: 50px;
       line-height: 58px;
       letter-spacing: -2px;
    }
 
-   .techs-description {
+   .techs__description {
       letter-spacing: -0.44px;
       margin: 0 auto 83px;
       font-size: 12px;
@@ -67,7 +67,7 @@
       letter-spacing: -0.48px;
    }
 
-   .techs-table {
+   .techs__table {
       grid-template-columns: repeat(7, 84px);
    }
 
@@ -76,32 +76,32 @@
 
 
 @media screen and (min-width: 1279px) {
-   .techs-container {
+   .techs__container {
       padding-bottom: 101px;
    }
 
-   .techs-title {
+   .techs__title {
       margin: 0 70px 90px;
       padding-top: 101px;
    }
 
-   .techs-subtitle {
+   .techs__subtitle {
       margin: 0 2px 26px 0;
    }
 
-   .techs-description {
+   .techs__description {
       font-size: 14px;
       line-height: 20px;
       letter-spacing: -0.56px;
       margin: 0 auto 100px;
    }
 
-   .techs-table-element {
+   .techs__element {
       font-size: 14px;
       letter-spacing: -0.56px;
    }
 
-   .techs-table {
+   .techs__table {
       grid-template-columns: repeat(7, 90px);
    }
 }

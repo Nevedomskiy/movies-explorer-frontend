@@ -9,7 +9,7 @@ function HoverLink({ link, modificBlock, modificText, text, children }) {
          rel='noopener noreferrer'
          className={`hover-link ${modificBlock}`}
       >
-         <p className={`hover-link-text ${modificText}`}>{text}</p>
+         <p className={`hover-link__text ${modificText}`}>{text}</p>
          {children}
       </a>
    );

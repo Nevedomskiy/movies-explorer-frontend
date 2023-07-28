@@ -1,14 +1,15 @@
 import './MoviesCard.css';
 
-function MoviesCard({ list }) {
+function MoviesCard({ list, savedMovies }) {
+
    return list.map((element) =>
       <li className='movies-card'>
-         <div className='movies-card-description'>
-            <p className='movies-card-description__name'>{element.name}</p>
-            <p className='movies-card-description__time'>{element.time}</p>
+         <div className='movies-card__description'>
+            <p className='movies-card__name'>{element.name}</p>
+            <p className='movies-card__time'>{element.time}</p>
          </div>
-         <img className='movies-card-img' src={element.img} alt={element.name} />
-         <button className='button movies-card-button movies-card-button_active hover-link'>Сохранить</button>
+         <img className='movies-card__img' src={element.img} alt={element.name} />
+         <button className={`button hover-link movies-card__button ${savedMovies ? 'movies-card__button_active' : ''}`}>Сохранить</button>
       </li>
    );
 }

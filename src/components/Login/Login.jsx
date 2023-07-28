@@ -6,13 +6,13 @@ import FormSign from '../../blocks/FormSign/FormSign';
 function Login() {
    const inputList = [
       {
-         value: 'email',
-         text: 'E-mail',
+         type: 'email',
+         description: 'E-mail',
 
       },
       {
-         value: 'password',
-         text: 'Пароль',
+         type: 'password',
+         description: 'Пароль',
       }]
 
    return (

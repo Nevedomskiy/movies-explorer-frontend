@@ -8,10 +8,10 @@
    transition: all 0.5s ease;
    transform: translate(100%, 0);
    height: 100vh;
-   width: 100vw;
+   width: 20vw;
 }
 
-.nav-container {
+.nav__container {
    height: 100%;
    width: 100%;
    position: absolute;
@@ -27,15 +27,16 @@
    background-color: rgb(17, 4, 4, 0.5);
    visibility: visible;
    opacity: 1;
+   width: 100vw;
    right: 0;
    transform: translate(0, 0);
 }
 
-.nav-list {
+.nav__list {
    margin-top: 145px;
 }
 
-.nav-element {
+.nav__element {
    text-align: center;
    font-feature-settings: 'clig' off, 'liga' off;
    font-size: 18px;
@@ -44,11 +45,11 @@
    margin-bottom: 25px;
 }
 
-.nav-element-button {
+.nav-element__button {
    padding: 7px;
 }
 
-.nav-button-profile {
+.nav__button-profile {
    text-decoration: none;
    display: block;
    margin-bottom: 46px;
@@ -63,7 +64,11 @@
    position: relative;
 }
 
-.nav-button-profile::after {
+.nav__button-profile:hover {
+   box-shadow: 2px 2px 5px 0px rgb(0, 0, 0);
+}
+
+.nav__button-profile::after {
    position: absolute;
    content: "";
    width: 26px;
@@ -75,26 +80,26 @@
 }
 
 @media screen and (min-width: 767px) {
-   .nav-container {
+   .nav__container {
       width: 66.3vw;
    }
 
-   .nav-list {
+   .nav__list {
       margin-top: 160px;
    }
 
-   .nav-element {
+   .nav__element {
       margin-bottom: 29px;
    }
 
-   .nav-button-profile {
+   .nav__button-profile {
       margin-bottom: 89px;
    }
 
-   .nav-button-profile::after {
+   .nav__button-profile::after {
       background: url('../../images/icon-acc.svg') 7px 6px / 12px no-repeat #F9F9F9;
    }
-   
+
 }
 
 @media screen and (min-width: 1279px) {
@@ -108,43 +113,43 @@
    }
 
 
-   .nav-container {
+   .nav__container {
       width: auto;
       gap: 355px;
       flex-direction: row;
       position: static;
    }
 
-   .nav-list {
+   .nav__list {
       display: flex;
       margin-top: 0px;
    }
 
-   .nav-button-home {
+   .nav__button-home {
       display: none;
    }
 
-   .nav-button-profile {
+   .nav__button-profile {
       margin-bottom: 4px;
       padding: 9px 38px 10px 10px;
    }
 
-   .nav-element:first-child {
+   .nav__element:first-child {
       padding: 0;
    }
 
-   .nav-button-profile::after {
+   .nav__button-profile::after {
       background: url('../../images/icon-acc.svg') 7px 6px / 12px no-repeat #F9F9F9;
    }
 
-   .nav-element {
+   .nav__element {
       padding: 0;
       margin-bottom: 5px;
       font-size: 13px;
       line-height: 18px;
    }
 
-   .nav-element-button {
+   .nav-element__button {
       padding: 8px;
    }
 }

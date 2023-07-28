@@ -1,11 +1,11 @@
-.promo-conteiner {
+.promo__conteiner {
    display: flex;
    flex-direction: column;
    align-items: center;
    background-color: #073042;
 }
 
-.promo-logo {
+.promo__logo {
    margin-top: 70px;
    display: block;
    max-width: 210px;
@@ -14,7 +14,7 @@
    margin-bottom: 44px;
 }
 
-.promo-title {
+.promo__title {
    color: #FFF;
    text-align: center;
    font-size: 30px;
@@ -24,11 +24,11 @@
    margin: 0 10px 24px;
 }
 
-.promo-word_nowrap {
+.promo__word-nowrap {
    white-space: nowrap;
 }
 
-.promo-subtitle {
+.promo__subtitle {
    color: #FFF;
    text-align: center;
    font-size: 13px;
@@ -38,7 +38,7 @@
    opacity: 0.5;
 }
 
-.promo-button {
+.promo__button {
    all: unset;
    cursor: pointer;
    border-radius: 3px;
@@ -54,7 +54,7 @@
    display: block;
 }
 
-.promo-button-text {
+.promo__button-text {
    text-decoration: none;
    display: block;
    color: #FFFFFF;
@@ -62,13 +62,13 @@
 }
 
 
-.promo-button:hover {
+.promo__button:hover {
    transform: translate(2px, 2px);
 }
 
 
 @media screen and (min-width: 767px) {
-   .promo-logo {
+   .promo__logo {
       margin-top: 140px;
       display: block;
       max-width: 310px;
@@ -76,7 +76,7 @@
       margin-bottom: 49px;
    }
 
-   .promo-title {
+   .promo__title {
       font-feature-settings: 'clig' off, 'liga' off;
       font-size: 40px;
       line-height: 50px;
@@ -84,12 +84,12 @@
       letter-spacing: normal;
    }
 
-   .promo-subtitle {
+   .promo__subtitle {
       margin: 0 254px 92px;
       font-feature-settings: 'clig' off, 'liga' off;
    }
 
-   .promo-button {
+   .promo__button {
       margin: 0 auto 76px;
    }
 
@@ -98,7 +98,7 @@
 
 
 @media screen and (min-width: 1279px) {
-   .promo-conteiner {
+   .promo__conteiner {
       display: flex;
       flex-direction: row;
       gap: 198px;
@@ -106,27 +106,27 @@
       align-items: flex-start;
    }
 
-   .promo-content {
+   .promo__content {
       order: -1;
    }
 
-   .promo-logo {
+   .promo__logo {
       margin-top: 75px;
    }
 
-   .promo-title {
+   .promo__title {
       font-size: 50px;
       line-height: 58px;
       margin: 75px 0 36px;
       text-align: start;
    }
 
-   .promo-subtitle {
+   .promo__subtitle {
       text-align: left;
       margin: 0 300px 0 0;
    }
 
-   .promo-button {
+   .promo__button {
       margin: 146px 0 75px;
    }
 }

@@ -1,16 +1,16 @@
-.about-me-avatar {
+.about-me__avatar {
    display: block;
    max-width: 100%;
    object-fit: cover;
    margin: 0 0 40px;
 }
 
-.about-me-container {
+.about-me__container {
    margin: 0 14px;
    position: relative;
 }
 
-.about-me-subtitle {
+.about-me__subtitle {
    margin: 0 0 20px;
    font-size: 30px;
    font-weight: 400;
@@ -18,7 +18,7 @@
    letter-spacing: -1.2px;
 }
 
-.about-me-profetion {
+.about-me__profetion {
    font-weight: 500;
    margin: 0 0 20px;
    font-feature-settings: 'clig' off, 'liga' off;
@@ -26,7 +26,7 @@
    line-height: 16px;
 }
 
-.about-me-description {
+.about-me__description {
    margin: 0 0 31px;
    font-feature-settings: 'clig' off, 'liga' off;
    font-size: 11px;
@@ -34,17 +34,17 @@
    line-height: 16px;
 }
 
-.about-me-title {
+.about-me__title {
    margin: 83px 0 60px;
 }
 
-.about-me-link-git {
+.about-me__link-git {
    display: inline-block;
    max-width: auto;
    margin: 0 auto 59px 0;
 }
 
-.about-me-link-git__text {
+.about-me__text {
    padding: 9px 0px;
    font-size: 14px;
    font-weight: 500;
@@ -52,15 +52,15 @@
 }
 
 @media screen and (min-width: 767px) {
-   .about-me-container {
+   .about-me__container {
       margin: 0 50px;
    }
 
-   .about-me-title {
+   .about-me__title {
       margin: 91px 0 67px;
    }
 
-   .about-me-avatar {
+   .about-me__avatar {
       max-width: 255px;
       margin: 0 0 37px;
       position: absolute;
@@ -68,61 +68,61 @@
       top: 116px;
    }
 
-   .about-me-description {
+   .about-me__description {
       font-size: 12px;
       line-height: 18px;
       margin: 0 304px 78px 0;
    }
 
-   .about-me-subtitle {
+   .about-me__subtitle {
       font-size: 40px;
       line-height: 40px;
       letter-spacing: -1.6px;
       margin: 0 0 15px;
    }
 
-   .about-me-profetion {
+   .about-me__profetion {
       font-weight: 500;
       margin: 0 0 20px;
       font-size: 12px;
       line-height: 18px;
    }
 
-   .about-me-link-git {
+   .about-me__link-git {
       margin-bottom: 0;
    }
 
 }
 
 @media screen and (min-width: 1279px) {
-   .about-me-container {
+   .about-me__container {
       margin: 0 70px;
    }
 
-   .about-me-title {
+   .about-me__title {
       margin: 111px 0 66px;
    }
 
-   .about-me-subtitle {
+   .about-me__subtitle {
       font-size: 50px;
       line-height: 58px;
       letter-spacing: -2px;
       margin: 0 0 19px;
    }
 
-   .about-me-profetion {
+   .about-me__profetion {
       font-size: 18px;
       line-height: 20px;
       margin: 0 0 25px;
    }
 
-   .about-me-description {
+   .about-me__description {
       font-size: 14px;
       line-height: 22px;
       margin: 0 544px 90px 0;
    }
 
-   .about-me-avatar {
+   .about-me__avatar {
       max-width: 270px;
       margin: 0 0 37px;
       position: absolute;

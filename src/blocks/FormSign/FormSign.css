@@ -27,6 +27,7 @@
 }
 
 .form-sign__description {
+   display: block;
    margin: 0 0 10px;
    color: #A0A0A0;
    font-size: 10px;
@@ -123,5 +124,4 @@
    .form-sign {
       margin: 70px auto 56px;
    }
-
 }

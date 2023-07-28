@@ -25,15 +25,15 @@
    font-size: 12px;
    font-weight: 400;
    line-height: normal;
+   box-shadow: 2px 2px 5px 0px rgb(255, 255, 255);
 }
 
 
 .footer__element:last-of-type {
-   margin: 0 0 20px;
+   margin: 0 0 24px;
 }
 
 .footer__link:hover {
-   border-bottom: 2px black solid;
    box-shadow: 2px 2px 5px 0px black;
 }
 

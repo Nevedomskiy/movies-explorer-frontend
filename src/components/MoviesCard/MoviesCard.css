@@ -62,7 +62,7 @@
 .movies-card__button {
    position: relative;
    display: block;
-   padding: 9px 18px 7px;
+   padding: 9px 18px 9px;
    margin: 0 auto;
    font-size: 12px;
    font-weight: 400;
@@ -78,7 +78,7 @@
 
 @media screen and (min-width: 767px) {
    .movies-card {
-      padding-top: 18px;
+      padding: 18px 0;
    }
 
    .movies-card__img {
@@ -94,7 +94,7 @@
       font-size: 15px;
    }
 
-   .movies-card-description__time {
+   .movies-card__time {
       font-size: 13px;
    }
 
@@ -113,14 +113,13 @@
 @media screen and (min-width: 1000px) {
 
 
-   .movies-card-img {
+   .movies-card__img {
       max-height: 200px;
       margin-bottom: 18px;
    }
 
-   .movies-card-button {
+   .movies-card__button {
       padding: 9px 18px 9px 19px;
-      margin: 0 auto 4px;
    }
 
 }

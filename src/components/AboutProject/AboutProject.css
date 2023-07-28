@@ -87,26 +87,26 @@
 }
 
 @media screen and (min-width: 1279px) {
-   .about-project-info {
+   .about-project__list {
       gap: 53px
    }
 
 
-   .about-project-subtitle {
+   .about-project__subtitle {
       margin: 0 0 26px;
    }
 
-   .about-project-description {
+   .about-project__description {
       margin: 0 0 106px;
       font-size: 14px;
       line-height: 20px;
    }
 
-   .about-project-grafic {
+   .about-project__chart {
       grid-template-columns: 20% 80%;
    }
 
-   .about-project-container {
+   .about-project__container {
       padding-bottom: 78px;
    }
 

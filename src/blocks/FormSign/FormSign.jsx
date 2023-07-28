@@ -24,7 +24,6 @@ function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, textLin
                            id={element.type}
                            name={element.type}
                            type={element.type}
-                           placeholder={element.description}
                         />
                      </li>
                   );

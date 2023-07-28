@@ -14,7 +14,7 @@
 .portfolio__element {
    padding-bottom: 8px;
    border-bottom: 1px #E6E6E6 solid;
-   margin: 0 0 9px;
+   margin: 0 0 11px;
 }
 
 .portfolio__element:last-child {

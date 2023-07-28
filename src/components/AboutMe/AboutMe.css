@@ -41,7 +41,7 @@
 .about-me__link-git {
    display: inline-block;
    max-width: auto;
-   margin: 0 auto 59px 0;
+   margin: 0 auto 61px 0;
 }
 
 .about-me__text {
@@ -89,7 +89,7 @@
    }
 
    .about-me__link-git {
-      margin-bottom: 0;
+      margin: 0 auto 2px 0;
    }
 
 }

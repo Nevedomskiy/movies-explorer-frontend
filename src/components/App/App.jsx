@@ -1,8 +1,11 @@
-import { Routes, Route } from 'react-router-dom';
-// ,useNavigate
-// import '../index.css';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import './App.css';
+
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { useResize } from '../UseResize/UseResize';
+
 import Header from '../Header/Header';
-import './App.css'
 import Footer from '../Footer/Footer';
 import Main from '../Main/Main';
 import Login from '../Login/Login';
@@ -10,122 +13,182 @@ import Register from '../Register/Register';
 import Movies from '../Movies/Movies';
 import Profile from '../Profile/Profile';
 import NotFound from '../NotFound/NotFound';
-// import { CurrentUserContext } from '../contexts/CurrentUserContext';
-import pic from '../../images/pic.png';
+import ProtectedRouteElement from '../ProtectedRoute/ProtectedRoute';
+import { mainApi } from '../../utils/MainApi/MainApi';
+import { moviesApi } from '../../utils/MoviesApi/MoviesApi';
 
 function App() {
-   //Временный список - для верстки
-   const filmList = [
-      {
-         name: "В погоне за Бенкси",
-         time: '27 минут',
-         img: pic
-      },
-      {
-         name: "В погоне за Бенкси",
-         time: '27 минут',
-         img: pic
-      },
-      {
-         name: "В погоне за Бенкси",
-         time: '27 минут',
-         img: pic
-      },
-      {
-         name: "В погоне за Бенкси",
-         time: '27 минут',
-         img: pic
-      },
-      {
-         name: "В погоне за Бенкси",
-         time: '27 минут',
-         img: pic
-      },
-      {
-         name: "В погоне за Бенкси",
-         time: '27 минут',
-         img: pic
-      },
-      {
-         name: "В погоне за Бенкси",
-         time: '27 минут',
-         img: pic
-      },
-      {
-         name: "В погоне за Бенкси",
-         time: '27 минут',
-         img: pic
-      },
-      {
-         name: "В погоне за Бенкси",
-         time: '27 минут',
-         img: pic
-      },
-      {
-         name: "В погоне за Бенкси",
-         time: '27 минут',
-         img: pic
-      },
-      {
-         name: "В погоне за Бенкси",
-         time: '27 минут',
-         img: pic
-      },
-      {
-         name: "В погоне за Бенкси",
-         time: '27 минут',
-         img: pic
-      },
-   ]
+   const location = useLocation();
+   const { width } = useResize();
+   const navigate = useNavigate();
+   const [isValidSearch, setIsValidSearch] = useState(false);
+   const [isLoading, setIsLoading] = useState(false);
+   const [currentUser, setCurrentUser] = useState({});
+   const [allMovies, setAllMovies] = useState([]);
+   const [savedMovies, setSavedMovies] = useState([]);
+   const [loggedIn, setLoggedIn] = useState(false);
+   const [textSearchError, setTextSearchError] = useState('');
 
-   const savedFilmList = [
-      {
-         name: "В погоне за Бенкси",
-         time: '27 минут',
-         img: pic
-      },
-      {
-         name: "В погоне за Бенкси",
-         time: '27 минут',
-         img: pic
-      },
-      {
-         name: "В погоне за Бенкси",
-         time: '27 минут',
-         img: pic
-      },
-   ]
+
+   useEffect(() => {
+      mainApi.getUserInfo()
+         .then((user) => {
+            setCurrentUser(user);
+            setLoggedIn(true);
+         })
+         .catch((err) => {
+            localStorage.clear();
+            console.log(err);
+         })
+   }, []);
+
+   // console.log(currentUser)
+
+   useEffect(() => {
+      setIsLoading(true);
+      if (loggedIn) {
+         heandleAllMovies();
+         checkSavedMovies();
+      }
+   }, [loggedIn, location]);
+
+   // const handleLogin = () => {
+   //    if (loggedIn) {
+   //       setLoggedIn(false);
+   //    } else {
+   //       setLoggedIn(true);
+   //    }
+   // }
+
+   const checkSavedMovies = () => {
+      mainApi.getSavedMovies()
+         .then((movies) => {
+            setSavedMovies(movies);
+            setIsLoading(false);
+            setIsValidSearch(false);
+         })
+         .catch((err) => {
+            setTextSearchError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
+            if (isValidSearch) {
+               setIsValidSearch(true);
+            }
+         });
+   }
+
+   console.log(loggedIn);
+
+   const logOut = () => {
+      mainApi.signOut()
+         .then((res) => {
+            setCurrentUser({});
+            setLoggedIn(false);
+            localStorage.clear();
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+   }
+   // console.log(savedMovies)
+
+   const heandleAllMovies = () => {
+      setIsLoading(true);
+      moviesApi.getAllMovies()
+         .then((movies) => {
+            setAllMovies(movies);
+            setIsLoading(false);
+            setIsValidSearch(false);
+         })
+         .catch((err) => {
+            setTextSearchError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
+            if (!isValidSearch) {
+               setIsValidSearch(true);
+            }
+         });
+   }
+
+
 
    return (
-      // <CurrentUserContext.Provider value={currentUser}>
+      <CurrentUserContext.Provider value={currentUser}>
 
 
 
-      <div className='bodywork'>
-         <div className='page'>
-            <Header />
+         <div className='bodywork' >
+            <div className='page' >
+               <Header loggedIn={loggedIn} />
 
-            <Routes >
-               <Route path='/sign-up' element={<Register />} />
-               <Route path='/sign-in' element={<Login />} />
-               <Route path='/movies' element={<Movies moviesList={filmList}><button className='button movies__button-add-more-film'>Ещё</button></Movies>} />
-               <Route path='/saved-movies' element={<Movies moviesList={savedFilmList} />} />
-               <Route path='/profile' element={<Profile />} />
-               <Route path='/' element={<Main />} />
-               <Route path="*" element={<NotFound />} />
-            </Routes>
+               <Routes >
+                  <Route path='/' element={<Main />} />
+                  <Route path='/sign-up' element={<Register />} />
+                  <Route path='/sign-in' element={<Login setLoggedIn={setLoggedIn} />} />
+                  <Route
+                     path="/movies"
+                     element={
+                        <ProtectedRouteElement
+                           loggedIn={loggedIn}
+                           moviesList={allMovies}
+                           moviesSavedList={savedMovies}
+                           isValid={isValidSearch}
+                           setIsValid={setIsValidSearch}
+                           // requestMovies={requestMovies}
+                           isLoading={isLoading}
+                           width={width}
+                           location={location}
+                           setIsLoading={setIsLoading}
+                           element={Movies}
+                           checkSavedMovies={checkSavedMovies}
+                           setTextSearchError={setTextSearchError}
+                           textSearchError={textSearchError}
+                        >
+                        </ProtectedRouteElement>
+                     }
+                  />
+                  <Route
+                     path="/saved-movies"
+                     element={
+                        <ProtectedRouteElement
+                           loggedIn={loggedIn}
+                           width={width}
+                           isValid={isValidSearch}
+                           setIsValid={setIsValidSearch}
+                           isLoading={isLoading}
+                           setIsLoading={setIsLoading}
+                           moviesList={savedMovies}
+                           location={location}
+                           element={Movies}
+                           moviesSavedList={savedMovies}
+                           checkSavedMovies={checkSavedMovies}
+                           setTextSearchError={setTextSearchError}
+                           textSearchError={textSearchError}
+                        >
+                        </ProtectedRouteElement>
+                     }
+                  />
+                  <Route
+                     path="/profile"
+                     element={
+                        <ProtectedRouteElement
+                           loggedIn={loggedIn}
+                           element={Profile}
+                           logOut={logOut}
+                        >
+                        </ProtectedRouteElement>
+                     }
+                  />
+                  <Route path="*" element={<NotFound />} />
+               </Routes>
 
 
-            <Routes >
-               <Route path='/movies' element={<Footer />} />
-               <Route path='/saved-movies' element={<Footer />} />
-               <Route path='/' element={<Footer />} />
-            </Routes>
+               <Routes >
+                  <Route path='/movies' element={<Footer />} />
+                  <Route path='/saved-movies' element={<Footer />} />
+                  <Route path='/' element={<Footer />} />
+               </Routes>
 
 
+            </div >
          </div >
-      </div >
-      // </CurrentUserContext.Provider>
+      </CurrentUserContext.Provider>
    );
 }
 

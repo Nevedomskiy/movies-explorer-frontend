@@ -1,7 +1,7 @@
 // import { Link } from 'react-router-dom';
 import './Profile.css';
 
-function Profile() {
+function Profile({ logOut }) {
    return (
       <section className='profile'>
          <h1 className='profile__title'>Привет, Виталий!</h1>
@@ -34,7 +34,8 @@ function Profile() {
             </button>
          </form >
          <button
-            type="submit"
+            type="button"
+            onClick={logOut}
             className="profile__btn button profile__btn_signout hover-link"
          >
             Выйти из аккаунта

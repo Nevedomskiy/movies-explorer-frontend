@@ -2,21 +2,21 @@ import { Link } from 'react-router-dom';
 import ButtonHome from '../ButtonHome/ButtonHome';
 import './FormSign.css';
 
-function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, textLink, linkValue, modific }) {
+function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, textLink, linkValue, modific, handleSubmit, handleChange }) {
    return (
 
       <form
          name={'form-sign'}
          className='form-sign'
+         onSubmit={handleSubmit}
       >
          <ButtonHome modification={'form-sign__button-home'}></ButtonHome>
          <h1 className='form-sign__title'>{title}</h1>
          <div className={`form-sign__container ${modific}`}>
             <ul className='form-sign__list list'>
                {inputList.map((element) => {
-                  console.log(element)
                   return (
-                     <li className='form-sign__element'>
+                     <li className='form-sign__element' key={element.type}>
                         <label htmlFor={element.type} className='form-sign__description'>{element.description}</label>
                         <input
                            required
@@ -24,6 +24,7 @@ function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, textLin
                            id={element.type}
                            name={element.type}
                            type={element.type}
+                           onChange={handleChange}
                         />
                      </li>
                   );

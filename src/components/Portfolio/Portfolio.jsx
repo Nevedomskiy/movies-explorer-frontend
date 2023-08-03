@@ -15,7 +15,7 @@ function Portfolio() {
                   modificText={'portfolio__description'}
                   text={'Статичный сайт'} >
                   <img
-                     class='portfolio__link-icon'
+                     className='portfolio__link-icon'
                      src={arrow}
                      alt='Стрелка'
                   />
@@ -28,7 +28,7 @@ function Portfolio() {
                   modificText={'portfolio__description'}
                   text={'Адаптивный сайт'} >
                   <img
-                     class='portfolio__link-icon'
+                     className='portfolio__link-icon'
                      src={arrow}
                      alt='Стрелка'
                   />
@@ -41,7 +41,7 @@ function Portfolio() {
                   modificText={'portfolio__description'}
                   text={'Одностраничное приложение'} >
                   <img
-                     class='portfolio__link-icon'
+                     className='portfolio__link-icon'
                      src={arrow}
                      alt='Стрелка'
                   />

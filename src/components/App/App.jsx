@@ -23,10 +23,7 @@ function App() {
    const navigate = useNavigate();
    const [isValidSearch, setIsValidSearch] = useState(false);
    const [isLoading, setIsLoading] = useState(false);
-   const [currentUser, setCurrentUser] = useState({
-      name: 'Петя',
-      email: '123@mail.ru'
-   });
+   const [currentUser, setCurrentUser] = useState();
    const [allMovies, setAllMovies] = useState([]);
    const [savedMovies, setSavedMovies] = useState([]);
    const [loggedIn, setLoggedIn] = useState(true);
@@ -36,10 +33,7 @@ function App() {
    useEffect(() => {
       mainApi.getUserInfo()
          .then((user) => {
-            setCurrentUser({
-               name: 'Петя',
-               email: '123@mail.ru'
-            });
+            setCurrentUser(user);
             setLoggedIn(true);
          })
          .catch((err) => {

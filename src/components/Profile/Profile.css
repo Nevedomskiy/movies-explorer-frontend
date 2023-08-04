@@ -79,11 +79,9 @@
       margin: 0 2px 112px 0px;
    }
 
-   .profile__btn_signout {
+   .profile__btn {
       margin-left: 0px;
    }
 
-   .profile__btn_edit {
-      margin-left: 0px;
-   }
+  
 }

@@ -23,21 +23,27 @@ function App() {
    const navigate = useNavigate();
    const [isValidSearch, setIsValidSearch] = useState(false);
    const [isLoading, setIsLoading] = useState(false);
-   const [currentUser, setCurrentUser] = useState({});
+   const [currentUser, setCurrentUser] = useState({
+      name: 'Петя',
+      email: '123@mail.ru'
+   });
    const [allMovies, setAllMovies] = useState([]);
    const [savedMovies, setSavedMovies] = useState([]);
-   const [loggedIn, setLoggedIn] = useState(false);
+   const [loggedIn, setLoggedIn] = useState(true);
    const [textSearchError, setTextSearchError] = useState('');
 
 
    useEffect(() => {
       mainApi.getUserInfo()
          .then((user) => {
-            setCurrentUser(user);
+            setCurrentUser({
+               name: 'Петя',
+               email: '123@mail.ru'
+            });
             setLoggedIn(true);
          })
          .catch((err) => {
-            // localStorage.clear();
+            localStorage.clear();
             console.log(err);
          })
    }, []);
@@ -83,6 +89,16 @@ function App() {
             setCurrentUser({});
             setLoggedIn(false);
             localStorage.clear();
+         })
+         .catch((err) => {
+            console.log(err);
+         });
+   }
+
+   const editProfile = (data) => {
+      mainApi.changeUserInfo(data)
+         .then((res) => {
+            setCurrentUser(data);
          })
          .catch((err) => {
             console.log(err);
@@ -171,6 +187,7 @@ function App() {
                            loggedIn={loggedIn}
                            element={Profile}
                            logOut={logOut}
+                           editProfile={editProfile}
                         >
                         </ProtectedRouteElement>
                      }

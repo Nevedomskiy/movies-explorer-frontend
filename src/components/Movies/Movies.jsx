@@ -12,7 +12,9 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
    // console.log(moviesList)
 
    useEffect(() => {
-      setSearchValue(localStorage.getItem('inputSearch'));
+      if (localStorage.getItem('inputSearch') !== null) {
+         setSearchValue(localStorage.getItem('inputSearch'));
+      }
    }, [])
 
    useEffect(() => {
@@ -96,7 +98,7 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
          setTextSearchError('Нужно ввести ключевое слово');
          setIsLoading(false);
       } else {
-         setCurrentMoviesList(moviesList.filter((el) => el.nameRU.toLowerCase().includes(localStorage.getItem('inputSearch').toLowerCase())).slice(0, quantityMovies));
+         setCurrentMoviesList(moviesList.filter((el) => el.nameRU.toLowerCase().includes(searchValue.toLowerCase())).slice(0, quantityMovies));
          // updateQuantityMovies(currentMoviesList);
          setIsValid(false);
          setIsLoading(false);

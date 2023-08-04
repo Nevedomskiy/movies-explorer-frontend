@@ -59,7 +59,8 @@ function Profile({ logOut, editProfile, handleUserInfo }) {
                         type='text'
                         required
                         onChange={handleChangeName}
-                        className='profile__input'>{userName}</input>
+                        value={userName}
+                        className='profile__input'></input>
                      :
                      <p className='profile__input'>{userName}</p>
                   }
@@ -72,7 +73,8 @@ function Profile({ logOut, editProfile, handleUserInfo }) {
                         type='email'
                         required
                         onChange={handleChangeEmail}
-                        className='profile__input'>{userEmail}</input>
+                        value={userEmail}
+                        className='profile__input'></input>
                      :
                      <p className='profile__input'>{userEmail}</p>
                   }

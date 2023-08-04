@@ -7,7 +7,7 @@ function Profile({ logOut, editProfile, handleUserInfo }) {
    const userData = useContext(CurrentUserContext);
    const [userName, setUserName] = useState('');
    const [userEmail, setUserEmail] = useState('');
-   const [activeInputs, setActiveInputs] = useState(false);
+   const [activeInputs, setActiveInputs] = useState(true);
 
    useEffect(() => {
       setUserName(userData.name);
@@ -60,7 +60,7 @@ function Profile({ logOut, editProfile, handleUserInfo }) {
                         required
                         onChange={handleChangeName}
                         value={userName}
-                        className='profile__input'></input>
+                        className='profile__input profile__input_active'></input>
                      :
                      <p className='profile__input'>{userName}</p>
                   }
@@ -74,7 +74,7 @@ function Profile({ logOut, editProfile, handleUserInfo }) {
                         required
                         onChange={handleChangeEmail}
                         value={userEmail}
-                        className='profile__input'></input>
+                        className='profile__input profile__input_active'></input>
                      :
                      <p className='profile__input'>{userEmail}</p>
                   }
@@ -87,7 +87,7 @@ function Profile({ logOut, editProfile, handleUserInfo }) {
                <button
                   type="button"
                   onClick={handleSave}
-                  className="profile__btn button profile__btn_save hover-link"
+                  className="profile__btn button hover-link profile__btn_save"
                >
                   Сохранить
                </button>

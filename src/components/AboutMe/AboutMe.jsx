@@ -1,6 +1,6 @@
 import './AboutMe.css'
 import Title from '../../blocks/Title/Title';
-import avatar from '../../images/Avatar.svg';
+import avatar from '../../images/Avatar.jpg';
 import HoverLink from '../../blocks/HoverLink/HoverLink';
 
 function AboutMe() {
@@ -12,9 +12,9 @@ function AboutMe() {
             src={avatar}
             className='about-me__avatar'
             alt='Планета-web' />
-         <h3 className='about-me__subtitle'>Виталий</h3>
-         <p className='about-me__profetion'>Фронтенд-разработчик, 30 лет</p>
-         <p className='about-me__description'>Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня есть жена и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.</p>
+         <h3 className='about-me__subtitle'>Василий</h3>
+         <p className='about-me__profetion'>Фронтенд-разработчик, 25 лет</p>
+         <p className='about-me__description'>Я родился и живу в Саратове. Выучился на ветеринарного врача, отработал несколько лет в этой сфере и понял, что это не моё. Узнал о программе "Цифровые профессии", решил не упускать возможность и получить перспективную специальность "Фронтенд-разработчик".</p>
 
          <HoverLink
             link={'https://github.com/Nevedomskiy'}

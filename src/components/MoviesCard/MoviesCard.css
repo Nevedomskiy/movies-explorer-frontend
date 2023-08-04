@@ -3,6 +3,10 @@
    font-weight: 500;
    line-height: 18px;
    margin: 0;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow: hidden;
+   max-width: 200px;
 }
 
 .movies-card__time {
@@ -17,9 +21,12 @@
    display: flex;
    justify-content: space-between;
    margin: 0 14px 14px;
+   gap: 10px;
 }
 
-
+.movies-card__link {
+   display: block;
+}
 
 .movies-card__img {
    display: block;
@@ -59,10 +66,12 @@
 
    .movies-card__name {
       font-size: 15px;
+      max-width: 224px;
    }
 
    .movies-card__time {
       font-size: 13px;
+      white-space: nowrap;
    }
 
    .movies-card:nth-child(2) {
@@ -76,6 +85,10 @@
    .movies-card__img {
       height: 200px;
       margin-bottom: 18px;
+   }
+
+   .movies-card__name {
+      max-width: 240px;
    }
 
 }

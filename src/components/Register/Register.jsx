@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, } from 'react-router-dom';
 import { useState } from 'react';
 
 import './Register.css';
@@ -6,10 +6,7 @@ import { inputListRegister } from '../../utils/constants/constants';
 import { mainApi } from '../../utils/MainApi/MainApi';
 import FormSign from '../../blocks/FormSign/FormSign';
 
-function Register() {
-
-
-   const navigate = useNavigate();
+function Register({ logIn }) {
 
    const [formValue, setFormValue] = useState({
       email: '',
@@ -36,7 +33,16 @@ function Register() {
                password: '',
                name: '',
             });
-            navigate('/sign-in', { replace: true });
+            logIn(formValue.email, formValue.password)
+               .then(() => {
+                  setFormValue({
+                     email: '',
+                     password: '',
+                  });
+               })
+               .catch((err) => {
+                  err.then(({ message }) => console.log(message));
+               });
          })
          .catch((err) => {
             err.then(({ message }) => console.log(message));

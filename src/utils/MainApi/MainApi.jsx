@@ -65,7 +65,7 @@ class MainApi {
          // },
       })
          .then((res) => {
-            localStorage.removeItem('inputSearch');
+            localStorage.clear();
             // return this._getResponseData(res);
          })
    };

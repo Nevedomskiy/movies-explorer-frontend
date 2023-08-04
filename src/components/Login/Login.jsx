@@ -1,13 +1,11 @@
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
-import { mainApi } from '../../utils/MainApi/MainApi';
 import './Login.css';
 import { inputListLogin } from '../../utils/constants/constants';
 
 import FormSign from '../../blocks/FormSign/FormSign';
 
-function Login({ setLoggedIn }) {
-   const navigate = useNavigate();
+function Login({ logIn }) {
 
    const [formValue, setFormValue] = useState({
       email: '',
@@ -28,17 +26,13 @@ function Login({ setLoggedIn }) {
       if (!formValue.email || !formValue.password) {
          return;
       }
-      mainApi.authorize(formValue.email, formValue.password)
-         .then((res) => {
-            console.log(res);
+      logIn(formValue.email, formValue.password)
+         .then(() => {
             setFormValue({
                email: '',
                password: '',
             });
-            setLoggedIn(true);
-            navigate('/movies', { replace: true });
-         }
-         )
+         })
          .catch((err) => {
             err.then(({ message }) => console.log(message));
          });

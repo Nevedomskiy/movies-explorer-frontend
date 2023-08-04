@@ -32,9 +32,9 @@ function App() {
 
    useEffect(() => {
       handleUserInfo();
-   }, [location]);
+   }, []);
 
-   console.log(currentUser)
+   // console.log(currentUser)
 
    useEffect(() => {
       setIsLoading(true);
@@ -51,7 +51,7 @@ function App() {
             setLoggedIn(true);
          })
          .catch((err) => {
-            localStorage.clear();
+            // localStorage.clear();
             console.log(err);
          })
    }
@@ -86,12 +86,23 @@ function App() {
          .then((res) => {
             setCurrentUser({});
             setLoggedIn(false);
+            navigate('/', { replace: true });
             localStorage.clear();
          })
          .catch((err) => {
             console.log(err);
          });
    }
+
+   const logIn = (email, password) => {
+      mainApi.authorize(email, password)
+         .then((res) => {
+            setLoggedIn(true);
+            navigate('/movies', { replace: true });
+         }
+         )
+   }
+
 
    const editProfile = (data) => {
       mainApi.changeUserInfo(data)
@@ -133,8 +144,8 @@ function App() {
 
                <Routes >
                   <Route path='/' element={<Main />} />
-                  <Route path='/sign-up' element={<Register />} />
-                  <Route path='/sign-in' element={<Login setLoggedIn={setLoggedIn} />} />
+                  <Route path='/sign-up' element={<Register logIn={logIn} />} />
+                  <Route path='/sign-in' element={<Login logIn={logIn} />} />
                   <Route
                      path="/movies"
                      element={

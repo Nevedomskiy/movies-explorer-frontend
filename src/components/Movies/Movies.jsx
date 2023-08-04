@@ -9,17 +9,33 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
    const [currentMoviesList, setCurrentMoviesList] = useState([]);
    const [quantityMovies, setQuantityMovies] = useState(null);
    const [newMovies, setNewMovies] = useState(null);
+   const [isShortMovie, setIsShortMovie] = useState(false);
    // console.log(moviesList)
 
    useEffect(() => {
-      if (localStorage.getItem('inputSearch') !== null) {
-         setSearchValue(localStorage.getItem('inputSearch'));
+      if ((localStorage.getItem('inputSearchMovies') !== null) && (location.pathname === '/movies')) {
+         setSearchValue(localStorage.getItem('inputSearchMovies'));
+         updateQuantityMovies();
+         return
+      } else if ((localStorage.getItem('inputSearchSaved') !== null) && (location.pathname === '/saved-movies')) {
+         setSearchValue(localStorage.getItem('inputSearchSaved'));
+         updateQuantityMovies();
+         return
+      } else {
+         setSearchValue('');
+         return
       }
-   }, [])
+   }, [location])
+
+   // console.log(searchValue)
 
    useEffect(() => {
-      if (searchValue !== '') {
-         localStorage.setItem('inputSearch', searchValue);
+      if (searchValue !== null) {
+         if (location.pathname === '/movies') {
+            localStorage.setItem('inputSearchMovies', searchValue);
+         } else {
+            localStorage.setItem('inputSearchSaved', searchValue);
+         }
       }
    }, [searchValue])
    // console.log(searchValue)
@@ -32,15 +48,30 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
    useEffect(() => {
       setCurrentMoviesList(moviesList);
       updateQuantityMovies(moviesList);
-   }, [moviesList])
+   }, [moviesList, isShortMovie])
 
-   // console.log(quantityMovies)
+   function isSmoll(value) {
+      return 40 >= value;
+   }
+   // console.log(currentMoviesList)
 
    function updateQuantityMovies() {
-      if (!localStorage.getItem('inputSearch')) {
-         setCurrentMoviesList(moviesList.slice(0, quantityMovies))
+      if (!searchValue) {
+         if (isShortMovie) {
+            setCurrentMoviesList(moviesList.filter((el) => isSmoll(el.duration)).slice(0, quantityMovies));
+            return
+         } else {
+            setCurrentMoviesList(moviesList.slice(0, quantityMovies));
+            return
+         }
       } else {
-         setCurrentMoviesList(moviesList.filter((el) => el.nameRU.toLowerCase().includes(searchValue.toLowerCase())).slice(0, quantityMovies));
+         if (isShortMovie) {
+            setCurrentMoviesList(moviesList.filter((el) => isSmoll(el.duration)).filter((el) => el.nameRU.toLowerCase().includes(searchValue.toLowerCase())).slice(0, quantityMovies));
+            return
+         } else {
+            setCurrentMoviesList(moviesList.filter((el) => el.nameRU.toLowerCase().includes(searchValue.toLowerCase())).slice(0, quantityMovies));
+            return
+         }
       }
    }
 
@@ -50,13 +81,12 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
 
    useEffect(() => {
       handleQuantityMovies();
+      updateQuantityMovies();
    }, [width])
 
    function handleChangeSearch(e) {
       e.preventDefault();
       setSearchValue(e.target.value);
-      console.log(searchValue)
-
    }
 
    function handleQuantityMovies() {
@@ -64,16 +94,29 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
          setQuantityMovies(12);
          setNewMovies(3);
          return;
-      } else if (768 < width && width < 1280) {
+      } else if ((480 < width) && (width < 1280)) {
          setQuantityMovies(8);
          setNewMovies(2);
+         // console.log(1)
          return;
       } else {
+         // console.log(2)
          setQuantityMovies(5);
          setNewMovies(2);
          return;
       }
    }
+
+
+   function handleClickButtonSwitch() {
+      if (isShortMovie) {
+         setIsShortMovie(false)
+      } else {
+         setIsShortMovie(true)
+      }
+      updateQuantityMovies();
+   }
+   // console.log((768 < width) && (width < 1280))
 
    function requestVerification() {
       if (currentMoviesList.length === 0) {
@@ -140,8 +183,8 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
          </form >
 
          <div className="movies__switch">
-            <button className='button movies__button-switch movies__button-switch_active'></button>
-            <p className='movies__description'>Короткометражки </p>
+            <button type='button' onClick={handleClickButtonSwitch} className={`button movies__button-switch ${isShortMovie ? 'movies__button-switch_active' : ''}`}></button>
+            <p className='movies__description'>Короткометражки</p>
          </div>
 
          {isLoading
@@ -157,7 +200,7 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
                   ) :
                   (
                      <div className="movies__content">
-                        <ul className='movies__list list'>
+                        <ul className='list movies__list'>
                            {currentMoviesList.map((element) =>
                               <MoviesCard movie={element} key={element.id || element._id} location={location} checkSavedMovies={checkSavedMovies} moviesSavedList={moviesSavedList} />)}
                         </ul >

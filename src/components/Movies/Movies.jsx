@@ -5,12 +5,23 @@ import Preloader from '../Preloader/Preloader';
 
 function Movies({ setTextSearchError, moviesList, isLoading, width, location, textSearchError, setIsLoading, isValid, setIsValid, checkSavedMovies, moviesSavedList }) {
    const [failedSearch, setFailedSearch] = useState(false);
+   const [searchValue, setSearchValue] = useState('');
    const [currentMoviesList, setCurrentMoviesList] = useState([]);
    const [quantityMovies, setQuantityMovies] = useState(null);
    const [newMovies, setNewMovies] = useState(null);
    // console.log(moviesList)
 
+   useEffect(() => {
+      setSearchValue(localStorage.getItem('inputSearch'));
+   }, [])
 
+   useEffect(() => {
+      if (searchValue !== '') {
+         localStorage.setItem('inputSearch', searchValue);
+      }
+   }, [searchValue])
+   // console.log(searchValue)
+   // console.log(localStorage.getItem('inputSearch'));
 
    useEffect(() => {
       requestVerification();
@@ -27,7 +38,7 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
       if (!localStorage.getItem('inputSearch')) {
          setCurrentMoviesList(moviesList.slice(0, quantityMovies))
       } else {
-         setCurrentMoviesList(moviesList.filter((el) => el.nameRU.toLowerCase().includes(localStorage.getItem('inputSearch').toLowerCase())).slice(0, quantityMovies));
+         setCurrentMoviesList(moviesList.filter((el) => el.nameRU.toLowerCase().includes(searchValue.toLowerCase())).slice(0, quantityMovies));
       }
    }
 
@@ -41,7 +52,9 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
 
    function handleChangeSearch(e) {
       e.preventDefault();
-      localStorage.setItem('inputSearch', e.target.value);
+      setSearchValue(e.target.value);
+      console.log(searchValue)
+
    }
 
    function handleQuantityMovies() {
@@ -78,7 +91,7 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
    function handleSubmitSearch(e) {
       e.preventDefault();
       setIsLoading(true)
-      if (localStorage.getItem('inputSearch') === (undefined || '')) {
+      if (searchValue === (undefined || '')) {
          setIsValid(true);
          setTextSearchError('Нужно ввести ключевое слово');
          setIsLoading(false);
@@ -105,7 +118,7 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
                name='movies-input'
                className='movies__input'
                placeholder='Фильм'
-               value={localStorage.getItem('inputSearch')}
+               value={searchValue}
                onChange={(e) => {
                   handleChangeSearch(e);
                   handleQuantityMovies();

@@ -37,7 +37,7 @@ function App() {
             setLoggedIn(true);
          })
          .catch((err) => {
-            localStorage.clear();
+            // localStorage.clear();
             console.log(err);
          })
    }, []);
@@ -75,7 +75,7 @@ function App() {
          });
    }
 
-   console.log(loggedIn);
+   // console.log(loggedIn);
 
    const logOut = () => {
       mainApi.signOut()

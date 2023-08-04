@@ -26,21 +26,13 @@ function App() {
    const [currentUser, setCurrentUser] = useState({});
    const [allMovies, setAllMovies] = useState([]);
    const [savedMovies, setSavedMovies] = useState([]);
-   const [loggedIn, setLoggedIn] = useState(false);
+   const [loggedIn, setLoggedIn] = useState(true);
    const [textSearchError, setTextSearchError] = useState('');
 
 
    useEffect(() => {
-      mainApi.getUserInfo()
-         .then((user) => {
-            setCurrentUser(user);
-            setLoggedIn(true);
-         })
-         .catch((err) => {
-            localStorage.clear();
-            console.log(err);
-         })
-   }, []);
+      handleUserInfo();
+   }, [location]);
 
    console.log(currentUser)
 
@@ -51,6 +43,18 @@ function App() {
          checkSavedMovies();
       }
    }, [loggedIn, location]);
+
+   function handleUserInfo() {
+      mainApi.getUserInfo()
+         .then((user) => {
+            setCurrentUser(user);
+            setLoggedIn(true);
+         })
+         .catch((err) => {
+            localStorage.clear();
+            console.log(err);
+         })
+   }
 
    // const handleLogin = () => {
    //    if (loggedIn) {
@@ -182,6 +186,7 @@ function App() {
                            element={Profile}
                            logOut={logOut}
                            editProfile={editProfile}
+                           handleUserInfo={handleUserInfo}
                         >
                         </ProtectedRouteElement>
                      }

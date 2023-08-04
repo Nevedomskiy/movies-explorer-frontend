@@ -3,7 +3,7 @@ import './Profile.css';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { useState, useContext, useEffect } from 'react';
 
-function Profile({ logOut, editProfile }) {
+function Profile({ logOut, editProfile, handleUserInfo }) {
    const userData = useContext(CurrentUserContext);
    const [userName, setUserName] = useState('');
    const [userEmail, setUserEmail] = useState('');
@@ -36,7 +36,8 @@ function Profile({ logOut, editProfile }) {
       editProfile({
          name: userName,
          email: userEmail
-      })
+      });
+      handleUserInfo();
    }
 
 
@@ -82,8 +83,8 @@ function Profile({ logOut, editProfile }) {
             {activeInputs
                ?
                <button
-                  type="submit"
-                  onSubmit={handleSave}
+                  type="button"
+                  onClick={handleSave}
                   className="profile__btn button profile__btn_save hover-link"
                >
                   Сохранить

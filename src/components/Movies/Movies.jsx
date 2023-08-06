@@ -25,6 +25,7 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
          setSearchValue('');
          return
       }
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [location])
 
    // console.log(searchValue)
@@ -37,17 +38,20 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
             localStorage.setItem('inputSearchSaved', searchValue);
          }
       }
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [searchValue])
    // console.log(searchValue)
    // console.log(localStorage.getItem('inputSearch'));
 
    useEffect(() => {
       requestVerification();
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [currentMoviesList])
 
    useEffect(() => {
       setCurrentMoviesList(moviesList);
       updateQuantityMovies(moviesList);
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [moviesList, isShortMovie])
 
    function isSmoll(value) {
@@ -77,11 +81,13 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
 
    useEffect(() => {
       updateQuantityMovies();
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [quantityMovies])
 
    useEffect(() => {
       handleQuantityMovies();
       updateQuantityMovies();
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [width])
 
    function handleChangeSearch(e) {

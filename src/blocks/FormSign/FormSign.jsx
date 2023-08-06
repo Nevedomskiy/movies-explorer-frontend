@@ -77,7 +77,7 @@ function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, handleS
             <div className='form-sign__whitespace'></div>
 
             <div className='form-sign__block-submit' >
-               <p className={`${textServerError !== '' ? 'errors__element' : ''}`}>{textServerError}</p>
+               <p className={`form-sign__server-error ${textServerError !== '' ? 'errors__element' : ''}`}>{textServerError}</p>
                <button
                   type="submit"
                   disabled={name ? (email.isValid || password.isValid || name.isValid) : (email.isValid || password.isValid)}

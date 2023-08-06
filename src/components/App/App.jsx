@@ -42,6 +42,7 @@ function App() {
          heandleAllMovies();
          checkSavedMovies();
       }
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [loggedIn, location]);
 
    function handleUserInfo() {
@@ -94,6 +95,23 @@ function App() {
          });
    }
 
+   const register = (email, password, name) => {
+      mainApi.register(email, password, name)
+         .then(() => {
+            // setFormValue({
+            //    email: '',
+            //    password: '',
+            //    name: '',
+            // });
+            logIn(email, password);
+         })
+         .catch((err) => {
+            err.then(({ message }) => {
+               setTextServerError(message)
+            });
+         });
+   }
+
    const logIn = (email, password) => {
       mainApi.authorize(email, password)
          .then((res) => {
@@ -103,10 +121,8 @@ function App() {
          })
          .catch((err) => {
             err.then(({ message }) => {
-               console.log(err);
                setTextServerError(message)
             });
-            // console.log()
          });
    }
 
@@ -117,7 +133,9 @@ function App() {
             setCurrentUser(data);
          })
          .catch((err) => {
-            console.log(err);
+            err.then(({ message }) => {
+               setTextServerError(message)
+            });
          });
    }
    // console.log(savedMovies)
@@ -152,7 +170,7 @@ function App() {
                <Routes >
                   <Route path='/' element={<Main />} />
                   <Route path='/sign-up' element={<Register logIn={logIn} textServerError={textServerError} />} />
-                  <Route path='/sign-in' element={<Login logIn={logIn} textServerError={textServerError} />} />
+                  <Route path='/sign-in' element={<Login register={register} textServerError={textServerError} />} />
                   <Route
                      path="/movies"
                      element={

@@ -15,6 +15,7 @@ function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
       if (location.pathname === '/movies') {
          checkMovieIsSaved();
       }
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [moviesSavedList, savedMovieId])
 
    useEffect(() => {
@@ -22,6 +23,7 @@ function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
          // console.log(123)
          handleMovieId();
       }
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [moviesSavedList])
 
    // console.log(movie._id)

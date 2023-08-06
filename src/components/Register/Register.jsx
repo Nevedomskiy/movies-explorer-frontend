@@ -1,13 +1,9 @@
-import { Route, Routes, } from 'react-router-dom';
-import { useState } from 'react';
-
 import './Register.css';
 import { inputListRegister } from '../../utils/constants/constants';
-import { mainApi } from '../../utils/MainApi/MainApi';
 import FormSign from '../../blocks/FormSign/FormSign';
 import useInput from '../../utils/Validation/Validation';
 
-function Register({ logIn }) {
+function Register({ register, textServerError }) {
 
    const email = useInput('', {
       isEmpty: true,
@@ -43,28 +39,8 @@ function Register({ logIn }) {
 
    const handleSubmit = (e) => {
       e.preventDefault();
+      register(email, password, name);
 
-      mainApi.register(email.value, password.value, name.value,)
-         .then(() => {
-            // setFormValue({
-            //    email: '',
-            //    password: '',
-            //    name: '',
-            // });
-            logIn(email.value, password.value)
-               .then(() => {
-                  // setFormValue({
-                  //    email: '',
-                  //    password: '',
-                  // });
-               })
-               .catch((err) => {
-                  err.then(({ message }) => console.log(message));
-               });
-         })
-         .catch((err) => {
-            err.then(({ message }) => console.log(message));
-         });
    }
 
    return (
@@ -85,6 +61,7 @@ function Register({ logIn }) {
             email={email}
             password={password}
             name={name}
+            textServerError={textServerError}
          >
          </FormSign>
          {/* }>

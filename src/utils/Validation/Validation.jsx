@@ -26,12 +26,14 @@ function useValidation(value, validations) {
                reEmail.test(String(value).toLowerCase()) ? setIsEmail(false) : setIsEmail(true)
                break;
             case 'isName':
+               // eslint-disable-next-line no-useless-escape
                const reName = /^[\u0400-\u04FFa-zA-Z\s\-]+$/;
                reName.test(String(value).toLowerCase()) ? setIsName(false) : setIsName(true)
                break;
             // no default
          }
       }
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [value])
 
    useEffect(() => {

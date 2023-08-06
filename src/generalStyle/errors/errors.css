@@ -1,7 +1,4 @@
-.errors {
-   color: red;
-}
-
 .errors__element {
+   color: red;
    border-top: 2px solid red;
 }

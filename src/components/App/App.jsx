@@ -119,11 +119,13 @@ function App() {
             //    name: '',
             // });
             logIn(email, password);
+
          })
          .catch((err) => {
-            console.log(err);
-            err.then(({ message }) => {
-               setTextServerError(message)
+            console.log(typeof (email));
+            err.then((error) => {
+               console.log(error);
+               // setTextServerError(message)
             });
          });
    }

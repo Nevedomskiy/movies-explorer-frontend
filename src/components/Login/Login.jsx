@@ -47,7 +47,11 @@ function Login({ logIn }) {
             // });
          })
          .catch((err) => {
-            err.then(({ message }) => setTextServerError(message));
+            err.then(({ message }) => {
+               console.log(message);
+               setTextServerError(message)
+            });
+            console.log()
          });
    }
 

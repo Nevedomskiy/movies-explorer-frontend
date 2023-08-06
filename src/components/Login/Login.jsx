@@ -47,11 +47,11 @@ function Login({ logIn }) {
             // });
          })
          .catch((err) => {
-            err.then(({ message }) => {
-               console.log(message);
-               setTextServerError(message)
-            });
-            console.log()
+            // err.then(({ message }) => {
+            console.log(err);
+            // setTextServerError(message)
+            // });
+            // console.log()
          });
    }
 

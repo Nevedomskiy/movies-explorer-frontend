@@ -55,8 +55,8 @@ function Profile({ logOut, editProfile, handleUserInfo }) {
       e.preventDefault();
       setActiveInputs(false);
       editProfile({
-         name: name,
-         email: email
+         name: name.value,
+         email: email.value,
       });
       handleUserInfo();
       email.onExit();

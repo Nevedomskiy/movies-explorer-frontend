@@ -15,7 +15,7 @@ function FormSign({ title, inputList, setTextServerError, nameButtonSubmit, text
    }
 
    const handleChange = (type) => {
-      setTextServerError('');
+      // setTextServerError('');
       if (type === 'password') {
          return password.onChange
       } else if (type === 'email') {

@@ -39,7 +39,7 @@ function Register({ register, textServerError }) {
 
    const handleSubmit = (e) => {
       e.preventDefault();
-      register(email, password, name);
+      register(email.value, password.value, name.value);
 
    }
 

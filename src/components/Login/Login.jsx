@@ -5,9 +5,7 @@ import { inputListLogin } from '../../utils/constants/constants';
 import useInput from '../../utils/Validation/Validation';
 import FormSign from '../../blocks/FormSign/FormSign';
 
-function Login({ logIn }) {
-
-   const [textServerError, setTextServerError] = useState('');
+function Login({ logIn, textServerError }) {
 
    const email = useInput('', {
       isEmpty: true,
@@ -39,21 +37,7 @@ function Login({ logIn }) {
       if (!email.value || !password.value) {
          return;
       }
-      logIn(email.value, password.value)
-         .then(() => {
-            setTextServerError('');
-            // setFormValue({
-            //    email: '',
-            //    password: '',
-            // });
-         })
-         .catch((err) => {
-            // err.then(({ message }) => {
-            console.log(err);
-            // setTextServerError(message)
-            // });
-            // console.log()
-         });
+      logIn(email.value, password.value);
    }
 
    return (

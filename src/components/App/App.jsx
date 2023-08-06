@@ -28,7 +28,7 @@ function App() {
    const [savedMovies, setSavedMovies] = useState([]);
    const [loggedIn, setLoggedIn] = useState(false);
    const [textSearchError, setTextSearchError] = useState('');
-
+   const [textServerError, setTextServerError] = useState('');
 
    useEffect(() => {
       handleUserInfo();
@@ -99,8 +99,15 @@ function App() {
          .then((res) => {
             setLoggedIn(true);
             navigate('/movies', { replace: true });
-         }
-         )
+            setTextServerError('');
+         })
+         .catch((err) => {
+            err.then(({ message }) => {
+               console.log(err);
+               setTextServerError(message)
+            });
+            // console.log()
+         });
    }
 
 
@@ -144,8 +151,8 @@ function App() {
 
                <Routes >
                   <Route path='/' element={<Main />} />
-                  <Route path='/sign-up' element={<Register logIn={logIn} />} />
-                  <Route path='/sign-in' element={<Login logIn={logIn} />} />
+                  <Route path='/sign-up' element={<Register logIn={logIn} textServerError={textServerError} />} />
+                  <Route path='/sign-in' element={<Login logIn={logIn} textServerError={textServerError} />} />
                   <Route
                      path="/movies"
                      element={

@@ -41,6 +41,7 @@ function App() {
       if (loggedIn) {
          heandleAllMovies();
          checkSavedMovies();
+         setTextServerError('');
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [loggedIn, location]);

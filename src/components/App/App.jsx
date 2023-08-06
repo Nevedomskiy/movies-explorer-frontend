@@ -122,10 +122,10 @@ function App() {
 
          })
          .catch((err) => {
-            console.log(typeof (email));
-            err.then((error) => {
-               console.log(error);
-               // setTextServerError(message)
+            // console.log(typeof (email));
+            err.then(({message}) => {
+               // console.log(error);
+               setTextServerError(message)
             });
          });
    }

@@ -2,49 +2,72 @@
 import './Profile.css';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { useState, useContext, useEffect } from 'react';
+import useInput from '../../utils/Validation/Validation';
+
 
 function Profile({ logOut, editProfile, handleUserInfo }) {
-   const userData = useContext(CurrentUserContext);
-   const [userName, setUserName] = useState('');
-   const [userEmail, setUserEmail] = useState('');
-   const [activeInputs, setActiveInputs] = useState(true);
 
+   const userData = useContext(CurrentUserContext);
+   const [currentName, setCurrentName] = useState('');
+   const [currentEmail, setCurrentEmail] = useState('');
    useEffect(() => {
-      setUserName(userData.name);
-      setUserEmail(userData.email);
+      setCurrentName(userData.name);
+      setCurrentEmail(userData.email);
    }, [userData])
-   console.log(activeInputs)
+
+   const email = useInput(userData.email, {
+      isEmpty: true,
+      isEmail: true,
+   });
+   const name = useInput(userData.name, {
+      isEmpty: true,
+      minLength: 2,
+      maxLength: 30,
+      isName: true,
+   });
+   const [activeInputs, setActiveInputs] = useState(false);
+
+
 
    function handleExit(e) {
       e.preventDefault();
       setActiveInputs(true)
    }
 
-   function handleChangeName(e) {
+   function handleCancel(e) {
       e.preventDefault();
-      setUserName(e.target.value)
+      setActiveInputs(false)
+      email.onExit();
+      name.onExit();
    }
 
-   function handleChangeEmail(e) {
-      e.preventDefault();
-      setUserEmail(e.target.value)
-   }
+   // function handleChangeName(e) {
+   //    e.preventDefault();
+   //    setUserName(e.target.value)
+   // }
+
+   // function handleChangeEmail(e) {
+   //    e.preventDefault();
+   //    setUserEmail(e.target.value)
+   // }
 
    function handleSave(e) {
       e.preventDefault();
       setActiveInputs(false);
       editProfile({
-         name: userName,
-         email: userEmail
+         name: name,
+         email: email
       });
       handleUserInfo();
+      email.onExit();
+      name.onExit();
    }
 
 
-   // console.log(userData);
+   // console.log((currentName === name.value) && (currentEmail === email.value));
    return (
       <section className='profile'>
-         <h1 className='profile__title'>Привет, {userName}!</h1>
+         <h1 className='profile__title'>Привет, {name.value}!</h1>
          <form
             name={'profile-edit'}
             className="profile__form"
@@ -58,12 +81,19 @@ function Profile({ logOut, editProfile, handleUserInfo }) {
                      <input
                         type='text'
                         required
-                        onChange={handleChangeName}
-                        value={userName}
-                        className='profile__input profile__input_active'></input>
+                        onChange={e => name.onChange(e)}
+                        value={name.value}
+                        name='name'
+                        className={`profile__input profile__input_active ${!name.isValid ? 'profile__input_valid' : 'profile__input_no-valid'}`}></input>
                      :
-                     <p className='profile__input'>{userName}</p>
+                     <p className='profile__text'>{name.value}</p>
                   }
+                  <div className='profile__errors errors'>
+                     {(name.isDirty && (currentName === name.value)) && <div className='errors__element' >Имя соответствует ранее сохраненному значению</div>}
+                     {(name.isDirty && name.isEmpty) && <div className='errors__element' >Поле не может быть пустым</div>}
+                     {(name.isDirty && name.isName) && <div className='errors__element' >Используйте, пожалуйста, латиницу, кириллицу, пробел или дефис</div>}
+                     {(name.isDirty && (name.minLengthError || name.maxLengthError)) && <div className='errors__element'>Некорректная длина</div>}
+                  </div>
                </li>
                <li className='profile__element'>
                   <p className='profile__description'>E-mail</p>
@@ -72,25 +102,41 @@ function Profile({ logOut, editProfile, handleUserInfo }) {
                      <input
                         type='email'
                         required
-                        onChange={handleChangeEmail}
-                        value={userEmail}
-                        className='profile__input profile__input_active'></input>
+                        onChange={e => email.onChange(e)}
+                        value={email.value}
+                        className={`profile__input profile__input_active ${!email.isValid ? 'profile__input_valid' : 'profile__input_no-valid'}`} ></input>
                      :
-                     <p className='profile__input'>{userEmail}</p>
+                     <p className='profile__text'>{email.value}</p>
                   }
+                  <div className='profile__errors errors'>
+                     {(email.isDirty && email.isEmpty) && <div className='errors__element' >Поле не может быть пустым</div>}
+                     {(email.isDirty && email.isEmail) && <div className='errors__element' >Это не почта</div>}
+                     {(email.isDirty && (currentEmail === email.value)) && <div className='errors__element' >Почта соответствует ранее сохраненному значению</div>}
+                  </div>
+
                </li>
             </ul >
 
             <div className='profile__whitespace'></div>
             {activeInputs
                ?
-               <button
-                  type="button"
-                  onClick={handleSave}
-                  className="profile__btn button hover-link profile__btn_save"
-               >
-                  Сохранить
-               </button>
+               (((currentName === name.value) && (currentEmail === email.value)) ?
+                  <button
+                     type="button"
+                     onClick={handleCancel}
+                     className="profile__btn button hover-link profile__btn_cancel"
+                  >
+                     Отменить
+                  </button>
+                  :
+                  <button
+                     type="button"
+                     onClick={handleSave}
+                     disabled={email.isValid || name.isValid}
+                     className={`profile__btn button hover-link  ${!(email.isValid || name.isValid) ? 'profile__btn_save' : 'profile__btn_blocked'}`}
+                  >
+                     Сохранить
+                  </button>)
                :
                <button
                   type="button"

@@ -3,7 +3,7 @@ export const MOVIES_URL = 'https://api.nomoreparties.co';
 
 export const inputListRegister = [
    {
-      type: 'name',
+      type: 'text',
       description: 'Имя',
 
    },

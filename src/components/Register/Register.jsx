@@ -5,40 +5,58 @@ import './Register.css';
 import { inputListRegister } from '../../utils/constants/constants';
 import { mainApi } from '../../utils/MainApi/MainApi';
 import FormSign from '../../blocks/FormSign/FormSign';
+import useInput from '../../utils/Validation/Validation';
 
 function Register({ logIn }) {
 
-   const [formValue, setFormValue] = useState({
-      email: '',
-      password: '',
-      name: ''
+   const email = useInput('', {
+      isEmpty: true,
+      isEmail: true,
    });
 
-   const handleChange = (e) => {
-      const { name, value } = e.target;
+   const password = useInput('', {
+      isEmpty: true,
+      minLength: 8,
+   });
 
-      setFormValue({
-         ...formValue,
-         [name]: value
-      });
-   }
+   const name = useInput('', {
+      isEmpty: true,
+      minLength: 2,
+      maxLength: 30,
+      isName: true,
+   });
+
+   // const [formValue, setFormValue] = useState({
+   //    email: '',
+   //    password: '',
+   //    name: ''
+   // });
+
+   // const handleChange = (e) => {
+   //    const { name, value } = e.target;
+
+   //    setFormValue({
+   //       ...formValue,
+   //       [name]: value
+   //    });
+   // }
 
    const handleSubmit = (e) => {
       e.preventDefault();
 
-      mainApi.register(formValue.email, formValue.password, formValue.name,)
+      mainApi.register(email.value, password.value, name.value,)
          .then(() => {
-            setFormValue({
-               email: '',
-               password: '',
-               name: '',
-            });
-            logIn(formValue.email, formValue.password)
+            // setFormValue({
+            //    email: '',
+            //    password: '',
+            //    name: '',
+            // });
+            logIn(email.value, password.value)
                .then(() => {
-                  setFormValue({
-                     email: '',
-                     password: '',
-                  });
+                  // setFormValue({
+                  //    email: '',
+                  //    password: '',
+                  // });
                })
                .catch((err) => {
                   err.then(({ message }) => console.log(message));
@@ -51,25 +69,28 @@ function Register({ logIn }) {
 
    return (
       <div className='register'>
-         <Routes>
+         {/* <Routes>
             <Route path='/'
-               element={
-                  <FormSign
-                     inputList={inputListRegister}
-                     title={'Добро пожаловать!'}
-                     nameButtonSubmit={'Зарегистрироваться'}
-                     textAfterButton={'Уже зарегистрированы? '}
-                     textLink={'Войти'}
-                     linkValue={'sign-in'}
-                     modific={'register_mod-container'}
-                     handleChange={handleChange}
-                     handleSubmit={handleSubmit}
-                  >
-                  </FormSign>
-               }>
+               element={ */}
+         <FormSign
+            inputList={inputListRegister}
+            title={'Добро пожаловать!'}
+            nameButtonSubmit={'Зарегистрироваться'}
+            textAfterButton={'Уже зарегистрированы? '}
+            textLink={'Войти'}
+            linkValue={'sign-in'}
+            modific={'register_mod-container'}
+            // handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            email={email}
+            password={password}
+            name={name}
+         >
+         </FormSign>
+         {/* }>
             </Route >
 
-         </Routes >
+         </Routes > */}
 
       </div >
    );

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import { useResize } from '../UseResize/UseResize';
+import { useResize } from '../../utils/UseResize/UseResize';
 
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';

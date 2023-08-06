@@ -7,6 +7,10 @@
    justify-content: center;
 }
 
+.form-sign__element {
+   margin: 0 0 20px;
+}
+
 .form-sign {
    display: grid;
    grid-template-rows: auto auto 1fr;
@@ -56,6 +60,11 @@
    flex-direction: column;
 }
 
+.form-sign__button-submit_no-valid {
+   cursor: auto;
+   background: #9c9c9c;
+}
+
 .form-sign__input {
    display: block;
    width: calc(100% - 30px);
@@ -66,7 +75,16 @@
    padding: 15px;
    font-weight: 500;
    line-height: normal;
-   margin: 0 0 20px;
+}
+
+.form-sign__input:focus {
+   outline: none;
+}
+
+.form-sign__errors {
+   font-size: 13px;
+   font-weight: 500;
+   line-height: normal;
 }
 
 .form-sign__link {

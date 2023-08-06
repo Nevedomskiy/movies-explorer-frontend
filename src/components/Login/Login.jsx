@@ -31,7 +31,7 @@ function Login({ logIn, textServerError }) {
 
    const handleSubmit = (e) => {
       e.preventDefault();
-      console.log(email.value, password.value);
+      // console.log(email.value, password.value);
       if (!email.value || !password.value) {
          return;
       }

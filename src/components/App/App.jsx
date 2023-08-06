@@ -42,7 +42,7 @@ function App() {
          heandleAllMovies();
          checkSavedMovies();
       }
-   // eslint-disable-next-line react-hooks/exhaustive-deps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [loggedIn, location]);
 
    function handleUserInfo() {
@@ -95,6 +95,20 @@ function App() {
          });
    }
 
+   const logIn = (email, password) => {
+      mainApi.authorize(email, password)
+         .then((res) => {
+            setLoggedIn(true);
+            navigate('/movies', { replace: true });
+            setTextServerError('');
+         })
+         .catch((err) => {
+            err.then(({ message }) => {
+               setTextServerError(message)
+            });
+         });
+   }
+
    const register = (email, password, name) => {
       mainApi.register(email, password, name)
          .then(() => {
@@ -112,19 +126,7 @@ function App() {
          });
    }
 
-   const logIn = (email, password) => {
-      mainApi.authorize(email, password)
-         .then((res) => {
-            setLoggedIn(true);
-            navigate('/movies', { replace: true });
-            setTextServerError('');
-         })
-         .catch((err) => {
-            err.then(({ message }) => {
-               setTextServerError(message)
-            });
-         });
-   }
+
 
 
    const editProfile = (data) => {

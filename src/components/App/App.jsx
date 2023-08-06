@@ -123,7 +123,7 @@ function App() {
          })
          .catch((err) => {
             // console.log(typeof (email));
-            err.then(({message}) => {
+            err.then(({ message }) => {
                // console.log(error);
                setTextServerError(message)
             });
@@ -175,8 +175,8 @@ function App() {
 
                <Routes >
                   <Route path='/' element={<Main />} />
-                  <Route path='/sign-up' element={<Register register={register} textServerError={textServerError} />} />
-                  <Route path='/sign-in' element={<Login logIn={logIn} textServerError={textServerError} />} />
+                  <Route path='/sign-up' element={<Register register={register} setTextServerError={setTextServerError} textServerError={textServerError} />} />
+                  <Route path='/sign-in' element={<Login logIn={logIn} setTextServerError={setTextServerError} textServerError={textServerError} />} />
                   <Route
                      path="/movies"
                      element={

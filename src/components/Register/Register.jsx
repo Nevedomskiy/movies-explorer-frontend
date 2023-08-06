@@ -3,7 +3,7 @@ import { inputListRegister } from '../../utils/constants/constants';
 import FormSign from '../../blocks/FormSign/FormSign';
 import useInput from '../../utils/Validation/Validation';
 
-function Register({ register, textServerError }) {
+function Register({ register, setTextServerError, textServerError }) {
 
    const email = useInput('', {
       isEmpty: true,
@@ -58,6 +58,7 @@ function Register({ register, textServerError }) {
             modific={'register_mod-container'}
             // handleChange={handleChange}
             handleSubmit={handleSubmit}
+            setTextServerError={setTextServerError}
             email={email}
             password={password}
             name={name}

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import ButtonHome from '../ButtonHome/ButtonHome';
 import './FormSign.css';
 
-function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, handleSubmit, textLink, linkValue, modific, email, password, name, textServerError }) {
+function FormSign({ title, inputList, setTextServerError, nameButtonSubmit, textAfterButton, handleSubmit, textLink, linkValue, modific, email, password, name, textServerError }) {
 
    const handleValue = (type) => {
       if (type === 'password') {
@@ -15,6 +15,7 @@ function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, handleS
    }
 
    const handleChange = (type) => {
+      setTextServerError('');
       if (type === 'password') {
          return password.onChange
       } else if (type === 'email') {

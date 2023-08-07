@@ -84,12 +84,9 @@ class MainApi {
    //редактирование данных пользователя
    changeUserInfo(data) {
       return fetch(`${this._url}/users/me`, {
-         ...this._config,
          method: 'PATCH',
-         body: JSON.stringify({
-            name: data.name,
-            email: data.email
-         })
+         ...this._config,
+         body: JSON.stringify(data)
       })
          .then((res) => {
             return this._getResponseData(res);
@@ -136,8 +133,8 @@ class MainApi {
 //api данных карточек
 export const mainApi = new MainApi({
    url: BASE_URL,
-   credentials: 'include',
    headers: {
       'Content-Type': 'application/json',
    },
+   credentials: 'include',
 });

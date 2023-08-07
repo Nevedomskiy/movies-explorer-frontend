@@ -138,8 +138,10 @@ function App() {
 
 
    const editProfile = (data) => {
+      console.log(data)
       mainApi.changeUserInfo(data)
          .then((res) => {
+            console.log(1)
             setCurrentUser(res);
          })
          .catch((err) => {

@@ -75,16 +75,21 @@ function useInput(initialValue, validations) {
       setIsActive(true);
    }
 
+   const onBlur = () => {
+      setIsActive(false);
+   }
+
    const onExit = () => {
       setIsDirty(false);
-      setIsActive(false);
    }
 
    return {
       value,
       onExit,
       onChange,
+      onBlur,
       isDirty,
+      isActive,
       ...valid
    }
 }

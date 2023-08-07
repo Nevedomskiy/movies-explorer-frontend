@@ -88,7 +88,7 @@ function Profile({ logOut, editProfile, textServerError }) {
                            name.onChange(e);
                         }}
                         value={name.value}
-                        onBlur={() => { name.onExit() }}
+                        onBlur={() => { name.onBlur() }}
                         name='name'
                         className={`profile__input profile__input_active ${!name.isValid ? 'profile__input_valid' : 'profile__input_no-valid'}`}></input>
                      :
@@ -108,7 +108,7 @@ function Profile({ logOut, editProfile, textServerError }) {
                      <input
                         type='email'
                         required
-                        onBlur={() => { email.onExit() }}
+                        onBlur={() => { email.onBlur() }}
                         onChange={e => email.onChange(e)}
                         value={email.value}
                         className={`profile__input profile__input_active ${!email.isValid ? 'profile__input_valid' : 'profile__input_no-valid'}`} ></input>

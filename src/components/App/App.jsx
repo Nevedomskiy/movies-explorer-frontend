@@ -30,7 +30,7 @@ function App() {
    const [textSearchError, setTextSearchError] = useState('');
    const [textServerError, setTextServerError] = useState('');
 
-   // console.log(textServerError);
+   console.log(textServerError);
 
    useEffect(() => {
       handleUserInfo();
@@ -105,7 +105,7 @@ function App() {
          .then((res) => {
             setLoggedIn(true);
             navigate('/movies', { replace: true });
-            setTextServerError('');
+            // setTextServerError('');
          })
          .catch((err) => {
             err.then(({ message }) => {

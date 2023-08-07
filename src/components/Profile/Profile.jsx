@@ -9,6 +9,7 @@ function Profile({ logOut, editProfile, textServerError }) {
 
    const userData = useContext(CurrentUserContext);
    console.log(textServerError)
+   console.log(textServerError !== '');
    // const [currentName, setCurrentName] = useState('');
    // const [currentEmail, setCurrentEmail] = useState('');
    // useEffect(() => {

@@ -32,7 +32,7 @@ function Profile({ logOut, editProfile, textServerError }) {
    });
    // console.log(((textServerError !== '') && (!email.isActive || !name.isActive)));
    // console.log(email.isActive);
-   console.log(email.isDirty);
+   console.log(textServerError !== '' && !email.isDirty && !name.isDirty);
 
    const [activeInputs, setActiveInputs] = useState(false);
 
@@ -139,7 +139,7 @@ function Profile({ logOut, editProfile, textServerError }) {
                   </button>
                   :
                   <div className='profile__block-save'>
-                     {textServerError !== '' && !email.isDirty && !name.isDirty && <p className='profile__server-error errors__element'>{textServerError}</p>}
+                     {(textServerError !== '' && !email.isDirty && !name.isDirty) && <p className='profile__server-error errors__element'>{textServerError}</p>}
                      <button
                         type="button"
                         onClick={handleSave}

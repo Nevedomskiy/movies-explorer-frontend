@@ -7,8 +7,8 @@ import useInput from '../../utils/Validation/Validation';
 
 function Profile({ logOut, editProfile, currentUser, handleUserInfo, textServerError }) {
 
-   // const userData = useContext(CurrentUserContext);
-   console.log(currentUser)
+   const userData = useContext(CurrentUserContext);
+   console.log(userData)
    const [currentName, setCurrentName] = useState('');
    const [currentEmail, setCurrentEmail] = useState('');
    useEffect(() => {

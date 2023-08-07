@@ -36,7 +36,7 @@ function App() {
       handleUserInfo();
    }, []);
 
-   console.log(currentUser)
+   // console.log(currentUser)
 
    useEffect(() => {
       setIsLoading(true);

@@ -34,22 +34,22 @@ function Header({ loggedIn }) {
                            </ul>
                         </div>
                      )
-                     : <СommonElementHeader handleClickBurger={handleClickBurger} activeBurger={activeBurger}></СommonElementHeader>
+                     : <СommonElementHeader setActiveBurger={setActiveBurger} handleClickBurger={handleClickBurger} activeBurger={activeBurger}></СommonElementHeader>
                }>
             </Route>
             <Route path='/profile'
                element={
-                  <СommonElementHeader handleClickBurger={handleClickBurger} activeBurger={activeBurger}></СommonElementHeader>
+                  <СommonElementHeader setActiveBurger={setActiveBurger} handleClickBurger={handleClickBurger} activeBurger={activeBurger}></СommonElementHeader>
                }>
             </Route >
             <Route path='/movies'
                element={
-                  <СommonElementHeader handleClickBurger={handleClickBurger} activeBurger={activeBurger}></СommonElementHeader>
+                  <СommonElementHeader setActiveBurger={setActiveBurger} handleClickBurger={handleClickBurger} activeBurger={activeBurger}></СommonElementHeader>
                }>
             </Route >
             <Route path='/saved-movies'
                element={
-                  <СommonElementHeader handleClickBurger={handleClickBurger} activeBurger={activeBurger}></СommonElementHeader>
+                  <СommonElementHeader setActiveBurger={setActiveBurger} handleClickBurger={handleClickBurger} activeBurger={activeBurger}></СommonElementHeader>
                }>
             </Route >
          </Routes >

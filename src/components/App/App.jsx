@@ -229,6 +229,7 @@ function App() {
                            logOut={logOut}
                            editProfile={editProfile}
                            handleUserInfo={handleUserInfo}
+                           textServerError={textServerError}
                         >
                         </ProtectedRouteElement>
                      }

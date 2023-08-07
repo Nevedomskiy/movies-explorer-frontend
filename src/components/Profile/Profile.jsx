@@ -5,7 +5,7 @@ import { useState, useContext, useEffect } from 'react';
 import useInput from '../../utils/Validation/Validation';
 
 
-function Profile({ logOut, editProfile, handleUserInfo }) {
+function Profile({ logOut, editProfile, handleUserInfo, textServerError }) {
 
    const userData = useContext(CurrentUserContext);
    const [currentName, setCurrentName] = useState('');
@@ -129,14 +129,18 @@ function Profile({ logOut, editProfile, handleUserInfo }) {
                      Отменить
                   </button>
                   :
-                  <button
-                     type="button"
-                     onClick={handleSave}
-                     disabled={email.isValid || name.isValid}
-                     className={`profile__btn button hover-link  ${!(email.isValid || name.isValid) ? 'profile__btn_save' : 'profile__btn_blocked'}`}
-                  >
-                     Сохранить
-                  </button>)
+                  <div>
+                     <p className={`form-sign__server-error ${textServerError !== '' ? 'errors__element' : ''}`}>{textServerError}</p>
+                     <button
+                        type="button"
+                        onClick={handleSave}
+                        disabled={email.isValid || name.isValid}
+                        className={`profile__btn button hover-link  ${!(email.isValid || name.isValid) ? 'profile__btn_save' : 'profile__btn_blocked'}`}
+                     >
+                        Сохранить
+                     </button>
+                  </div>
+               )
                :
                <button
                   type="button"

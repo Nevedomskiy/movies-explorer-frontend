@@ -3,7 +3,7 @@ import './СommonElementHeader.css';
 import ButtonHome from '../../blocks/ButtonHome/ButtonHome';
 import NavTab from '../../components/NavTab/NavTab';
 
-function СommonElementHeader({ handleClickBurger, activeBurger }) {
+function СommonElementHeader({ handleClickBurger, activeBurger, setActiveBurger }) {
 
    return (
       <div className='header__container header__container_profile'>
@@ -13,7 +13,7 @@ function СommonElementHeader({ handleClickBurger, activeBurger }) {
             <div className={`burger-line ${activeBurger ? ' burger-second-line' : ''}`}></div>
             <div className={`burger-line ${activeBurger ? ' burger-third-line' : ''}`}></div>
          </button >
-         <NavTab activeNav={activeBurger}></NavTab>
+         <NavTab activeNav={activeBurger} setActiveBurger={setActiveBurger}></NavTab>
       </div>
    );
 }

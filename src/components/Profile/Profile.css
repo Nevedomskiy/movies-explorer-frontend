@@ -96,6 +96,7 @@
 }
 
 .profile__btn {
+   display: block;
    text-align: center;
    font-size: 12px;
    font-weight: 400;

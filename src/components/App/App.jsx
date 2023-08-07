@@ -23,7 +23,7 @@ function App() {
    const navigate = useNavigate();
    const [isValidSearch, setIsValidSearch] = useState(false);
    const [isLoading, setIsLoading] = useState(false);
-   const [currentUser, setCurrentUser] = useState();
+   const [currentUser, setCurrentUser] = useState({});
    const [allMovies, setAllMovies] = useState([]);
    const [savedMovies, setSavedMovies] = useState([]);
    const [loggedIn, setLoggedIn] = useState(true);

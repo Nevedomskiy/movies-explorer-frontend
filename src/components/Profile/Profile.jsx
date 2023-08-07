@@ -8,8 +8,7 @@ import useInput from '../../utils/Validation/Validation';
 function Profile({ logOut, editProfile, textServerError, setTextServerError }) {
 
    const userData = useContext(CurrentUserContext);
-   console.log(textServerError)
-   console.log(textServerError !== '');
+
    // const [currentName, setCurrentName] = useState('');
    // const [currentEmail, setCurrentEmail] = useState('');
    useEffect(() => {
@@ -31,11 +30,8 @@ function Profile({ logOut, editProfile, textServerError, setTextServerError }) {
       maxLength: 30,
       isName: true,
    });
+   console.log(((textServerError !== '') && (email.isDirty || name.isDirty)));
 
-   // console.log(currentEmail)
-   // console.log(email)
-   // console.log(currentName)
-   // console.log(name)
    const [activeInputs, setActiveInputs] = useState(false);
 
 

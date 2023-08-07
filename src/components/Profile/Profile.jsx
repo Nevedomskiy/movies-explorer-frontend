@@ -30,7 +30,7 @@ function Profile({ logOut, editProfile, textServerError }) {
       maxLength: 30,
       isName: true,
    });
-   console.log(((textServerError !== '') && (!email.isActive || !name.isActive)));
+   // console.log(((textServerError !== '') && (!email.isActive || !name.isActive)));
    console.log(email.isActive);
 
    const [activeInputs, setActiveInputs] = useState(false);

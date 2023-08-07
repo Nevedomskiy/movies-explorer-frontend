@@ -5,7 +5,7 @@ import { useState, useContext, useEffect } from 'react';
 import useInput from '../../utils/Validation/Validation';
 
 
-function Profile({ logOut, editProfile, textServerError, setTextServerError }) {
+function Profile({ logOut, editProfile, textServerError }) {
 
    const userData = useContext(CurrentUserContext);
 
@@ -88,6 +88,7 @@ function Profile({ logOut, editProfile, textServerError, setTextServerError }) {
                            name.onChange(e);
                         }}
                         value={name.value}
+                        onBlur={() => { name.onExit() }}
                         name='name'
                         className={`profile__input profile__input_active ${!name.isValid ? 'profile__input_valid' : 'profile__input_no-valid'}`}></input>
                      :
@@ -107,6 +108,7 @@ function Profile({ logOut, editProfile, textServerError, setTextServerError }) {
                      <input
                         type='email'
                         required
+                        onBlur={() => { email.onExit() }}
                         onChange={e => email.onChange(e)}
                         value={email.value}
                         className={`profile__input profile__input_active ${!email.isValid ? 'profile__input_valid' : 'profile__input_no-valid'}`} ></input>
@@ -135,7 +137,7 @@ function Profile({ logOut, editProfile, textServerError, setTextServerError }) {
                   </button>
                   :
                   <div className='profile__block-save'>
-                     {((textServerError !== '') && (email.isDirty || name.isDirty)) && <p className='profile__server-error errors__element'>{textServerError}</p>}
+                     {((textServerError !== '') && (email.isActive || name.isActive)) && <p className='profile__server-error errors__element'>{textServerError}</p>}
                      <button
                         type="button"
                         onClick={handleSave}

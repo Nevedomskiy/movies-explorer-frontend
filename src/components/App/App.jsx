@@ -55,7 +55,8 @@ function App() {
             setLoggedIn(true);
          })
          .catch((err) => {
-            setCurrentUser('');
+            setCurrentUser({});
+            setLoggedIn(false);
             // localStorage.clear();
             console.log(err);
          })
@@ -142,6 +143,7 @@ function App() {
             setCurrentUser(data);
          })
          .catch((err) => {
+            console.log(err)
             err.then(({ message }) => {
                setTextServerError(message)
             });

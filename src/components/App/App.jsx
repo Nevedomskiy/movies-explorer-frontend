@@ -229,7 +229,6 @@ function App() {
                            loggedIn={loggedIn}
                            element={Profile}
                            logOut={logOut}
-                           currentUser={currentUser}
                            editProfile={editProfile}
                            handleUserInfo={handleUserInfo}
                            textServerError={textServerError}

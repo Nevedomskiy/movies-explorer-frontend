@@ -5,16 +5,16 @@ import { useState, useContext, useEffect } from 'react';
 import useInput from '../../utils/Validation/Validation';
 
 
-function Profile({ logOut, editProfile, currentUser, handleUserInfo, textServerError }) {
+function Profile({ logOut, editProfile, handleUserInfo, textServerError }) {
 
    const userData = useContext(CurrentUserContext);
-   console.log(userData)
+   // console.log(userData)
    const [currentName, setCurrentName] = useState('');
    const [currentEmail, setCurrentEmail] = useState('');
    useEffect(() => {
-      setCurrentName(currentUser.name);
-      setCurrentEmail(currentUser.email);
-   }, [currentUser])
+      setCurrentName(userData.name);
+      setCurrentEmail(userData.email);
+   }, [userData])
 
    const email = useInput(currentEmail, {
       isEmpty: true,
@@ -26,6 +26,11 @@ function Profile({ logOut, editProfile, currentUser, handleUserInfo, textServerE
       maxLength: 30,
       isName: true,
    });
+
+   console.log(currentEmail)
+   console.log(email)
+   console.log(currentName)
+   console.log(name)
    const [activeInputs, setActiveInputs] = useState(false);
 
 

@@ -26,7 +26,7 @@ function App() {
    const [currentUser, setCurrentUser] = useState({});
    const [allMovies, setAllMovies] = useState([]);
    const [savedMovies, setSavedMovies] = useState([]);
-   const [loggedIn, setLoggedIn] = useState(true);
+   const [loggedIn, setLoggedIn] = useState(false);
    const [textSearchError, setTextSearchError] = useState('');
    const [textServerError, setTextServerError] = useState('');
 
@@ -55,10 +55,7 @@ function App() {
             setLoggedIn(true);
          })
          .catch((err) => {
-            setCurrentUser({
-               name: 'петя',
-               email: 'ghfg@g.t'
-            });
+            setCurrentUser('');
             // localStorage.clear();
             console.log(err);
          })

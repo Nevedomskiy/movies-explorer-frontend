@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import ButtonHome from '../ButtonHome/ButtonHome';
 import './FormSign.css';
 
-function FormSign({ title, inputList, setTextServerError, nameButtonSubmit, textAfterButton, handleSubmit, textLink, linkValue, modific, email, password, name, textServerError }) {
+function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, handleSubmit, textLink, linkValue, modific, email, password, name, textServerError }) {
 
    const handleValue = (type) => {
       if (type === 'password') {
@@ -25,13 +25,22 @@ function FormSign({ title, inputList, setTextServerError, nameButtonSubmit, text
       }
    }
 
+   console.log(textServerError);
+   console.log(textServerError !== '');
+   console.log(!email.isDirty);
+   console.log(textServerError !== '' && !email.isDirty);
+
    return (
 
       <form
          name={'form-sign'}
          className='form-sign'
          noValidate
-         onSubmit={handleSubmit}
+         onSubmit={(e) => {
+            handleSubmit(e);
+            email.onExit();
+            name.onExit();
+         }}
       >
          <ButtonHome modification={'form-sign__button-home'}></ButtonHome>
          <h1 className='form-sign__title'>{title}</h1>
@@ -78,7 +87,7 @@ function FormSign({ title, inputList, setTextServerError, nameButtonSubmit, text
             <div className='form-sign__whitespace'></div>
 
             <div className='form-sign__block-submit' >
-               {(textServerError !== '') && < p className={`form-sign__server-error errors__element`}>{textServerError}</p>}
+               {(textServerError !== '' && !email.isDirty) && < p className={`form-sign__server-error errors__element`}>{textServerError}</p>}
                < button
                   type="submit"
                   disabled={name ? (email.isValid || password.isValid || name.isValid) : (email.isValid || password.isValid)}

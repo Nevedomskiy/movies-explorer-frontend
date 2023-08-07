@@ -29,10 +29,10 @@ function Profile({ logOut, editProfile, textServerError }) {
       isName: true,
    });
 
-   console.log(textServerError);
-   console.log(textServerError !== '');
-   console.log(!email.isDirty);
-   console.log(!name.isDirty);
+   // console.log(textServerError);
+   // console.log(textServerError !== '');
+   // console.log(!email.isDirty);
+   // console.log(!name.isDirty);
    // console.log((textServerError !== '') && (!email.isDirty) && (!name.isDirty));
 
    const [activeInputs, setActiveInputs] = useState(false);
@@ -98,7 +98,6 @@ function Profile({ logOut, editProfile, textServerError }) {
                            name.onChange(e);
                         }}
                         value={name.value}
-                        onBlur={() => { name.onBlur() }}
                         name='name'
                         className={`profile__input profile__input_active ${!name.isValid ? 'profile__input_valid' : 'profile__input_no-valid'}`}></input>
                      :
@@ -118,7 +117,6 @@ function Profile({ logOut, editProfile, textServerError }) {
                      <input
                         type='email'
                         required
-                        onBlur={() => { email.onBlur() }}
                         onChange={e => email.onChange(e)}
                         value={email.value}
                         className={`profile__input profile__input_active ${!email.isValid ? 'profile__input_valid' : 'profile__input_no-valid'}`} ></input>
@@ -147,7 +145,7 @@ function Profile({ logOut, editProfile, textServerError }) {
                   </button>
                   :
                   <div className='profile__block-save'>
-                     {(textServerError !== '' && !email.isDirty && !name.isDirty) && <p className='profile__server-error errors__element'>{textServerError}</p>}
+                     {(textServerError !== '' && !email.isDirty) && <p className='profile__server-error errors__element'>{textServerError}</p>}
                      <button
                         type="button"
                         onClick={handleSave}

@@ -66,18 +66,14 @@ function useInput(initialValue, validations) {
 
    const [value, setValue] = useState(initialValue);
    const [isDirty, setIsDirty] = useState(false);
-   const [isActive, setIsActive] = useState(false);
    const valid = useValidation(value, validations)
 
    const onChange = (e) => {
       setValue(e.target.value);
       setIsDirty(true);
-      setIsActive(true);
    }
 
-   const onBlur = () => {
-      setIsActive(false);
-   }
+  
 
    const onExit = () => {
       setIsDirty(false);
@@ -87,9 +83,7 @@ function useInput(initialValue, validations) {
       value,
       onExit,
       onChange,
-      onBlur,
       isDirty,
-      isActive,
       ...valid
    }
 }

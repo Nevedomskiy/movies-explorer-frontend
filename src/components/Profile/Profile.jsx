@@ -14,8 +14,6 @@ function Profile({ logOut, editProfile, textServerError }) {
    useEffect(() => {
       if (textServerError === '') {
          setActiveInputs(false);
-         email.onExit();
-         name.onExit();
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [textServerError])
@@ -40,13 +38,15 @@ function Profile({ logOut, editProfile, textServerError }) {
    const [activeInputs, setActiveInputs] = useState(false);
 
 
-// git pull
-// npm run build
-// sudo systemctl reload nginx
+   // git pull
+   // npm run build
+   // sudo systemctl reload nginx
 
    function handleExit(e) {
       e.preventDefault();
       setActiveInputs(true)
+      email.onExit();
+      name.onExit();
    }
 
    function handleCancel(e) {

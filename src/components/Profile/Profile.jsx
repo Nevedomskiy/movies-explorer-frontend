@@ -60,6 +60,8 @@ function Profile({ logOut, editProfile, textServerError }) {
    function handleSave(e) {
       e.preventDefault();
       setActiveInputs(false);
+      console.log(name.value)
+      console.log(email.value)
       editProfile({
          name: name.value,
          email: email.value,

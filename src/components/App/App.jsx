@@ -34,6 +34,7 @@ function App() {
 
    useEffect(() => {
       handleUserInfo();
+      setTextServerError('');
    }, [location]);
 
    // console.log(currentUser)

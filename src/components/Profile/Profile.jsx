@@ -32,6 +32,7 @@ function Profile({ logOut, editProfile, textServerError }) {
    });
    // console.log(((textServerError !== '') && (!email.isActive || !name.isActive)));
    console.log(email.isActive);
+   console.log(email.isDirty);
 
    const [activeInputs, setActiveInputs] = useState(false);
 

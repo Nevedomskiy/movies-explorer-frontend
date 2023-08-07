@@ -141,14 +141,15 @@ function App() {
       console.log(data)
       mainApi.changeUserInfo(data)
          .then((res) => {
-            console.log(1)
+            // console.log(1)
             setCurrentUser(res);
          })
          .catch((err) => {
-            console.log(err)
-            // err.then(({ message }) => {
-            //    setTextServerError(message)
-            // });
+            // console.log(err)
+            err.then(({ message }) => {
+               setTextServerError(message);
+               handleUserInfo();
+            });
          });
    }
    // console.log(savedMovies)

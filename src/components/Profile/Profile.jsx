@@ -5,7 +5,7 @@ import { useState, useContext, useEffect } from 'react';
 import useInput from '../../utils/Validation/Validation';
 
 
-function Profile({ logOut, editProfile, handleUserInfo, textServerError }) {
+function Profile({ logOut, editProfile, textServerError, setCurrentUser }) {
 
    const userData = useContext(CurrentUserContext);
    // console.log(userData)
@@ -63,8 +63,16 @@ function Profile({ logOut, editProfile, handleUserInfo, textServerError }) {
       editProfile({
          name: name.value,
          email: email.value,
-      });
-      handleUserInfo();
+      }).then((res) => {
+         setCurrentUser(res);
+      })
+         .catch((err) => {
+            console.log(err)
+            // err.then(({ message }) => {
+            //    setTextServerError(message)
+            // });
+         });
+      // handleUserInfo();
       email.onExit();
       name.onExit();
    }

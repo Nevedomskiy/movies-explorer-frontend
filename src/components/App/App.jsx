@@ -139,15 +139,15 @@ function App() {
 
    const editProfile = (data) => {
       mainApi.changeUserInfo(data)
-         .then((res) => {
-            setCurrentUser(data);
-         })
-         .catch((err) => {
-            console.log(err)
-            // err.then(({ message }) => {
-            //    setTextServerError(message)
-            // });
-         });
+      // .then((res) => {
+      //    setCurrentUser(data);
+      // })
+      // .catch((err) => {
+      //    console.log(err)
+      //    // err.then(({ message }) => {
+      //    //    setTextServerError(message)
+      //    // });
+      // });
    }
    // console.log(savedMovies)
 
@@ -233,7 +233,8 @@ function App() {
                            element={Profile}
                            logOut={logOut}
                            editProfile={editProfile}
-                           handleUserInfo={handleUserInfo}
+                           setCurrentUser={setCurrentUser}
+                           // handleUserInfo={handleUserInfo}
                            textServerError={textServerError}
                         >
                         </ProtectedRouteElement>

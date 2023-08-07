@@ -138,7 +138,7 @@ function App() {
 
 
    const editProfile = (data) => {
-      console.log(data)
+      // console.log(data)
       mainApi.changeUserInfo(data)
          .then((res) => {
             // console.log(1)
@@ -146,9 +146,10 @@ function App() {
          })
          .catch((err) => {
             // console.log(err)
+            handleUserInfo();
             err.then(({ message }) => {
+               console.log(message)
                setTextServerError(message);
-               handleUserInfo();
             });
          });
    }

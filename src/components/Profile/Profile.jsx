@@ -40,9 +40,9 @@ function Profile({ logOut, editProfile, textServerError }) {
    const [activeInputs, setActiveInputs] = useState(false);
 
 
-git pull
-npm run build
-sudo systemctl reload nginx
+// git pull
+// npm run build
+// sudo systemctl reload nginx
 
    function handleExit(e) {
       e.preventDefault();

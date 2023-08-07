@@ -120,9 +120,8 @@
    display: grid;
    justify-content: center;
    margin-bottom: 80px;
-   gap: 10px;
+   gap: 16px;
    grid-template-columns: repeat(auto-fill, 300px);
-   /* grid-template-columns: 100% */
 }
 
 @media screen and (min-width: 767px) {
@@ -160,8 +159,8 @@
 
    .movies__list {
       grid-template-columns: repeat(auto-fill, 342px);
-      gap: 19px 24px;
-      margin-bottom: 64px;
+      gap: 35px 24px;
+      margin-bottom: 80px;
    }
 
    .movies__button-add-more-film {
@@ -172,8 +171,8 @@
 @media screen and (min-width: 1279px) {
    .movies__list {
       grid-template-columns: repeat(auto-fill, 360px);
-      gap: 16px 29px;
-      margin-bottom: 44px;
+      gap: 32px 29px;
+      margin-bottom: 60px;
    }
 
    .movies {

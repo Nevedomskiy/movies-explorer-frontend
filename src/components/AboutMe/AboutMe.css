@@ -28,7 +28,7 @@
 }
 
 .about-me__description {
-   margin: 0 0 31px;
+   margin: 0 0 47px;
    font-feature-settings: 'clig' off, 'liga' off;
    font-size: 11px;
    font-weight: 400;
@@ -72,7 +72,7 @@
    .about-me__description {
       font-size: 12px;
       line-height: 18px;
-      margin: 0 304px 78px 0;
+      margin: 0 304px 96px 0;
    }
 
    .about-me__subtitle {

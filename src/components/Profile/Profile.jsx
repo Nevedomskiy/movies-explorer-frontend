@@ -11,10 +11,8 @@ function Profile({ logOut, editProfile, textServerError }) {
    // console.log(userData)
    // const [currentName, setCurrentName] = useState('');
    // const [currentEmail, setCurrentEmail] = useState('');
-   // useEffect(() => {
-   //    setCurrentName(userData.name);
-   //    setCurrentEmail(userData.email);
-   // }, [userData])
+   useEffect(() => {
+   }, [textServerError])
 
    const email = useInput(userData.email, {
       isEmpty: true,

@@ -29,6 +29,7 @@ function App() {
    const [loggedIn, setLoggedIn] = useState(false);
    const [textSearchError, setTextSearchError] = useState('');
    const [textServerError, setTextServerError] = useState('');
+   const [activeInputs, setActiveInputs] = useState(false);
 
    // console.log(textServerError);
 
@@ -143,6 +144,7 @@ function App() {
       mainApi.changeUserInfo(data)
          .then((res) => {
             // console.log(1)
+            setActiveInputs(false);
             setCurrentUser(res);
          })
          .catch((err) => {
@@ -238,6 +240,8 @@ function App() {
                            element={Profile}
                            logOut={logOut}
                            editProfile={editProfile}
+                           activeInputs={activeInputs}
+                           setActiveInputs={setActiveInputs}
                            textServerError={textServerError}
                         >
                         </ProtectedRouteElement>

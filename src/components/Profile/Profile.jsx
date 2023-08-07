@@ -5,19 +5,13 @@ import { useState, useContext, useEffect } from 'react';
 import useInput from '../../utils/Validation/Validation';
 
 
-function Profile({ logOut, editProfile, textServerError }) {
+function Profile({ logOut, editProfile, textServerError, activeInputs, setActiveInputs }) {
 
    const userData = useContext(CurrentUserContext);
 
    // const [currentName, setCurrentName] = useState('');
    // const [currentEmail, setCurrentEmail] = useState('');
-   useEffect(() => {
-      if (textServerError === '') {
-         setActiveInputs(false);
-      }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [textServerError])
-
+   
    const email = useInput(userData.email, {
       isEmpty: true,
       isEmail: true,
@@ -34,8 +28,6 @@ function Profile({ logOut, editProfile, textServerError }) {
    // console.log(!email.isDirty);
    // console.log(!name.isDirty);
    // console.log((textServerError !== '') && (!email.isDirty) && (!name.isDirty));
-
-   const [activeInputs, setActiveInputs] = useState(false);
 
 
    // git pull

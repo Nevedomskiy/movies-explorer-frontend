@@ -5,7 +5,7 @@ import { useState, useContext, useEffect } from 'react';
 import useInput from '../../utils/Validation/Validation';
 
 
-function Profile({ logOut, editProfile, textServerError }) {
+function Profile({ logOut, editProfile, textServerError, setTextServerError }) {
 
    const userData = useContext(CurrentUserContext);
    console.log(textServerError)
@@ -88,7 +88,9 @@ function Profile({ logOut, editProfile, textServerError }) {
                      <input
                         type='text'
                         required
-                        onChange={e => name.onChange(e)}
+                        onChange={e => {
+                           name.onChange(e);
+                        }}
                         value={name.value}
                         name='name'
                         className={`profile__input profile__input_active ${!name.isValid ? 'profile__input_valid' : 'profile__input_no-valid'}`}></input>
@@ -137,7 +139,7 @@ function Profile({ logOut, editProfile, textServerError }) {
                   </button>
                   :
                   <div className='profile__block-save'>
-                     {(textServerError !== '') && <p className='profile__server-error errors__element'>{textServerError}</p>}
+                     {((textServerError !== '') && (email.isDirty || name.isDirty)) && <p className='profile__server-error errors__element'>{textServerError}</p>}
                      <button
                         type="button"
                         onClick={handleSave}

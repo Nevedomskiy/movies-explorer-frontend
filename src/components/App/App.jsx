@@ -241,6 +241,7 @@ function App() {
                            setCurrentUser={setCurrentUser}
                            // handleUserInfo={handleUserInfo}
                            textServerError={textServerError}
+                           setTextServerError={setTextServerError}
                         >
                         </ProtectedRouteElement>
                      }

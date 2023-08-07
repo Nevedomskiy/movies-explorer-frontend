@@ -30,13 +30,19 @@ function Profile({ logOut, editProfile, textServerError }) {
       maxLength: 30,
       isName: true,
    });
-   // console.log(((textServerError !== '') && (!email.isActive || !name.isActive)));
-   // console.log(email.isActive);
-   console.log((textServerError !== '') && (!email.isDirty) && (!name.isDirty));
+
+   console.log(textServerError);
+   console.log(textServerError !== '');
+   console.log(!email.isDirty);
+   console.log(!name.isDirty);
+   // console.log((textServerError !== '') && (!email.isDirty) && (!name.isDirty));
 
    const [activeInputs, setActiveInputs] = useState(false);
 
 
+git pull
+npm run build
+sudo systemctl reload nginx
 
    function handleExit(e) {
       e.preventDefault();

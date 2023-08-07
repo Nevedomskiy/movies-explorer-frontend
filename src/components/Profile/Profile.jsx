@@ -41,7 +41,7 @@ function Profile({ logOut, editProfile, textServerError }) {
 
    function handleCancel(e) {
       e.preventDefault();
-      // setActiveInputs(false)
+      setActiveInputs(false);
       email.onExit();
       name.onExit();
    }

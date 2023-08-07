@@ -83,6 +83,7 @@ class MainApi {
 
    //редактирование данных пользователя
    changeUserInfo(data) {
+      console.log(JSON.stringify(data))
       return fetch(`${this._url}/users/me`, {
          method: 'PATCH',
          ...this._config,

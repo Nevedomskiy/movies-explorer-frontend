@@ -41,7 +41,7 @@ function Profile({ logOut, editProfile, textServerError }) {
 
    function handleCancel(e) {
       e.preventDefault();
-      setActiveInputs(false)
+      // setActiveInputs(false)
       email.onExit();
       name.onExit();
    }
@@ -58,15 +58,15 @@ function Profile({ logOut, editProfile, textServerError }) {
 
    function handleSave(e) {
       e.preventDefault();
-      setActiveInputs(false);
-      // console.log(name.value)
-      // console.log(email.value)
       editProfile({
          name: name.value,
          email: email.value,
       });
-      email.onExit();
-      name.onExit();
+      if (textServerError !== '') {
+         setActiveInputs(false);
+         email.onExit();
+         name.onExit();
+      }
    }
 
 
@@ -136,8 +136,7 @@ function Profile({ logOut, editProfile, textServerError }) {
                   </button>
                   :
                   <div className='profile__block-save'>
-                     {(textServerError !== '') && < p className={`form-sign__server-error errors__element`}>{textServerError}</p>}
-                     {/* {(textServerError !== '') && <p className='profile__server-error errors__element'>{textServerError}</p>} */}
+                     {(textServerError !== '') && <p className='profile__server-error errors__element'>{textServerError}</p>}
                      <button
                         type="button"
                         onClick={handleSave}

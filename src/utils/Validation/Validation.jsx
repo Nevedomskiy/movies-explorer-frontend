@@ -10,7 +10,7 @@ function useValidation(value, validations) {
    const [isValid, setIsValid] = useState(false);
 
    useEffect(() => {
-      if (value) {
+      if (value !== undefined) {
          for (const validation in validations) {
             switch (validation) {
                case 'minLength':

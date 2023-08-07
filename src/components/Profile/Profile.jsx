@@ -9,49 +9,23 @@ function Profile({ logOut, editProfile, handleUserInfo, textServerError }) {
 
    const userData = useContext(CurrentUserContext);
    // console.log(userData)
-   const [name, setName] = useState('');
-   const [email, setEmail] = useState('');
-   // let name;
-   // let email;
    const [currentName, setCurrentName] = useState('');
    const [currentEmail, setCurrentEmail] = useState('');
    useEffect(() => {
-      if ((userData.name !== '') && (userData.email !== '')) {
-         updateValues()
-      }
       setCurrentName(userData.name);
       setCurrentEmail(userData.email);
-
-      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [userData])
 
-   function updateValues() {
-
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      setEmail(useInput(currentEmail, {
-         isEmpty: true,
-         isEmail: true,
-      }));
-
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      setName(useInput(currentName, {
-         isEmpty: true,
-         minLength: 2,
-         maxLength: 30,
-         isName: true,
-      }));
-   }
-
-   // let email = useInput(currentEmail, {
-   //    isEmpty: true,
-   //    isEmail: true,
-   // });
-   // let name = useInput(currentName, {
-   //    isEmpty: true,
-   //    minLength: 2,
-   //    maxLength: 30,
-   //    isName: true,
-   // });
+   const email = useInput(userData.email, {
+      isEmpty: true,
+      isEmail: true,
+   });
+   const name = useInput(userData.name, {
+      isEmpty: true,
+      minLength: 2,
+      maxLength: 30,
+      isName: true,
+   });
 
    console.log(currentEmail)
    console.log(email)

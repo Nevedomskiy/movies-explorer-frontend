@@ -55,6 +55,10 @@ function App() {
             setLoggedIn(true);
          })
          .catch((err) => {
+            setCurrentUser({
+               name: 'петя',
+               email: 'ghfg@g.t'
+            });
             // localStorage.clear();
             console.log(err);
          })

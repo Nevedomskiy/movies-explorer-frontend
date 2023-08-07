@@ -30,7 +30,7 @@ function App() {
    const [textSearchError, setTextSearchError] = useState('');
    const [textServerError, setTextServerError] = useState('');
 
-   console.log(textServerError);
+   // console.log(textServerError);
 
    useEffect(() => {
       handleUserInfo();

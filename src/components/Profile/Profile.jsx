@@ -62,7 +62,7 @@ function Profile({ logOut, editProfile, textServerError }) {
          name: name.value,
          email: email.value,
       });
-      if (textServerError !== '') {
+      if (textServerError === '') {
          setActiveInputs(false);
          email.onExit();
          name.onExit();

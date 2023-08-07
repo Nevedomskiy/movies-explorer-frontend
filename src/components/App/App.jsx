@@ -30,7 +30,7 @@ function App() {
    const [textSearchError, setTextSearchError] = useState('');
    const [textServerError, setTextServerError] = useState('');
 
-   console.log(textServerError);
+   // console.log(textServerError);
 
    useEffect(() => {
       handleUserInfo();
@@ -40,10 +40,10 @@ function App() {
 
    useEffect(() => {
       setIsLoading(true);
+      setTextServerError('');
       if (loggedIn) {
          heandleAllMovies();
          checkSavedMovies();
-         setTextServerError('');
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [loggedIn, location]);

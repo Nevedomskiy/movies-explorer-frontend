@@ -10,30 +10,32 @@ function useValidation(value, validations) {
    const [isValid, setIsValid] = useState(false);
 
    useEffect(() => {
-      for (const validation in validations) {
-         switch (validation) {
-            case 'minLength':
-               value.length < validations[validation] ? setMinLengthError(true) : setMinLengthError(false)
-               break;
-            case 'isEmpty':
-               value ? setIsEmpty(false) : setIsEmpty(true)
-               break;
-            case 'maxLength':
-               value.length > validations[validation] ? setMaxLengthError(true) : setMaxLengthError(false)
-               break;
-            case 'isEmail':
-               const reEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
-               reEmail.test(String(value).toLowerCase()) ? setIsEmail(false) : setIsEmail(true)
-               break;
-            case 'isName':
-               // eslint-disable-next-line no-useless-escape
-               const reName = /^[\u0400-\u04FFa-zA-Z\s\-]+$/;
-               reName.test(String(value).toLowerCase()) ? setIsName(false) : setIsName(true)
-               break;
-            // no default
+      if (value) {
+         for (const validation in validations) {
+            switch (validation) {
+               case 'minLength':
+                  value.length < validations[validation] ? setMinLengthError(true) : setMinLengthError(false)
+                  break;
+               case 'isEmpty':
+                  value ? setIsEmpty(false) : setIsEmpty(true)
+                  break;
+               case 'maxLength':
+                  value.length > validations[validation] ? setMaxLengthError(true) : setMaxLengthError(false)
+                  break;
+               case 'isEmail':
+                  const reEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+                  reEmail.test(String(value).toLowerCase()) ? setIsEmail(false) : setIsEmail(true)
+                  break;
+               case 'isName':
+                  // eslint-disable-next-line no-useless-escape
+                  const reName = /^[\u0400-\u04FFa-zA-Z\s\-]+$/;
+                  reName.test(String(value).toLowerCase()) ? setIsName(false) : setIsName(true)
+                  break;
+               // no default
+            }
          }
       }
-   // eslint-disable-next-line react-hooks/exhaustive-deps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [value])
 
    useEffect(() => {

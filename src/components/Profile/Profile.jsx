@@ -9,12 +9,12 @@ function Profile({ logOut, editProfile, handleUserInfo, textServerError }) {
 
    const userData = useContext(CurrentUserContext);
    // console.log(userData)
-   const [currentName, setCurrentName] = useState('');
-   const [currentEmail, setCurrentEmail] = useState('');
-   useEffect(() => {
-      setCurrentName(userData.name);
-      setCurrentEmail(userData.email);
-   }, [userData])
+   // const [currentName, setCurrentName] = useState('');
+   // const [currentEmail, setCurrentEmail] = useState('');
+   // useEffect(() => {
+   //    setCurrentName(userData.name);
+   //    setCurrentEmail(userData.email);
+   // }, [userData])
 
    const email = useInput(userData.email, {
       isEmpty: true,
@@ -27,10 +27,10 @@ function Profile({ logOut, editProfile, handleUserInfo, textServerError }) {
       isName: true,
    });
 
-   console.log(currentEmail)
-   console.log(email)
-   console.log(currentName)
-   console.log(name)
+   // console.log(currentEmail)
+   // console.log(email)
+   // console.log(currentName)
+   // console.log(name)
    const [activeInputs, setActiveInputs] = useState(false);
 
 
@@ -95,7 +95,7 @@ function Profile({ logOut, editProfile, handleUserInfo, textServerError }) {
                      <p className='profile__text'>{name.value}</p>
                   }
                   <div className='profile__errors errors'>
-                     {(name.isDirty && (currentName === name.value)) && <div className='errors__element' >Имя соответствует ранее сохраненному значению</div>}
+                     {(name.isDirty && (userData.name === name.value)) && <div className='errors__element' >Имя соответствует ранее сохраненному значению</div>}
                      {(name.isDirty && name.isEmpty) && <div className='errors__element' >Поле не может быть пустым</div>}
                      {(name.isDirty && name.isName) && <div className='errors__element' >Используйте, пожалуйста, латиницу, кириллицу, пробел или дефис</div>}
                      {(name.isDirty && (name.minLengthError || name.maxLengthError)) && <div className='errors__element'>Некорректная длина</div>}
@@ -117,7 +117,7 @@ function Profile({ logOut, editProfile, handleUserInfo, textServerError }) {
                   <div className='profile__errors errors'>
                      {(email.isDirty && email.isEmpty) && <div className='errors__element' >Поле не может быть пустым</div>}
                      {(email.isDirty && email.isEmail) && <div className='errors__element' >Это не почта</div>}
-                     {(email.isDirty && (currentEmail === email.value)) && <div className='errors__element' >Почта соответствует ранее сохраненному значению</div>}
+                     {(email.isDirty && (userData.email === email.value)) && <div className='errors__element' >Почта соответствует ранее сохраненному значению</div>}
                   </div>
 
                </li>
@@ -126,7 +126,7 @@ function Profile({ logOut, editProfile, handleUserInfo, textServerError }) {
             <div className='profile__whitespace'></div>
             {activeInputs
                ?
-               (((currentName === name.value) && (currentEmail === email.value)) ?
+               (((userData.name === name.value) && (userData.email === email.value)) ?
                   <button
                      type="button"
                      onClick={handleCancel}

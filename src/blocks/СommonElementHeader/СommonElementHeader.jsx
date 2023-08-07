@@ -1,5 +1,3 @@
-import './СommonElementHeader.css';
-
 import ButtonHome from '../../blocks/ButtonHome/ButtonHome';
 import NavTab from '../../components/NavTab/NavTab';
 

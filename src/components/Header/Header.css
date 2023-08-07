@@ -29,7 +29,6 @@
    transition: all 0.3s ease;
 }
 
-
 .header__link:hover {
    transform: translate(2px, 2px);
 }
@@ -82,6 +81,4 @@
    .header__container {
       padding: 18px 70px;
    }
-
-
 }

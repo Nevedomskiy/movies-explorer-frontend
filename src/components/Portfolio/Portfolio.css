@@ -44,7 +44,6 @@
    box-sizing: content-box;
 }
 
-
 @media screen and (min-width: 767px) {
    .portfolio__title {
       margin: 81px 0 39px;
@@ -66,11 +65,9 @@
       min-height: 50px;
       top: 2px;
    }
-
 }
 
 @media screen and (min-width: 1279px) {
-
    .portfolio__container {
       margin: 0 70px;
    }

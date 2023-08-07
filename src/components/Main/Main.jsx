@@ -6,7 +6,6 @@ import Portfolio from '../Portfolio/Portfolio';
 
 function Main() {
 
-
    return (
       <main >
          <Promo />

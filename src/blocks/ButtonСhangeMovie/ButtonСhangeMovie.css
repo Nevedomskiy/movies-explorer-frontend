@@ -34,7 +34,6 @@
    background: url('../../images/checkmark-svgrepo-com.svg') center / 10px 10px no-repeat;
 }
 
-
 @media screen and (min-width: 767px) {
    .change-movie__button {
       margin: 0 auto 4px;

@@ -79,6 +79,7 @@
    border-radius: 8px;
    background: #F9F9F9;
    border: none;
+   border-bottom: 2px solid #FFF;
    font-size: 13px;
    padding: 15px;
    font-weight: 500;
@@ -87,6 +88,7 @@
 
 .form-sign__input:focus {
    outline: none;
+   border-bottom: 2px solid;
 }
 
 .form-sign__errors {

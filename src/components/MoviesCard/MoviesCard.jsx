@@ -15,20 +15,15 @@ function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
       if (location.pathname === '/movies') {
          checkMovieIsSaved();
       }
-   // eslint-disable-next-line react-hooks/exhaustive-deps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [moviesSavedList, savedMovieId])
 
    useEffect(() => {
       if (moviesSavedList) {
-         // console.log(123)
          handleMovieId();
       }
-   // eslint-disable-next-line react-hooks/exhaustive-deps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [moviesSavedList])
-
-   // console.log(movie._id)
-   // console.log(savedMovieId)
-   // console.log((moviesSavedList.find((element) => element.movieId === movie.id)));
 
    function handleMovieId() {
       const check = moviesSavedList.find((element) => element.movieId === movie.id);
@@ -38,7 +33,6 @@ function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
       } else {
          setSavedMovieId(movie._id);
       }
-
    }
 
    function handleSaveMovie() {
@@ -63,15 +57,9 @@ function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
       } else {
          setMovieTime(`${hour} час ${minute} минут`);
       }
-
    }
 
-   // console.log(movieTime);
-
-
    const checkMovieIsSaved = () => {
-      // const check = moviesSavedList.find((element) => element.movieId === movie.id);
-      // console.log(check)
       if (savedMovieId !== ('' || undefined)) {
          setMovieIsSaved(true);
          return
@@ -90,10 +78,12 @@ function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
 
    return (
       <li className='movies-card' key={movie._id}>
+
          <div className='movies-card__description'>
             <p className='movies-card__name'>{movie.nameRU}</p>
             <p className='movies-card__time'>{movieTime}</p>
          </div>
+
          <a
             href={movie.trailerLink}
             target='_blank'

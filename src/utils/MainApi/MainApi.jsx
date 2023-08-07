@@ -60,13 +60,10 @@ class MainApi {
       return fetch(`${BASE_URL}/signout`, {
          method: 'POST',
          ...this._config,
-         // headers: {
-         //    'Content-Type': 'application/json',
-         // },
+
       })
-         .then((res) => {
+         .then(() => {
             localStorage.clear();
-            // return this._getResponseData(res);
          })
    };
 
@@ -128,7 +125,6 @@ class MainApi {
             return this._getResponseData(res);
          })
    }
-
 }
 
 //api данных карточек

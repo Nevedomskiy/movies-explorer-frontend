@@ -8,6 +8,7 @@ function Portfolio() {
       <section className='container portfolio__container' aria-label='Портфолио'>
          <h2 className='portfolio__title'>Портфолио</h2>
          <ul className='list portfolio__list'>
+
             <li className='portfolio__element'>
                <HoverLink
                   link={'https://github.com/Nevedomskiy/how-to-learn'}
@@ -21,6 +22,7 @@ function Portfolio() {
                   />
                </HoverLink>
             </li>
+
             <li className='portfolio__element'>
                <HoverLink
                   link={'https://github.com/Nevedomskiy/Travel-to-Russia'}
@@ -34,6 +36,7 @@ function Portfolio() {
                   />
                </HoverLink>
             </li>
+
             <li className='portfolio__element '>
                <HoverLink
                   link={'https://github.com/Nevedomskiy/react-mesto-auth'}
@@ -46,7 +49,6 @@ function Portfolio() {
                      alt='Стрелка'
                   />
                </HoverLink>
-
             </li>
 
          </ul>

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-
 function useValidation(value, validations) {
    const [isEmpty, setIsEmpty] = useState(true);
    const [minLengthError, setMinLengthError] = useState(false);
@@ -39,7 +38,6 @@ function useValidation(value, validations) {
    }, [value])
 
    useEffect(() => {
-      // console.log(isEmpty || minLengthError || maxLengthError || isEmail)
       if (isEmpty || minLengthError || maxLengthError || isEmail || isName) {
          setIsValid(true)
       } else {
@@ -59,7 +57,6 @@ function useValidation(value, validations) {
       isName,
       isValid
    }
-
 }
 
 function useInput(initialValue, validations) {
@@ -72,8 +69,6 @@ function useInput(initialValue, validations) {
       setValue(e.target.value);
       setIsDirty(true);
    }
-
-  
 
    const onExit = () => {
       setIsDirty(false);

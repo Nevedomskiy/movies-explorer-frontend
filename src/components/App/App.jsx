@@ -1,6 +1,5 @@
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import './App.css';
 
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { useResize } from '../../utils/UseResize/UseResize';
@@ -30,19 +29,15 @@ function App() {
    const [textSearchError, setTextSearchError] = useState('');
    const [textServerError, setTextServerError] = useState('');
    const [activeInputs, setActiveInputs] = useState(false);
-
-   // console.log(textServerError);
+   const [succesReq, setSuccesReq] = useState(false);
 
    useEffect(() => {
       handleUserInfo();
       setTextServerError('');
    }, [location]);
 
-   // console.log(currentUser)
-
    useEffect(() => {
       setIsLoading(true);
-      // setTextServerError('');
       if (loggedIn) {
          heandleAllMovies();
          checkSavedMovies();
@@ -59,18 +54,17 @@ function App() {
          .catch((err) => {
             setCurrentUser({});
             setLoggedIn(false);
-            // localStorage.clear();
+            localStorage.clear();
             console.log(err);
          })
    }
 
-   // const handleLogin = () => {
-   //    if (loggedIn) {
-   //       setLoggedIn(false);
-   //    } else {
-   //       setLoggedIn(true);
-   //    }
-   // }
+   function showSuccesReq() {
+      setSuccesReq(true);
+      setTimeout(() => {
+         setSuccesReq(false);
+      }, 5000);
+   }
 
    const checkSavedMovies = () => {
       mainApi.getSavedMovies()
@@ -86,8 +80,6 @@ function App() {
             }
          });
    }
-
-   // console.log(loggedIn);
 
    const logOut = () => {
       mainApi.signOut()
@@ -107,7 +99,6 @@ function App() {
          .then((res) => {
             setLoggedIn(true);
             navigate('/movies', { replace: true });
-            // setTextServerError('');
          })
          .catch((err) => {
             err.then(({ message }) => {
@@ -119,44 +110,29 @@ function App() {
    const register = (email, password, name) => {
       mainApi.register(email, password, name)
          .then(() => {
-            // setFormValue({
-            //    email: '',
-            //    password: '',
-            //    name: '',
-            // });
             logIn(email, password);
-
          })
          .catch((err) => {
-            // console.log(typeof (email));
             err.then(({ message }) => {
-               // console.log(error);
                setTextServerError(message)
             });
          });
    }
 
-
-
-
    const editProfile = (data) => {
-      // console.log(data)
       mainApi.changeUserInfo(data)
          .then((res) => {
-            // console.log(1)
             setActiveInputs(false);
             setCurrentUser(res);
+            showSuccesReq();
          })
          .catch((err) => {
-            // console.log(err)
             handleUserInfo();
             err.then(({ message }) => {
-               // console.log(message)
                setTextServerError(message);
             });
          });
    }
-   // console.log(savedMovies)
 
    const heandleAllMovies = () => {
       setIsLoading(true);
@@ -179,8 +155,6 @@ function App() {
    return (
       <CurrentUserContext.Provider value={currentUser}>
 
-
-
          <div className='bodywork' >
             <div className='page' >
                <Header loggedIn={loggedIn} />
@@ -198,7 +172,6 @@ function App() {
                            moviesSavedList={savedMovies}
                            isValid={isValidSearch}
                            setIsValid={setIsValidSearch}
-                           // requestMovies={requestMovies}
                            isLoading={isLoading}
                            width={width}
                            location={location}
@@ -241,6 +214,7 @@ function App() {
                            logOut={logOut}
                            editProfile={editProfile}
                            activeInputs={activeInputs}
+                           succesReq={succesReq}
                            setActiveInputs={setActiveInputs}
                            textServerError={textServerError}
                         >
@@ -250,13 +224,11 @@ function App() {
                   <Route path="*" element={<NotFound />} />
                </Routes>
 
-
                <Routes >
                   <Route path='/movies' element={<Footer />} />
                   <Route path='/saved-movies' element={<Footer />} />
                   <Route path='/' element={<Footer />} />
                </Routes>
-
 
             </div >
          </div >

@@ -103,7 +103,6 @@
    .nav__button-profile::after {
       background: url('../../images/icon-acc.svg') 7px 6px / 12px no-repeat #F9F9F9;
    }
-
 }
 
 @media screen and (min-width: 769px) {
@@ -115,7 +114,6 @@
       height: auto;
       width: auto;
    }
-
 
    .nav__container {
       width: auto;

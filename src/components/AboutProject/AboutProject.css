@@ -41,7 +41,7 @@
 
 .chart__element_name {
    color: #A0A0A0;
-   font-family: "Suisse";
+   font-family: "Suisse", Arial, Helvetica, sans-serif;
    font-size: 11px;
    font-style: normal;
    line-height: normal;
@@ -83,7 +83,6 @@
    .chart__element_data {
       font-size: 14px;
    }
-
 }
 
 @media screen and (min-width: 1279px) {
@@ -102,6 +101,10 @@
       line-height: 20px;
    }
 
+   .chart__element_name {
+      font-family: Inter, Arial, Helvetica, sans-serif;
+   }
+
    .about-project__chart {
       grid-template-columns: 20% 80%;
    }
@@ -109,6 +112,4 @@
    .about-project__container {
       padding-bottom: 78px;
    }
-
-
 }

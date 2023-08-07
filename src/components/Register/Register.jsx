@@ -22,21 +22,6 @@ function Register({ register, setTextServerError, textServerError }) {
       isName: true,
    });
 
-   // const [formValue, setFormValue] = useState({
-   //    email: '',
-   //    password: '',
-   //    name: ''
-   // });
-
-   // const handleChange = (e) => {
-   //    const { name, value } = e.target;
-
-   //    setFormValue({
-   //       ...formValue,
-   //       [name]: value
-   //    });
-   // }
-
    const handleSubmit = (e) => {
       e.preventDefault();
       register(email.value, password.value, name.value);
@@ -45,9 +30,7 @@ function Register({ register, setTextServerError, textServerError }) {
 
    return (
       <div className='register'>
-         {/* <Routes>
-            <Route path='/'
-               element={ */}
+
          <FormSign
             inputList={inputListRegister}
             title={'Добро пожаловать!'}
@@ -56,7 +39,6 @@ function Register({ register, setTextServerError, textServerError }) {
             textLink={'Войти'}
             linkValue={'sign-in'}
             modific={'register_mod-container'}
-            // handleChange={handleChange}
             handleSubmit={handleSubmit}
             setTextServerError={setTextServerError}
             email={email}
@@ -65,10 +47,6 @@ function Register({ register, setTextServerError, textServerError }) {
             textServerError={textServerError}
          >
          </FormSign>
-         {/* }>
-            </Route >
-
-         </Routes > */}
 
       </div >
    );

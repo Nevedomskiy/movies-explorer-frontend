@@ -21,7 +21,6 @@ function AboutMe() {
             modificBlock={'about-me__link-git'}
             modificText={'about-me__text'}
             text={'Github'}>
-
          </HoverLink>
       </section>
    );

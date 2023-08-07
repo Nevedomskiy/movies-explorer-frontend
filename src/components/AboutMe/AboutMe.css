@@ -92,7 +92,6 @@
    .about-me__link-git {
       margin: 0 auto 2px 0;
    }
-
 }
 
 @media screen and (min-width: 1279px) {
@@ -130,5 +129,4 @@
       right: 0;
       top: 117px;
    }
-
 }

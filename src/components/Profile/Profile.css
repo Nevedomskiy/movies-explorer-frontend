@@ -22,13 +22,14 @@
    justify-content: stretch;
 }
 
-.profile__server-error {
+.profile__server-info {
    font-size: 12px;
    font-weight: 400;
    line-height: normal;
    text-align: center;
+   color: #2be080;
+   border-top: 2px solid #2be080;
 }
-
 
 .profile__title {
    margin: 0 0 69px;
@@ -133,7 +134,7 @@
       font-size: 13px;
    }
 
-   .profile__server-error {
+   .profile__server-info {
       font-size: 13px;
    }
 }
@@ -150,6 +151,4 @@
    .profile__btn {
       margin-left: 0px;
    }
-
-
 }

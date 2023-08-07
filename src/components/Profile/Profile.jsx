@@ -1,17 +1,14 @@
 // import { Link } from 'react-router-dom';
 import './Profile.css';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import { useState, useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import useInput from '../../utils/Validation/Validation';
 
 
-function Profile({ logOut, editProfile, textServerError, activeInputs, setActiveInputs }) {
+function Profile({ logOut, editProfile, textServerError, activeInputs, setActiveInputs, succesReq }) {
 
    const userData = useContext(CurrentUserContext);
 
-   // const [currentName, setCurrentName] = useState('');
-   // const [currentEmail, setCurrentEmail] = useState('');
-   
    const email = useInput(userData.email, {
       isEmpty: true,
       isEmail: true,
@@ -22,17 +19,6 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
       maxLength: 30,
       isName: true,
    });
-
-   // console.log(textServerError);
-   // console.log(textServerError !== '');
-   // console.log(!email.isDirty);
-   // console.log(!name.isDirty);
-   // console.log((textServerError !== '') && (!email.isDirty) && (!name.isDirty));
-
-
-   // git pull
-   // npm run build
-   // sudo systemctl reload nginx
 
    function handleExit(e) {
       e.preventDefault();
@@ -48,16 +34,6 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
       name.onExit();
    }
 
-   // function handleChangeName(e) {
-   //    e.preventDefault();
-   //    setUserName(e.target.value)
-   // }
-
-   // function handleChangeEmail(e) {
-   //    e.preventDefault();
-   //    setUserEmail(e.target.value)
-   // }
-
    function handleSave(e) {
       e.preventDefault();
       editProfile({
@@ -68,8 +44,6 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
       name.onExit();
    }
 
-
-   // console.log((currentName === name.value) && (currentEmail === email.value));
    return (
       <section className='profile'>
          <h1 className='profile__title'>Привет, {name.value}!</h1>
@@ -137,6 +111,7 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                   </button>
                   :
                   <div className='profile__block-save'>
+                     {succesReq && <p className='profile__server-info'>Данные изменены</p>}
                      {(textServerError !== '' && !email.isDirty) && <p className='profile__server-error errors__element'>{textServerError}</p>}
                      <button
                         type="button"

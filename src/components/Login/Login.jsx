@@ -15,23 +15,8 @@ function Login({ logIn, textServerError, setTextServerError }) {
       minLength: 8,
    });
 
-   // const [formValue, setFormValue] = useState({
-   //    email: '',
-   //    password: '',
-   // })
-
-   // const handleChange = (e) => {
-   //    const { name, value } = e.target;
-
-   //    setFormValue({
-   //       ...formValue,
-   //       [name]: value
-   //    });
-   // }
-
    const handleSubmit = (e) => {
       e.preventDefault();
-      // console.log(email.value, password.value);
       if (!email.value || !password.value) {
          return;
       }
@@ -40,9 +25,7 @@ function Login({ logIn, textServerError, setTextServerError }) {
 
    return (
       <div className='login'>
-         {/* <Routes>
-            <Route path='/'
-               element={ */}
+
          <FormSign
             inputList={inputListLogin}
             title={'Рады видеть!'}
@@ -54,14 +37,9 @@ function Login({ logIn, textServerError, setTextServerError }) {
             password={password}
             textServerError={textServerError}
             setTextServerError={setTextServerError}
-            // handleChange={handleChange}
             handleSubmit={handleSubmit}
          >
          </FormSign>
-         {/* }>
-            </Route >
-
-         </Routes > */}
 
       </div >
    );

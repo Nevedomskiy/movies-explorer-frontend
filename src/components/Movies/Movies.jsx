@@ -10,7 +10,6 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
    const [quantityMovies, setQuantityMovies] = useState(null);
    const [newMovies, setNewMovies] = useState(null);
    const [isShortMovie, setIsShortMovie] = useState(false);
-   // console.log(moviesList)
 
    useEffect(() => {
       if ((localStorage.getItem('inputSearchMovies') !== null) && (location.pathname === '/movies')) {
@@ -25,10 +24,8 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
          setSearchValue('');
          return
       }
-   // eslint-disable-next-line react-hooks/exhaustive-deps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [location])
-
-   // console.log(searchValue)
 
    useEffect(() => {
       if (searchValue !== null) {
@@ -38,26 +35,23 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
             localStorage.setItem('inputSearchSaved', searchValue);
          }
       }
-   // eslint-disable-next-line react-hooks/exhaustive-deps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [searchValue])
-   // console.log(searchValue)
-   // console.log(localStorage.getItem('inputSearch'));
 
    useEffect(() => {
       requestVerification();
-   // eslint-disable-next-line react-hooks/exhaustive-deps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [currentMoviesList])
 
    useEffect(() => {
       setCurrentMoviesList(moviesList);
       updateQuantityMovies(moviesList);
-   // eslint-disable-next-line react-hooks/exhaustive-deps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [moviesList, isShortMovie])
 
    function isSmoll(value) {
       return 40 >= value;
    }
-   // console.log(currentMoviesList)
 
    function updateQuantityMovies() {
       if (!searchValue) {
@@ -81,13 +75,13 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
 
    useEffect(() => {
       updateQuantityMovies();
-   // eslint-disable-next-line react-hooks/exhaustive-deps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [quantityMovies])
 
    useEffect(() => {
       handleQuantityMovies();
       updateQuantityMovies();
-   // eslint-disable-next-line react-hooks/exhaustive-deps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [width])
 
    function handleChangeSearch(e) {
@@ -103,10 +97,8 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
       } else if ((480 < width) && (width < 1280)) {
          setQuantityMovies(8);
          setNewMovies(2);
-         // console.log(1)
          return;
       } else {
-         // console.log(2)
          setQuantityMovies(5);
          setNewMovies(2);
          return;
@@ -122,7 +114,6 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
       }
       updateQuantityMovies();
    }
-   // console.log((768 < width) && (width < 1280))
 
    function requestVerification() {
       if (currentMoviesList.length === 0) {
@@ -136,7 +127,6 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
 
    function handleAddMoreMovies() {
       setQuantityMovies((a) => a + newMovies);
-      // updateQuantityMovies(list);
    }
 
    function handleSubmitSearch(e) {
@@ -148,15 +138,14 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
          setIsLoading(false);
       } else {
          setCurrentMoviesList(moviesList.filter((el) => el.nameRU.toLowerCase().includes(searchValue.toLowerCase())).slice(0, quantityMovies));
-         // updateQuantityMovies(currentMoviesList);
          setIsValid(false);
          setIsLoading(false);
-         // console.log(currentMoviesList)
       }
    }
 
    return (
       <section className={`movies ${location.pathname === '/movies' ? ' movies_edit-margin' : ''}`}>
+
          <form
             name={'movies-search'}
             className="movies__form"
@@ -206,10 +195,12 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
                   ) :
                   (
                      <div className="movies__content">
+
                         <ul className='list movies__list'>
                            {currentMoviesList.map((element) =>
                               <MoviesCard movie={element} key={element.id || element._id} location={location} checkSavedMovies={checkSavedMovies} moviesSavedList={moviesSavedList} />)}
                         </ul >
+
                         {((location.pathname === '/movies') && (currentMoviesList.length >= quantityMovies)) ? (<button type="button" className='button movies__button-add-more-film' onClick={() => { handleAddMoreMovies() }} > Ещё</button>) : ''}
 
                      </div>
@@ -217,10 +208,7 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
             )
          }
 
-
-
       </section >
-
 
    );
 }

@@ -15,11 +15,11 @@ function Profile({ logOut, editProfile, handleUserInfo, textServerError }) {
       setCurrentEmail(userData.email);
    }, [userData])
 
-   const email = useInput(userData.email, {
+   const email = useInput(currentName, {
       isEmpty: true,
       isEmail: true,
    });
-   const name = useInput(userData.name, {
+   const name = useInput(currentEmail, {
       isEmpty: true,
       minLength: 2,
       maxLength: 30,

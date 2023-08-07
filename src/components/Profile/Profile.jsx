@@ -12,8 +12,14 @@ function Profile({ logOut, editProfile, textServerError }) {
    console.log(textServerError !== '');
    // const [currentName, setCurrentName] = useState('');
    // const [currentEmail, setCurrentEmail] = useState('');
-   // useEffect(() => {
-   // }, [textServerError])
+   useEffect(() => {
+      if (textServerError === '') {
+         setActiveInputs(false);
+         email.onExit();
+         name.onExit();
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [textServerError])
 
    const email = useInput(userData.email, {
       isEmpty: true,
@@ -62,11 +68,6 @@ function Profile({ logOut, editProfile, textServerError }) {
          name: name.value,
          email: email.value,
       });
-      if (textServerError === '') {
-         setActiveInputs(false);
-         email.onExit();
-         name.onExit();
-      }
    }
 
 

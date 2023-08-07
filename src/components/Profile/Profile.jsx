@@ -129,8 +129,8 @@ function Profile({ logOut, editProfile, handleUserInfo, textServerError }) {
                      Отменить
                   </button>
                   :
-                  <div>
-                     <p className={`form-sign__server-error ${textServerError !== '' ? 'errors__element' : ''}`}>{textServerError}</p>
+                  <div className='profile__block-save'>
+                     <p className={`profile__server-error ${textServerError !== '' ? 'errors__element' : ''}`}>{textServerError}</p>
                      <button
                         type="button"
                         onClick={handleSave}

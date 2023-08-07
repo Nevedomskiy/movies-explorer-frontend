@@ -16,6 +16,19 @@
    background-color: #888888;
 }
 
+.profile__block-save {
+   display: flex;
+   flex-direction: column;
+   justify-content: stretch;
+}
+
+.profile__server-error {
+   font-size: 12px;
+   font-weight: 400;
+   line-height: normal;
+   text-align: center;
+}
+
 
 .profile__title {
    margin: 0 0 69px;
@@ -96,7 +109,6 @@
 }
 
 .profile__btn {
-   display: block;
    text-align: center;
    font-size: 12px;
    font-weight: 400;
@@ -118,6 +130,10 @@
    }
 
    .profile__btn {
+      font-size: 13px;
+   }
+
+   .profile__server-error {
       font-size: 13px;
    }
 }

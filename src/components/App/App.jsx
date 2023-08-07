@@ -149,7 +149,7 @@ function App() {
             // console.log(err)
             handleUserInfo();
             err.then(({ message }) => {
-               console.log(message)
+               // console.log(message)
                setTextServerError(message);
             });
          });

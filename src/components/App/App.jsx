@@ -234,6 +234,7 @@ function App() {
                      path="/profile"
                      element={
                         <ProtectedRouteElement
+                           loggedIn={loggedIn}
                            element={Profile}
                            logOut={logOut}
                            editProfile={editProfile}

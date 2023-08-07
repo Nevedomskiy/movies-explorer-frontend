@@ -72,6 +72,8 @@ function Profile({ logOut, editProfile, textServerError }) {
          name: name.value,
          email: email.value,
       });
+      email.onExit();
+      name.onExit();
    }
 
 

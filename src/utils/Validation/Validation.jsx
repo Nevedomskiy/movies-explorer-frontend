@@ -73,7 +73,6 @@ function useInput(initialValue, validations) {
       setIsDirty(true);
    }
 
-
    const onExit = () => {
       setIsDirty(false);
    }

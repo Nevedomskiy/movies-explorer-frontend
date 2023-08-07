@@ -144,9 +144,9 @@ function App() {
          })
          .catch((err) => {
             console.log(err)
-            err.then(({ message }) => {
-               setTextServerError(message)
-            });
+            // err.then(({ message }) => {
+            //    setTextServerError(message)
+            // });
          });
    }
    // console.log(savedMovies)

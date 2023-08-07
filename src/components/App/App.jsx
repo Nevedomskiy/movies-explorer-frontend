@@ -40,7 +40,7 @@ function App() {
 
    useEffect(() => {
       setIsLoading(true);
-      setTextServerError('');
+      // setTextServerError('');
       if (loggedIn) {
          heandleAllMovies();
          checkSavedMovies();

@@ -59,7 +59,7 @@ class MainApi {
    signOut() {
       return fetch(`${BASE_URL}/signout`, {
          method: 'POST',
-         credentials: 'include',
+         ...this._config,
          // headers: {
          //    'Content-Type': 'application/json',
          // },

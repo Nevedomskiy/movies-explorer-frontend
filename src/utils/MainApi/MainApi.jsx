@@ -86,10 +86,7 @@ class MainApi {
       console.log(JSON.stringify(data))
       return fetch(`${this._url}/users/me`, {
          method: 'PATCH',
-         headers: {
-            'Content-Type': 'application/json',
-         },
-         credentials: 'include',
+         ...this._config,
          body: JSON.stringify(data)
       })
          .then((res) => {

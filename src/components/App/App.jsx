@@ -176,8 +176,8 @@ function App() {
 
                <Routes >
                   <Route path='/' element={<Main />} />
-                  <Route path='/sign-up' element={<Register register={register} setTextServerError={setTextServerError} textServerError={textServerError} />} />
-                  <Route path='/sign-in' element={<Login logIn={logIn} setTextServerError={setTextServerError} textServerError={textServerError} />} />
+                  <Route path='/sign-up' element={<Register register={register} setTextServerError={setTextServerError} isLoading={isLoading} textServerError={textServerError} />} />
+                  <Route path='/sign-in' element={<Login logIn={logIn} setTextServerError={setTextServerError} isLoading={isLoading} textServerError={textServerError} />} />
                   <Route
                      path="/movies"
                      element={

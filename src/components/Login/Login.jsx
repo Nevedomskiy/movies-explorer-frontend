@@ -3,7 +3,7 @@ import { inputListLogin } from '../../utils/constants/constants';
 import useInput from '../../utils/Validation/Validation';
 import FormSign from '../../blocks/FormSign/FormSign';
 
-function Login({ logIn, textServerError, setTextServerError }) {
+function Login({ logIn, textServerError, setTextServerError, isLoading }) {
 
    const email = useInput('', {
       isEmpty: true,
@@ -38,6 +38,7 @@ function Login({ logIn, textServerError, setTextServerError }) {
             textServerError={textServerError}
             setTextServerError={setTextServerError}
             handleSubmit={handleSubmit}
+            isLoading={isLoading}
          >
          </FormSign>
 

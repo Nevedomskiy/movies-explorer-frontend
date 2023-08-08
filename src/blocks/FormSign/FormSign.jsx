@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import ButtonHome from '../ButtonHome/ButtonHome';
 import './FormSign.css';
 
-function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, handleSubmit, textLink, linkValue, modific, email, password, name, textServerError }) {
+function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, handleSubmit, isLoading, textLink, linkValue, modific, email, password, name, textServerError }) {
 
    const handleValue = (type) => {
       if (type === 'password') {
@@ -85,7 +85,7 @@ function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, handleS
                {(textServerError !== '' && !email.isDirty && !name.isDirty) && < p className={`form-sign__server-error errors__element`}>{textServerError}</p>}
                < button
                   type="submit"
-                  disabled={name ? (email.isValid || password.isValid || name.isValid) : (email.isValid || password.isValid)}
+                  disabled={name ? ((email.isValid || password.isValid || name.isValid) && isLoading) : (email.isValid || password.isValid)}
                   className={`form-sign__button-submit button ${((email.isValid || password.isValid)) ? 'form-sign__button-submit_no-valid' : ''}`}
                >
                   {nameButtonSubmit}

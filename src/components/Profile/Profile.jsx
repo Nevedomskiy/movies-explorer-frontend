@@ -12,11 +12,11 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
    const [userEmail, setUserEmail] = useState('');
 
 
-   useEffect(() => {
-      if (userData !== undefined) {
-         setUserEmail(userData.email);
-      }
-   }, [userData]);
+   // useEffect(() => {
+   //    if (userData !== undefined) {
+   //       setUserEmail(userData.email);
+   //    }
+   // }, [userData]);
 
    const { value: emailValue, onChange: emailOnChange, onExit: emailOnExit,
       isDirty: emailIsDirty, isValid: emailIsValid, isEmpty: emailIsEmpty, isEmail: emailIsEmail } = useInput(userEmail, {
@@ -38,6 +38,7 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
 
    function handleExit(e) {
       e.preventDefault();
+      setUserEmail(userData.email);
       setActiveInputs(true)
       emailOnExit();
       name.onExit();

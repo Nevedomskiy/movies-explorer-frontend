@@ -35,8 +35,6 @@ function App() {
       handleUserInfo();
    }, []);
 
-   console.log(currentUser);
-
    useEffect(() => {
       if (location.pathname === '/saved-movies') {
          checkSavedMovies();

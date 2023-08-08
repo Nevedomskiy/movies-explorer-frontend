@@ -72,7 +72,6 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                         }}
                         value={name.value}
                         name='name'
-                        placeholder={userData.name}
                         className={`profile__input profile__input_active ${!name.isValid ? 'profile__input_valid' : 'profile__input_no-valid'}`}></input>
                      :
                      <p className='profile__text'>{userData.name}</p>
@@ -93,7 +92,6 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                         required
                         onChange={e => email.onChange(e)}
                         value={email.value}
-                        placeholder={userData.email}
                         className={`profile__input profile__input_active ${!email.isValid ? 'profile__input_valid' : 'profile__input_no-valid'}`} ></input>
                      :
                      <p className='profile__text'>{userData.email}</p>

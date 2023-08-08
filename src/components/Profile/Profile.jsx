@@ -9,20 +9,18 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
 
    const userData = useContext(CurrentUserContext);
 
-   
-   let email = useInput(userData.email, {
+   console.log(userData);
+
+   const email = useInput(userData.email, {
       isEmpty: true,
       isEmail: true,
    });
-   let name = useInput(userData.name, {
+   const name = useInput(userData.name, {
       isEmpty: true,
       minLength: 2,
       maxLength: 30,
       isName: true,
    });
-
-   console.log(email);
-   console.log(name);
 
    function handleExit(e) {
       e.preventDefault();
@@ -71,7 +69,7 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                         name='name'
                         className={`profile__input profile__input_active ${!name.isValid ? 'profile__input_valid' : 'profile__input_no-valid'}`}></input>
                      :
-                     <p className='profile__text'>{name.value}</p>
+                     <p className='profile__text'>{userData.name}</p>
                   }
                   <div className='profile__errors errors'>
                      {(name.isDirty && (userData.name === name.value)) && <p className='errors__element' >Имя соответствует ранее сохраненному значению</p>}
@@ -91,7 +89,7 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                         value={email.value}
                         className={`profile__input profile__input_active ${!email.isValid ? 'profile__input_valid' : 'profile__input_no-valid'}`} ></input>
                      :
-                     <p className='profile__text'>{email.value}</p>
+                     <p className='profile__text'>{userData.email}</p>
                   }
                   <div className='profile__errors errors'>
                      {(email.isDirty && email.isEmpty) && <p className='errors__element' >Поле не может быть пустым</p>}

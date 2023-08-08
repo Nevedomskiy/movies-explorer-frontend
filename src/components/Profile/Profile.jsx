@@ -9,18 +9,20 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
 
    const userData = useContext(CurrentUserContext);
 
-   console.log(userData);
-
-   const email = useInput(userData.email, {
+   
+   let email = useInput(userData.email, {
       isEmpty: true,
       isEmail: true,
    });
-   const name = useInput(userData.name, {
+   let name = useInput(userData.name, {
       isEmpty: true,
       minLength: 2,
       maxLength: 30,
       isName: true,
    });
+
+   console.log(email);
+   console.log(name);
 
    function handleExit(e) {
       e.preventDefault();

@@ -43,8 +43,10 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
          name: name.value,
          email: email.value,
       });
-      email.onExit();
-      name.onExit();
+      if (textServerError === '') {
+         email.onExit();
+         name.onExit();
+      }
    }
 
    return (

@@ -45,7 +45,7 @@
    border: 1px solid #FFF;
    opacity: 0.6000000238418579;
    text-align: center;
-   margin: 0 auto 30px;
+   padding: 9px 19px;
    font-size: 12px;
    font-style: normal;
    font-weight: 500;
@@ -54,11 +54,12 @@
    display: block;
 }
 
-.promo__button-text {
+.promo__link {
    text-decoration: none;
-   display: block;
+   display: flex;
+   justify-content: center;
    color: #FFFFFF;
-   margin: 9px 19px;
+   margin: 0 auto 30px;
 }
 
 
@@ -89,7 +90,7 @@
       font-feature-settings: 'clig' off, 'liga' off;
    }
 
-   .promo__button {
+   .promo__link {
       margin: 0 auto 76px;
    }
 }
@@ -123,7 +124,7 @@
       margin: 0 300px 0 0;
    }
 
-   .promo__button {
+   .promo__link {
       margin: 146px 0 75px;
    }
 }

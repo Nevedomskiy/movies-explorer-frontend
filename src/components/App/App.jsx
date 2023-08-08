@@ -33,6 +33,10 @@ function App() {
 
    useEffect(() => {
       handleUserInfo();
+   }, []);
+
+   useEffect(() => {
+      handleUserInfo();
       setTextServerError('');
    }, [location]);
 
@@ -40,6 +44,7 @@ function App() {
       setIsLoading(true);
       if (loggedIn) {
          heandleAllMovies();
+      } else if (location.pathname === '/saved-movies') {
          checkSavedMovies();
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps

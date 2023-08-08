@@ -33,15 +33,15 @@ function App() {
 
    useEffect(() => {
       handleUserInfo();
+      heandleAllMovies();
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    useEffect(() => {
       if (loggedIn) {
          if (location.pathname === '/saved-movies') {
             checkSavedMovies();
-         } else if (location.pathname === '/movies') {
-            heandleAllMovies();
-         }
+         } 
       }
       setTextServerError('');
       // eslint-disable-next-line react-hooks/exhaustive-deps

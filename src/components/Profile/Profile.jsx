@@ -1,7 +1,7 @@
 // import { Link } from 'react-router-dom';
 import './Profile.css';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import useInput from '../../utils/Validation/Validation';
 
 
@@ -20,10 +20,6 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
       maxLength: 30,
       isName: true,
    });
-
-   console.log(((userData.name === name.value) && (userData.email === email.value)) || ((name.value === '') && (email.value === '')));
-   console.log(((userData.name === name.value) && (userData.email === email.value)));
-   console.log(((name.value === '') && (email.value === '')));
 
    function handleExit(e) {
       e.preventDefault();
@@ -118,7 +114,7 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                   </button>
                   :
                   <div className='profile__block-save errors'>
-                     {(textServerError !== '' && !email.isDirty) && <p className='profile__server-info profile__server-info_error'>{textServerError}</p>}
+                     {(textServerError !== '' && (!email.isDirty || !name.isDirty) && (userData.name !== name.value) && (userData.email !== email.value)) && <p className='profile__server-info profile__server-info_error'>{textServerError}</p>}
                      <button
                         type="button"
                         onClick={handleSave}

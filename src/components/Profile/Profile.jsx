@@ -73,7 +73,7 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                      <p className='profile__text'>{userData.name}</p>
                   }
                   <div className='profile__errors errors'>
-                     {(name.isDirty && (userData.name === name.value)) && <p className='errors__element' >Имя соответствует ранее сохраненному значению</p>}
+                     {(name.isDirty && (userData.name === name.value)) && <p className='errors__info' >Имя соответствует ранее сохраненному значению</p>}
                      {(name.isDirty && name.isEmpty) && <p className='errors__element' >Поле не может быть пустым</p>}
                      {(name.isDirty && name.isName) && <p className='errors__element' >Используйте, пожалуйста, латиницу, кириллицу, пробел или дефис</p>}
                      {(name.isDirty && (name.minLengthError || name.maxLengthError)) && <p className='errors__element'>Некорректная длина</p>}

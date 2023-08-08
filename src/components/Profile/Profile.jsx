@@ -44,6 +44,8 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
       name.onExit();
    }
 
+   console.log(succesReq);
+
    return (
       <section className='profile'>
          <h1 className='profile__title'>Привет, {name.value}!</h1>
@@ -111,7 +113,7 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                   </button>
                   :
                   <div className='profile__block-save'>
-                     {succesReq && <p className='profile__server-info'>Данные успешно изменены</p>}
+                     {(succesReq) && <p className='profile__server-info'>Данные успешно изменены</p>}
                      {(textServerError !== '' && !email.isDirty) && <p className='errors__element profile__server-info'>{textServerError}</p>}
                      <button
                         type="button"

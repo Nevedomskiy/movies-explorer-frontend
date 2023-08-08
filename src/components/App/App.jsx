@@ -66,8 +66,6 @@ function App() {
       }, 5000);
    }
 
-   console.log(succesReq);
-
    const checkSavedMovies = () => {
       mainApi.getSavedMovies()
          .then((movies) => {

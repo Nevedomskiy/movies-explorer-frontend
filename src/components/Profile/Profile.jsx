@@ -96,7 +96,7 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                   <div className='profile__errors errors'>
                      {(email.isDirty && email.isEmpty) && <p className='errors__element' >Поле не может быть пустым</p>}
                      {(email.isDirty && email.isEmail) && <p className='errors__element' >Почта не валидна</p>}
-                     {(email.isDirty && (userData.email === email.value)) && <p className='errors__element' >Почта соответствует ранее сохраненному значению</p>}
+                     {(email.isDirty && (userData.email === email.value)) && <p className='errors__info' >Почта соответствует ранее сохраненному значению</p>}
                   </div>
 
                </li>

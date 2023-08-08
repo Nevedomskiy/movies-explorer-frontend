@@ -48,7 +48,7 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
 
    return (
       <section className='profile'>
-         <h1 className='profile__title'>Привет, {name.value}!</h1>
+         <h1 className='profile__title'>Привет, {userData.value}!</h1>
          <form
             name={'profile-edit'}
             className="profile__form"

@@ -34,14 +34,14 @@ function App() {
    useEffect(() => {
       handleUserInfo();
       heandleAllMovies();
-   // eslint-disable-next-line react-hooks/exhaustive-deps
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    useEffect(() => {
       if (loggedIn) {
          if (location.pathname === '/saved-movies') {
             checkSavedMovies();
-         } 
+         }
       }
       setTextServerError('');
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -219,6 +219,7 @@ function App() {
                            succesReq={succesReq}
                            setActiveInputs={setActiveInputs}
                            textServerError={textServerError}
+                           setTextServerError={setTextServerError}
                         >
                         </ProtectedRouteElement>
                      }

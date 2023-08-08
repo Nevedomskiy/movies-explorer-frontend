@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import useInput from '../../utils/Validation/Validation';
 
 
-function Profile({ logOut, editProfile, textServerError, activeInputs, setActiveInputs, succesReq }) {
+function Profile({ logOut, editProfile, textServerError, activeInputs, setActiveInputs, succesReq, setTextServerError }) {
 
    const userData = useContext(CurrentUserContext);
 
@@ -65,6 +65,7 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                         required
                         onChange={e => {
                            name.onChange(e);
+                           setTextServerError('');
                         }}
                         value={name.value}
                         name='name'
@@ -86,7 +87,10 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                      <input
                         type='email'
                         required
-                        onChange={e => email.onChange(e)}
+                        onChange={e => {
+                           email.onChange(e);
+                           setTextServerError('');
+                        }}
                         value={email.value}
                         className={`profile__input profile__input_active ${!email.isValid ? 'profile__input_valid' : 'profile__input_no-valid'}`} ></input>
                      :

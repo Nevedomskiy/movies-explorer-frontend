@@ -70,6 +70,10 @@ function useInput(initialValue, validations) {
       setIsDirty(true);
    }
 
+   const updateValue = (data) => {
+      setValue(data);
+   }
+
    const onExit = () => {
       setIsDirty(false);
    }
@@ -79,6 +83,7 @@ function useInput(initialValue, validations) {
       onExit,
       onChange,
       isDirty,
+      updateValue,
       ...valid
    }
 }

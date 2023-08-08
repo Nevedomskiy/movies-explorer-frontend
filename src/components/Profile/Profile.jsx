@@ -44,8 +44,6 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
       name.onExit();
    }
 
-   console.log(succesReq);
-
    return (
       <section className='profile'>
          <h1 className='profile__title'>Привет, {name.value}!</h1>
@@ -72,10 +70,10 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                      <p className='profile__text'>{name.value}</p>
                   }
                   <div className='profile__errors errors'>
-                     {(name.isDirty && (userData.name === name.value)) && <div className='errors__element' >Имя соответствует ранее сохраненному значению</div>}
-                     {(name.isDirty && name.isEmpty) && <div className='errors__element' >Поле не может быть пустым</div>}
-                     {(name.isDirty && name.isName) && <div className='errors__element' >Используйте, пожалуйста, латиницу, кириллицу, пробел или дефис</div>}
-                     {(name.isDirty && (name.minLengthError || name.maxLengthError)) && <div className='errors__element'>Некорректная длина</div>}
+                     {(name.isDirty && (userData.name === name.value)) && <p className='errors__element' >Имя соответствует ранее сохраненному значению</p>}
+                     {(name.isDirty && name.isEmpty) && <p className='errors__element' >Поле не может быть пустым</p>}
+                     {(name.isDirty && name.isName) && <p className='errors__element' >Используйте, пожалуйста, латиницу, кириллицу, пробел или дефис</p>}
+                     {(name.isDirty && (name.minLengthError || name.maxLengthError)) && <p className='errors__element'>Некорректная длина</p>}
                   </div>
                </li>
                <li className='profile__element'>
@@ -92,9 +90,9 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                      <p className='profile__text'>{email.value}</p>
                   }
                   <div className='profile__errors errors'>
-                     {(email.isDirty && email.isEmpty) && <div className='errors__element' >Поле не может быть пустым</div>}
-                     {(email.isDirty && email.isEmail) && <div className='errors__element' >Это не почта</div>}
-                     {(email.isDirty && (userData.email === email.value)) && <div className='errors__element' >Почта соответствует ранее сохраненному значению</div>}
+                     {(email.isDirty && email.isEmpty) && <p className='errors__element' >Поле не может быть пустым</p>}
+                     {(email.isDirty && email.isEmail) && <p className='errors__element' >Почта не валидна</p>}
+                     {(email.isDirty && (userData.email === email.value)) && <p className='errors__element' >Почта соответствует ранее сохраненному значению</p>}
                   </div>
 
                </li>
@@ -112,9 +110,8 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                      Отменить
                   </button>
                   :
-                  <div className='profile__block-save'>
-                     {(succesReq) && <p className='profile__server-info'>Данные успешно изменены</p>}
-                     {(textServerError !== '' && !email.isDirty) && <p className='errors__element profile__server-info'>{textServerError}</p>}
+                  <div className='profile__block-save errors'>
+                     {(textServerError !== '' && !email.isDirty) && <p className='profile__server-info profile__server-info_error'>{textServerError}</p>}
                      <button
                         type="button"
                         onClick={handleSave}
@@ -126,13 +123,17 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                   </div>
                )
                :
-               <button
-                  type="button"
-                  onClick={handleExit}
-                  className="profile__btn button profile__btn_edit hover-link"
-               >
-                  Редактировать
-               </button>
+               <div className='profile__block-save'>
+                  {(succesReq) && <p className='profile__server-info'>Данные успешно изменены</p>}
+
+                  <button
+                     type="button"
+                     onClick={handleExit}
+                     className="profile__btn button profile__btn_edit hover-link"
+                  >
+                     Редактировать
+                  </button>
+               </div>
             }
          </form >
          <button

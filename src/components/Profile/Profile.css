@@ -29,6 +29,12 @@
    text-align: center;
    color: #2be080;
    border-top: 2px solid #2be080;
+   margin: 0 0 10px;
+}
+
+.profile__server-info_error {
+   color: red;
+   border-top: 2px solid red;
 }
 
 .profile__title {

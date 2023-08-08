@@ -119,7 +119,7 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                         type="button"
                         onClick={handleSave}
                         disabled={email.isValid || name.isValid}
-                        className={`profile__btn button hover-link  ${(!(email.isValid || name.isValid)) ? 'profile__btn_save' : 'profile__btn_blocked'}`}
+                        className={`profile__btn button hover-link  ${(!(email.isValid || name.isValid) && textServerError === '') ? 'profile__btn_save' : 'profile__btn_blocked'}`}
                      >
                         Сохранить
                      </button>

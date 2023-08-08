@@ -78,59 +78,72 @@ function App() {
          .catch((err) => {
             setTextSearchError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
             if (isValidSearch) {
+               setIsLoading(false);
                setIsValidSearch(true);
             }
          });
    }
 
    const logOut = () => {
+      setIsLoading(true);
       mainApi.signOut()
          .then((res) => {
             setCurrentUser({});
             setLoggedIn(false);
+            setIsLoading(false);
             navigate('/', { replace: true });
             localStorage.clear();
          })
          .catch((err) => {
+            setIsLoading(false);
             console.log(err);
          });
    }
 
    const logIn = (email, password) => {
+      setIsLoading(true);
       mainApi.authorize(email, password)
          .then((res) => {
+            setIsLoading(false);
             setLoggedIn(true);
             navigate('/movies', { replace: true });
          })
          .catch((err) => {
             err.then(({ message }) => {
+               setIsLoading(false);
                setTextServerError(message)
             });
          });
    }
 
    const register = (email, password, name) => {
+      setIsLoading(true);
       mainApi.register(email, password, name)
          .then(() => {
+            setIsLoading(false);
             logIn(email, password);
          })
          .catch((err) => {
             err.then(({ message }) => {
+               setIsLoading(false);
                setTextServerError(message)
             });
          });
    }
 
    const editProfile = (data) => {
+      setIsLoading(true);
       mainApi.changeUserInfo(data)
          .then((res) => {
             setActiveInputs(false);
             setCurrentUser(res);
+            setIsLoading(false);
             showSuccesReq();
          })
          .catch((err) => {
             handleUserInfo();
             err.then(({ message }) => {
+               setIsLoading(false);
                setTextServerError(message);
             });
          });
@@ -220,6 +233,7 @@ function App() {
                            setActiveInputs={setActiveInputs}
                            textServerError={textServerError}
                            setTextServerError={setTextServerError}
+                           isLoading={isLoading}
                         >
                         </ProtectedRouteElement>
                      }

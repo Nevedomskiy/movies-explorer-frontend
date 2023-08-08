@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import useInput from '../../utils/Validation/Validation';
 
 
-function Profile({ logOut, editProfile, textServerError, activeInputs, setActiveInputs, succesReq, setTextServerError }) {
+function Profile({ logOut, editProfile, textServerError, activeInputs, setActiveInputs, succesReq, isLoading, setTextServerError }) {
 
    const userData = useContext(CurrentUserContext);
 
@@ -124,8 +124,8 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                      <button
                         type="button"
                         onClick={handleSave}
-                        disabled={email.isValid || name.isValid}
-                        className={`profile__btn button hover-link  ${(!(email.isValid || name.isValid) && textServerError === '') ? 'profile__btn_save' : 'profile__btn_blocked'}`}
+                        disabled={email.isValid || name.isValid || isLoading}
+                        className={`profile__btn button hover-link  ${((!(email.isValid || name.isValid) && (textServerError === '')) || isLoading) ? 'profile__btn_save' : 'profile__btn_blocked'}`}
                      >
                         Сохранить
                      </button>

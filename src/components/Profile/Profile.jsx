@@ -114,7 +114,7 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                   </button>
                   :
                   <div className='profile__block-save errors'>
-                     {(textServerError !== '' && (!email.isDirty || !name.isDirty) && (userData.name !== name.value) && (userData.email !== email.value)) && <p className='profile__server-info profile__server-info_error'>{textServerError}</p>}
+                     {(textServerError !== '' && !email.isDirty && !name.isDirty) && <p className='profile__server-info profile__server-info_error'>{textServerError}</p>}
                      <button
                         type="button"
                         onClick={handleSave}

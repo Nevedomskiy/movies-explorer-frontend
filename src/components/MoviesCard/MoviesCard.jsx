@@ -43,7 +43,7 @@ function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
       if (!movieIsSaved) {
          mainApi.addMovie({ country, director, duration, year, description, trailerLink, image, movieId, nameRU, nameEN, thumbnail })
             .then((movies) => {
-               checkSavedMovies();
+               checkMovieIsSaved();
             })
             .catch((err) => console.log(err));
       }
@@ -71,7 +71,7 @@ function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
    function handleDeleteMovie() {
       mainApi.deleteMovie(savedMovieId)
          .then((movies) => {
-            checkSavedMovies();
+            checkMovieIsSaved();
          })
          .catch((err) => console.log(err));
    }

@@ -63,7 +63,7 @@ function App() {
       setSuccesReq(true);
       setTimeout(() => {
          setSuccesReq(false);
-      }, 5000);
+      }, 3000);
    }
 
    const checkSavedMovies = () => {

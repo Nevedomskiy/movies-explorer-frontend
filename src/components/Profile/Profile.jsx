@@ -9,7 +9,7 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
 
    const userData = useContext(CurrentUserContext);
 
-   console.log(userData);
+
 
    const email = useInput('', {
       isEmpty: true,
@@ -21,6 +21,10 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
       maxLength: 30,
       isName: true,
    });
+
+   console.log(((userData.name === name.value) && (userData.email === email.value)) || ((name.value === '') && (email.value === '')));
+   console.log(((userData.name === name.value) && (userData.email === email.value)));
+   console.log(((name.value === '') && (email.value === '')));
 
    function handleExit(e) {
       e.preventDefault();
@@ -120,7 +124,7 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                         type="button"
                         onClick={handleSave}
                         disabled={email.isValid || name.isValid}
-                        className={`profile__btn button hover-link  ${(!(email.isValid || name.isValid) ) ? 'profile__btn_save' : 'profile__btn_blocked'}`}
+                        className={`profile__btn button hover-link  ${(!(email.isValid || name.isValid)) ? 'profile__btn_save' : 'profile__btn_blocked'}`}
                      >
                         Сохранить
                      </button>

@@ -26,7 +26,9 @@ function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
    }, [moviesSavedList])
 
    function handleMovieId() {
+      console.log(moviesSavedList);
       const check = moviesSavedList.find((element) => element.movieId === movie.id);
+      console.log(check);
       if ((location.pathname === '/movies') && (check !== undefined)) {
          setSavedMovieId(check._id);
          return

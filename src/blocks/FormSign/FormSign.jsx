@@ -25,11 +25,6 @@ function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, handleS
       }
    }
 
-   console.log(textServerError);
-   console.log(textServerError !== '');
-   console.log(!email.isDirty);
-   console.log(textServerError !== '' && !email.isDirty);
-
    return (
 
       <form

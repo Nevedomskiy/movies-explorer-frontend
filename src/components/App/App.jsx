@@ -36,19 +36,14 @@ function App() {
    }, []);
 
    useEffect(() => {
-      if (location.pathname === '/saved-movies') {
-         checkSavedMovies();
+      if (loggedIn) {
+         if (location.pathname === '/saved-movies') {
+            checkSavedMovies();
+         } else if (location.pathname === '/movies') {
+            heandleAllMovies();
+         }
       }
-      handleUserInfo();
       setTextServerError('');
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [location]);
-
-   useEffect(() => {
-      if (loggedIn && location.pathname === '/movies') {
-         heandleAllMovies();
-      }
-      setIsLoading(true);
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [loggedIn, location]);
 

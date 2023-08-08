@@ -1,7 +1,7 @@
 // import { Link } from 'react-router-dom';
 import './Profile.css';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import useInput from '../../utils/Validation/Validation';
 
 
@@ -9,12 +9,22 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
 
    const userData = useContext(CurrentUserContext);
 
+   const [userEmail, setUserEmail] = useState('');
 
 
-   const email = useInput('', {
-      isEmpty: true,
-      isEmail: true,
-   });
+   useEffect(() => {
+      if (userData !== undefined) {
+         setUserEmail(userData.email);
+      }
+   }, [userData]);
+
+   const { value: emailValue, onChange: emailOnChange, onExit: emailOnExit,
+      isDirty: emailIsDirty, isValid: emailIsValid, isEmpty: emailIsEmpty, isEmail: emailIsEmail } = useInput(userEmail, {
+         isEmpty: true,
+         isEmail: true,
+      });
+
+   console.log(emailValue)
    const name = useInput('', {
       isEmpty: true,
       minLength: 2,
@@ -22,21 +32,21 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
       isName: true,
    });
 
-   console.log(((userData.name === name.value) && (userData.email === email.value)) || ((name.value === '') && (email.value === '')));
-   console.log(((userData.name === name.value) && (userData.email === email.value)));
-   console.log(((name.value === '') && (email.value === '')));
+   console.log(((userData.name === name.value) && (userData.email === emailValue)) || ((name.value === '') && (emailValue === '')));
+   console.log(((userData.name === name.value) && (userData.email === emailValue)));
+   console.log(((name.value === '') && (emailValue === '')));
 
    function handleExit(e) {
       e.preventDefault();
       setActiveInputs(true)
-      email.onExit();
+      emailOnExit();
       name.onExit();
    }
 
    function handleCancel(e) {
       e.preventDefault();
       setActiveInputs(false);
-      email.onExit();
+      emailOnExit();
       name.onExit();
    }
 
@@ -44,9 +54,9 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
       e.preventDefault();
       editProfile({
          name: name.value,
-         email: email.value,
+         email: emailValue,
       });
-      email.onExit();
+      emailOnExit();
       name.onExit();
    }
 
@@ -90,17 +100,16 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                      <input
                         type='email'
                         required
-                        onChange={e => email.onChange(e)}
-                        value={email.value}
-                        placeholder={userData.email}
-                        className={`profile__input profile__input_active ${!email.isValid ? 'profile__input_valid' : 'profile__input_no-valid'}`} ></input>
+                        onChange={e => emailOnChange(e)}
+                        value={emailValue}
+                        className={`profile__input profile__input_active ${!emailIsValid ? 'profile__input_valid' : 'profile__input_no-valid'}`} ></input>
                      :
                      <p className='profile__text'>{userData.email}</p>
                   }
                   <div className='profile__errors errors'>
-                     {(email.isDirty && email.isEmpty) && <p className='errors__element' >Поле не может быть пустым</p>}
-                     {(email.isDirty && email.isEmail) && <p className='errors__element' >Почта не валидна</p>}
-                     {(email.isDirty && (userData.email === email.value)) && <p className='errors__info' >Почта соответствует ранее сохраненному значению</p>}
+                     {(emailIsDirty && emailIsEmpty) && <p className='errors__element' >Поле не может быть пустым</p>}
+                     {(emailIsDirty && emailIsEmail) && <p className='errors__element' >Почта не валидна</p>}
+                     {(emailIsDirty && (userData.email === emailValue)) && <p className='errors__info' >Почта соответствует ранее сохраненному значению</p>}
                   </div>
 
                </li>
@@ -109,7 +118,7 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
             <div className='profile__whitespace'></div>
             {activeInputs
                ?
-               ((((userData.name === name.value) && (userData.email === email.value)) || ((name.value === '') && (email.value === ''))) ?
+               ((((userData.name === name.value) && (userData.email === emailValue)) || ((name.value === '') && (emailValue === ''))) ?
                   <button
                      type="button"
                      onClick={handleCancel}
@@ -119,12 +128,12 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                   </button>
                   :
                   <div className='profile__block-save errors'>
-                     {(textServerError !== '' && !email.isDirty) && <p className='profile__server-info profile__server-info_error'>{textServerError}</p>}
+                     {(textServerError !== '' && !emailIsDirty) && <p className='profile__server-info profile__server-info_error'>{textServerError}</p>}
                      <button
                         type="button"
                         onClick={handleSave}
-                        disabled={email.isValid || name.isValid}
-                        className={`profile__btn button hover-link  ${(!(email.isValid || name.isValid)) ? 'profile__btn_save' : 'profile__btn_blocked'}`}
+                        disabled={emailIsValid || name.isValid}
+                        className={`profile__btn button hover-link  ${(!(emailIsValid || name.isValid)) ? 'profile__btn_save' : 'profile__btn_blocked'}`}
                      >
                         Сохранить
                      </button>

@@ -126,5 +126,6 @@
 
    .promo__link {
       margin: 146px 0 75px;
+      justify-content: start;
    }
 }

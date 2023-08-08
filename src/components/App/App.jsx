@@ -25,7 +25,7 @@ function App() {
    const [currentUser, setCurrentUser] = useState({});
    const [allMovies, setAllMovies] = useState([]);
    const [savedMovies, setSavedMovies] = useState([]);
-   const [loggedIn, setLoggedIn] = useState(false);
+   const [loggedIn, setLoggedIn] = useState(true);
    const [textSearchError, setTextSearchError] = useState('');
    const [textServerError, setTextServerError] = useState('');
    const [activeInputs, setActiveInputs] = useState(false);

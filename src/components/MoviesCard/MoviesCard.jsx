@@ -16,7 +16,7 @@ function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
          checkMovieIsSaved();
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [moviesSavedList, movieIsSaved])
+   }, [moviesSavedList, savedMovieId])
 
    useEffect(() => {
       if (moviesSavedList) {
@@ -26,9 +26,7 @@ function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
    }, [moviesSavedList])
 
    function handleMovieId() {
-      console.log(moviesSavedList);
       const check = moviesSavedList.find((element) => element.movieId === movie.id);
-      console.log(check);
       if ((location.pathname === '/movies') && (check !== undefined)) {
          setSavedMovieId(check._id);
          return
@@ -45,7 +43,7 @@ function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
       if (!movieIsSaved) {
          mainApi.addMovie({ country, director, duration, year, description, trailerLink, image, movieId, nameRU, nameEN, thumbnail })
             .then((movies) => {
-               setMovieIsSaved(true);
+               checkSavedMovies();
             })
             .catch((err) => console.log(err));
       }
@@ -73,7 +71,7 @@ function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
    function handleDeleteMovie() {
       mainApi.deleteMovie(savedMovieId)
          .then((movies) => {
-            setMovieIsSaved(false);
+            checkSavedMovies();
          })
          .catch((err) => console.log(err));
    }

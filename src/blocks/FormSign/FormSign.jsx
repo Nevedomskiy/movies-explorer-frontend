@@ -13,7 +13,7 @@ function FormSign({ title, inputList, location, nameButtonSubmit, textAfterButto
       } else {
          return name.value
       }
-   }
+   };
 
    const handleChange = (type) => {
       // setTextServerError('');
@@ -24,9 +24,7 @@ function FormSign({ title, inputList, location, nameButtonSubmit, textAfterButto
       } else {
          return name.onChange
       }
-   }
-
-   console.log(isLoading)
+   };
 
    return (
 

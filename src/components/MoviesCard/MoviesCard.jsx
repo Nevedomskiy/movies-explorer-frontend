@@ -15,7 +15,7 @@ function MoviesCard({ movie, location, addMovie, deleteMovie, isLoading, listIdN
          checkMovieIsSaved();
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [listIdNewCards, savedMovieId])
+   }, [listIdNewCards, movie, savedMovieId])
 
    useEffect(() => {
       if (listIdNewCards) {

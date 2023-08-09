@@ -110,7 +110,7 @@ function App() {
       mainApi.addMovie(data)
          .then((movies) => {
             setIsLoading(false);
-            setListIdNewCards([listIdNewCards, {
+            setListIdNewCards([...listIdNewCards, {
                movieId: data.movieId,
                id: movies._id
             }]);

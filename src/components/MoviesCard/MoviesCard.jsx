@@ -15,14 +15,14 @@ function MoviesCard({ movie, location, addMovie, deleteMovie, isLoading, listIdN
          checkMovieIsSaved();
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [listIdNewCards, movie, savedMovieId])
+   }, [listIdNewCards, savedMovieId])
 
    useEffect(() => {
       if (listIdNewCards) {
          handleMovieId();
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [listIdNewCards])
+   }, [listIdNewCards, movie])
 
    function handleMovieId() {
       const check = listIdNewCards.find((element) => element.movieId === movie.id);

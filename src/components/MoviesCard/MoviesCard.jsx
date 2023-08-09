@@ -34,6 +34,8 @@ function MoviesCard({ movie, location, addMovie, deleteMovie, isLoading, listIdN
       }
    }
 
+   console.log(savedMovieId)
+
    function handleSaveMovie() {
       const { country, director, duration, year, description, trailerLink, id: movieId, nameRU, nameEN } = movie;
       const thumbnail = `${MOVIES_URL}${movie.image.formats.thumbnail.url}`;

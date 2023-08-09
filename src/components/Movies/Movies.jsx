@@ -182,7 +182,7 @@ function Movies({ setTextSearchError, moviesList, isLoading, addMovie, width, lo
             <p className='movies__description'>Короткометражки</p>
          </div>
 
-         {isLoading && moviesList === []
+         {(isLoading && moviesList.length === 0)
             ?
             (
                <Preloader />

@@ -1,6 +1,5 @@
 import './MoviesCard.css';
 import ButtonSaveMovie from '../../blocks/ButtonСhangeMovie/ButtonСhangeMovie';
-import { mainApi } from '../../utils/MainApi/MainApi';
 import { MOVIES_URL } from '../../utils/constants/constants';
 import { useState, useEffect } from 'react';
 

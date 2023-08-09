@@ -62,5 +62,6 @@ export const NUMBER_OF_CARDS = {
 
 export const VALIDATION_RE = {
    EMAIL: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+   // eslint-disable-next-line no-useless-escape
    NAME: /^[\u0400-\u04FFa-zA-Z\s\-]+$/,
 };

@@ -109,10 +109,10 @@ function App() {
       setIsLoading(true);
       mainApi.addMovie(data)
          .then((movies) => {
-            setListIdNewCards((prevValue) => prevValue + {
+            setListIdNewCards([listIdNewCards, {
                movieId: data.movieId,
                id: movies._id
-            });
+            }]);
          })
          .catch((err) => {
             setIsLoading(false);

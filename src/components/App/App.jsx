@@ -31,12 +31,15 @@ function App() {
    const [textServerError, setTextServerError] = useState('');
    const [activeInputs, setActiveInputs] = useState(false);
    const [succesReq, setSuccesReq] = useState(false);
+   const [listIdNewCards, setListIdNewCards] = useState([]);
 
    useEffect(() => {
       handleUserInfo();
       heandleAllMovies();
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
+
+   console.log(listIdNewCards);
 
    useEffect(() => {
       if (loggedIn) {
@@ -106,8 +109,10 @@ function App() {
       setIsLoading(true);
       mainApi.addMovie(data)
          .then((movies) => {
-            setIsLoading(false);
-            checkSavedMovies();
+            setListIdNewCards((prevValue) => prevValue + {
+               movieId: data.movieId,
+               id: movies._id
+            });
          })
          .catch((err) => {
             setIsLoading(false);
@@ -119,7 +124,6 @@ function App() {
       setIsLoading(true);
       mainApi.deleteMovie(id)
          .then((movies) => {
-            checkSavedMovies();
             setIsLoading(false);
          })
          .catch((err) => {

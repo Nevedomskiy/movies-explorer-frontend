@@ -3,7 +3,7 @@ import ButtonSaveMovie from '../../blocks/ButtonСhangeMovie/ButtonСhangeMovie'
 import { MOVIES_URL } from '../../utils/constants/constants';
 import { useState, useEffect } from 'react';
 
-function MoviesCard({ movie, location, addMovie, deleteMovie, isLoading, checkSavedMovies, moviesSavedList }) {
+function MoviesCard({ movie, location, addMovie, deleteMovie, isLoading, moviesSavedList }) {
 
    const [movieIsSaved, setMovieIsSaved] = useState(false);
    const [savedMovieId, setSavedMovieId] = useState(null);

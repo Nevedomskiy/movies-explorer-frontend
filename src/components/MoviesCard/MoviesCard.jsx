@@ -3,7 +3,7 @@ import ButtonSaveMovie from '../../blocks/ButtonСhangeMovie/ButtonСhangeMovie'
 import { MOVIES_URL } from '../../utils/constants/constants';
 import { useState, useEffect } from 'react';
 
-function MoviesCard({ movie, location, addMovie, deleteMovie, isLoading, listIdNewCards }) {
+function MoviesCard({ movie, moviesList, location, addMovie, deleteMovie, isLoading, listIdNewCards }) {
 
    const [movieIsSaved, setMovieIsSaved] = useState(false);
    const [savedMovieId, setSavedMovieId] = useState(null);
@@ -18,11 +18,9 @@ function MoviesCard({ movie, location, addMovie, deleteMovie, isLoading, listIdN
    }, [listIdNewCards, savedMovieId])
 
    useEffect(() => {
-      if (listIdNewCards) {
-         handleMovieId();
-      }
+      handleMovieId();
       // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [listIdNewCards, movie])
+   }, [listIdNewCards, moviesList])
 
    function handleMovieId() {
       const check = listIdNewCards.find((element) => element.movieId === movie.id);

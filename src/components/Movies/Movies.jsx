@@ -199,7 +199,7 @@ function Movies({ setTextSearchError, moviesList, isLoading, addMovie, width, lo
 
                         <ul className='list movies__list'>
                            {currentMoviesList.map((element) =>
-                              <MoviesCard addMovie={addMovie} movie={element} isLoading={isLoading} deleteMovie={deleteMovie} key={element.id || element._id} location={location} listIdNewCards={listIdNewCards} />)}
+                              <MoviesCard moviesList={moviesList} addMovie={addMovie} movie={element} isLoading={isLoading} deleteMovie={deleteMovie} key={element.id || element._id} location={location} listIdNewCards={listIdNewCards} />)}
                         </ul >
 
                         {((location.pathname === '/movies') && (currentMoviesList.length >= quantityMovies)) ? (<button type="button" className='button movies__button-add-more-film' onClick={() => { handleAddMoreMovies() }} > Ещё</button>) : ''}

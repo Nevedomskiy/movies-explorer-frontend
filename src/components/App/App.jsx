@@ -241,6 +241,7 @@ function App() {
                            width={width}
                            isValid={isValidSearch}
                            setIsValid={setIsValidSearch}
+                           listIdNewCards={listIdNewCards}
                            isLoading={isLoading}
                            setIsLoading={setIsLoading}
                            moviesList={savedMovies}

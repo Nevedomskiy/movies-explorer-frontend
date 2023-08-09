@@ -3,7 +3,7 @@ import './Profile.css';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { useContext } from 'react';
 import useInput from '../../utils/Validation/Validation';
-
+import { ERROR_MESSAGE, SUCCESSFUL_MESSAGE } from '../../utils/constants/constants';
 
 function Profile({ logOut, editProfile, textServerError, activeInputs, setActiveInputs, succesReq, isLoading, setTextServerError }) {
 
@@ -76,10 +76,10 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                      <p className='profile__text'>{userData.name}</p>
                   }
                   <div className='profile__errors errors'>
-                     {(name.isDirty && (userData.name === name.value)) && <p className='errors__info' >Имя соответствует ранее сохраненному значению</p>}
-                     {(name.isDirty && name.isEmpty) && <p className='errors__element' >Поле не может быть пустым</p>}
-                     {(name.isDirty && name.isName) && <p className='errors__element' >Используйте, пожалуйста, латиницу, кириллицу, пробел или дефис</p>}
-                     {(name.isDirty && (name.minLengthError || name.maxLengthError)) && <p className='errors__element'>Некорректная длина</p>}
+                     {(name.isDirty && (userData.name === name.value)) && <p className='errors__info' >{ERROR_MESSAGE.NAME_REPEATED}</p>}
+                     {(name.isDirty && name.isEmpty) && <p className='errors__element' >{ERROR_MESSAGE.EMPTY_VALUE}</p>}
+                     {(name.isDirty && name.isName) && <p className='errors__element' >{ERROR_MESSAGE.NOT_VALID_NAME}</p>}
+                     {(name.isDirty && (name.minLengthError || name.maxLengthError)) && <p className='errors__element'>{ERROR_MESSAGE.INCORRECT_LENGTH}</p>}
                   </div>
                </li>
                <li className='profile__element'>
@@ -99,9 +99,9 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                      <p className='profile__text'>{userData.email}</p>
                   }
                   <div className='profile__errors errors'>
-                     {(email.isDirty && email.isEmpty) && <p className='errors__element' >Поле не может быть пустым</p>}
-                     {(email.isDirty && email.isEmail) && <p className='errors__element' >Почта не валидна</p>}
-                     {(email.isDirty && (userData.email === email.value)) && <p className='errors__info' >Почта соответствует ранее сохраненному значению</p>}
+                     {(email.isDirty && email.isEmpty) && <p className='errors__element' >{ERROR_MESSAGE.EMPTY_VALUE}</p>}
+                     {(email.isDirty && email.isEmail) && <p className='errors__element' >{ERROR_MESSAGE.NOT_VALID_EMAIL}</p>}
+                     {(email.isDirty && (userData.email === email.value)) && <p className='errors__info' >{ERROR_MESSAGE.EMAIL_REPEATED}</p>}
                   </div>
 
                </li>
@@ -133,7 +133,7 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
                )
                :
                <div className='profile__block-save'>
-                  {(succesReq) && <p className='profile__server-info'>Данные успешно изменены</p>}
+                  {(succesReq) && <p className='profile__server-info'>{SUCCESSFUL_MESSAGE.SAVE_DATA}</p>}
 
                   <button
                      type="button"

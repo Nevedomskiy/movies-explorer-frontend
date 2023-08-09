@@ -15,6 +15,7 @@ import NotFound from '../NotFound/NotFound';
 import ProtectedRouteElement from '../ProtectedRoute/ProtectedRoute';
 import { mainApi } from '../../utils/MainApi/MainApi';
 import { moviesApi } from '../../utils/MoviesApi/MoviesApi';
+import { ERROR_MESSAGE } from '../../utils/constants/constants';
 
 function App() {
    const location = useLocation();
@@ -77,7 +78,7 @@ function App() {
             setIsValidSearch(false);
          })
          .catch((err) => {
-            setTextSearchError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
+            setTextSearchError(ERROR_MESSAGE.SERVER_OUT);
             if (isValidSearch) {
                setIsLoading(false);
                setIsValidSearch(true);
@@ -185,7 +186,7 @@ function App() {
             setIsValidSearch(false);
          })
          .catch((err) => {
-            setTextSearchError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
+            setTextSearchError(ERROR_MESSAGE.SERVER_OUT);
             if (!isValidSearch) {
                setIsValidSearch(true);
             }

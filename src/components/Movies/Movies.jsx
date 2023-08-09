@@ -2,6 +2,7 @@ import './Movies.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 import { useState, useEffect } from 'react';
 import Preloader from '../Preloader/Preloader';
+import { SIZE, NUMBER_OF_CARDS, ERROR_MESSAGE } from '../../utils/constants/constants';
 
 function Movies({ setTextSearchError, moviesList, isLoading, addMovie, width, location, deleteMovie, textSearchError, setIsLoading, isValid, setIsValid, checkSavedMovies, moviesSavedList }) {
    const [failedSearch, setFailedSearch] = useState(false);
@@ -90,17 +91,17 @@ function Movies({ setTextSearchError, moviesList, isLoading, addMovie, width, lo
    }
 
    function handleQuantityMovies() {
-      if (width > 1280) {
-         setQuantityMovies(12);
-         setNewMovies(3);
+      if (width > SIZE.X) {
+         setQuantityMovies(NUMBER_OF_CARDS.XL);
+         setNewMovies(NUMBER_OF_CARDS.M);
          return;
-      } else if ((480 < width) && (width < 1280)) {
-         setQuantityMovies(8);
-         setNewMovies(2);
+      } else if ((SIZE.M < width) && (width < SIZE.X)) {
+         setQuantityMovies(NUMBER_OF_CARDS.X);
+         setNewMovies(NUMBER_OF_CARDS.S);
          return;
       } else {
-         setQuantityMovies(5);
-         setNewMovies(2);
+         setQuantityMovies(NUMBER_OF_CARDS.L);
+         setNewMovies(NUMBER_OF_CARDS.S);
          return;
       }
    }
@@ -134,7 +135,7 @@ function Movies({ setTextSearchError, moviesList, isLoading, addMovie, width, lo
       setIsLoading(true)
       if (searchValue === (undefined || '')) {
          setIsValid(true);
-         setTextSearchError('Нужно ввести ключевое слово');
+         setTextSearchError(ERROR_MESSAGE.ENTER_VALUE);
          setIsLoading(false);
       } else {
          setCurrentMoviesList(moviesList.filter((el) => el.nameRU.toLowerCase().includes(searchValue.toLowerCase())).slice(0, quantityMovies));
@@ -191,7 +192,7 @@ function Movies({ setTextSearchError, moviesList, isLoading, addMovie, width, lo
                failedSearch
                   ?
                   (
-                     <p className='movies__description'>Ничего не найдено </p>
+                     <p className='movies__description'>{ERROR_MESSAGE.NOT_FOUND}</p>
                   ) :
                   (
                      <div className="movies__content">

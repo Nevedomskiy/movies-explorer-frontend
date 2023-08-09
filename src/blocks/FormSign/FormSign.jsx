@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import ButtonHome from '../ButtonHome/ButtonHome';
 import './FormSign.css';
+import { ERROR_MESSAGE } from '../../utils/constants/constants';
 
 function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, handleSubmit, isLoading, textLink, linkValue, modific, email, password, name, textServerError }) {
 
@@ -58,20 +59,20 @@ function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, handleS
                         />
                         {element.type === 'email' &&
                            <div className='form-sign__errors errors'>
-                              {(email.isDirty && email.isEmpty) && <div className='errors__element' >Поле не может быть пустым</div>}
-                              {(email.isDirty && email.isEmail) && <div className='errors__element' >Это не почта</div>}
+                              {(email.isDirty && email.isEmpty) && <div className='errors__element' >{ERROR_MESSAGE.EMPTY_VALUE}</div>}
+                              {(email.isDirty && email.isEmail) && <div className='errors__element' >{ERROR_MESSAGE.NOT_VALID_EMAIL}</div>}
                            </div>}
                         {element.type === 'password' &&
                            <div className='form-sign__errors errors'>
-                              {(password.isDirty && password.isEmpty) && <div className='errors__element' >Поле не может быть пустым</div>}
-                              {(password.isDirty && password.minLengthError) && <div className='errors__element' >Некорректная длина</div>}
+                              {(password.isDirty && password.isEmpty) && <div className='errors__element' >{ERROR_MESSAGE.EMPTY_VALUE}</div>}
+                              {(password.isDirty && password.minLengthError) && <div className='errors__element' >{ERROR_MESSAGE.INCORRECT_LENGTH}</div>}
                            </div>
                         }
                         {element.type === 'text' &&
                            <div className='form-sign__errors errors'>
-                              {(name.isDirty && name.isEmpty) && <div className='errors__element' >Поле не может быть пустым</div>}
-                              {(name.isDirty && name.isName) && <div className='errors__element' >Используйте, пожалуйста, латиницу, кириллицу, пробел или дефис</div>}
-                              {(name.isDirty && (name.minLengthError || name.maxLengthError)) && <div className='errors__element'>Некорректная длина</div>}
+                              {(name.isDirty && name.isEmpty) && <div className='errors__element' >{ERROR_MESSAGE.EMPTY_VALUE}</div>}
+                              {(name.isDirty && name.isName) && <div className='errors__element' >{ERROR_MESSAGE.NOT_VALID_NAME}</div>}
+                              {(name.isDirty && (name.minLengthError || name.maxLengthError)) && <div className='errors__element'>{ERROR_MESSAGE.INCORRECT_LENGTH}</div>}
                            </div>
                         }
 

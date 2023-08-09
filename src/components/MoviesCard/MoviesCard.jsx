@@ -67,6 +67,7 @@ function MoviesCard({ movie, location, addMovie, deleteMovie, isLoading, listIdN
 
    function handleDeleteMovie() {
       deleteMovie(savedMovieId)
+      checkMovieIsSaved();
    }
 
    return (

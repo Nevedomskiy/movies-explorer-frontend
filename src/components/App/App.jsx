@@ -124,7 +124,7 @@ function App() {
    const deleteMovie = (id) => {
       setIsLoading(true);
       mainApi.deleteMovie(id)
-         .then((movies) => {
+         .then(() => {
             setIsLoading(false);
             setListIdNewCards(listIdNewCards.filter((el) => el.id !== id))
          })

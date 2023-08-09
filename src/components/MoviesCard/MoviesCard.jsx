@@ -34,7 +34,7 @@ function MoviesCard({ movie, location, addMovie, deleteMovie, isLoading, listIdN
       }
    }
 
-   console.log(savedMovieId)
+   console.log(movie._id)
 
    function handleSaveMovie() {
       const { country, director, duration, year, description, trailerLink, id: movieId, nameRU, nameEN } = movie;
@@ -66,8 +66,7 @@ function MoviesCard({ movie, location, addMovie, deleteMovie, isLoading, listIdN
    }
 
    function handleDeleteMovie() {
-      deleteMovie(savedMovieId)
-      checkMovieIsSaved();
+      deleteMovie(savedMovieId);
    }
 
    return (

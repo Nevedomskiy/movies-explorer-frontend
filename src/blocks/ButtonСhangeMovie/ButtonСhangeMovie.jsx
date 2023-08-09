@@ -1,7 +1,7 @@
 import './ButtonСhangeMovie.css';
 
-function ButtonСhangeMovie({ movieIsSaved, location, handleSaveMovie, handleDeleteMovie }) {
-   
+function ButtonСhangeMovie({ movieIsSaved, isLoading, location, handleSaveMovie, handleDeleteMovie }) {
+
    return (
       <div className='change-movie'>
          {location.pathname === '/movies'
@@ -9,16 +9,16 @@ function ButtonСhangeMovie({ movieIsSaved, location, handleSaveMovie, handleDel
             (!movieIsSaved
                ?
                (
-                  <button type="button" onClick={() => { handleSaveMovie() }} className={`button hover-link change-movie__button`}>Сохранить</button>
+                  <button disabled={isLoading} type="button" onClick={() => { handleSaveMovie() }} className={`button hover-link change-movie__button`}>Сохранить</button>
                )
                :
                (
-                  <button type="button" onClick={() => { handleDeleteMovie() }} className={`button hover-link change-movie__button change-movie__button_active`}></button>
+                  <button disabled={isLoading} type="button" onClick={() => { handleDeleteMovie() }} className={`button hover-link change-movie__button change-movie__button_active`}></button>
                )
             )
             :
             (
-               <button type="button" onClick={() => { handleDeleteMovie() }} className={`button hover-link change-movie__button change-movie__button_remove`}></button>
+               <button disabled={isLoading} type="button" onClick={() => { handleDeleteMovie() }} className={`button hover-link change-movie__button change-movie__button_remove`}></button>
             )
          }
       </div >

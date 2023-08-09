@@ -100,6 +100,32 @@ function App() {
          });
    }
 
+   const addMovie = (data) => {
+      setIsLoading(true);
+      mainApi.addMovie(data)
+         .then((movies) => {
+            setLoggedIn(false);
+            checkSavedMovies();
+         })
+         .catch((err) => {
+            setLoggedIn(false);
+            console.log(err)
+         });
+   }
+
+   const deleteMovie = (id) => {
+      setIsLoading(true);
+      mainApi.deleteMovie(id)
+         .then((movies) => {
+            checkSavedMovies();
+            setLoggedIn(false);
+         })
+         .catch((err) => {
+            setLoggedIn(false);
+            console.log(err)
+         });
+   }
+
    const logIn = (email, password) => {
       setIsLoading(true);
       mainApi.authorize(email, password)
@@ -171,7 +197,7 @@ function App() {
       <CurrentUserContext.Provider value={currentUser}>
 
          <div className='bodywork' >
-            <div className='page' >
+            <div className={`page ${location.pathname ?? 'page_main'}`} >
                <Header loggedIn={loggedIn} />
 
                <Routes >
@@ -189,6 +215,8 @@ function App() {
                            setIsValid={setIsValidSearch}
                            isLoading={isLoading}
                            width={width}
+                           addMovie={addMovie}
+                           deleteMovie={deleteMovie}
                            location={location}
                            setIsLoading={setIsLoading}
                            element={Movies}
@@ -212,6 +240,7 @@ function App() {
                            moviesList={savedMovies}
                            location={location}
                            element={Movies}
+                           deleteMovie={deleteMovie}
                            moviesSavedList={savedMovies}
                            checkSavedMovies={checkSavedMovies}
                            setTextSearchError={setTextSearchError}

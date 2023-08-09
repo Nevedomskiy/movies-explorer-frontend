@@ -4,7 +4,7 @@ import { mainApi } from '../../utils/MainApi/MainApi';
 import { MOVIES_URL } from '../../utils/constants/constants';
 import { useState, useEffect } from 'react';
 
-function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
+function MoviesCard({ movie, location, addMovie, deleteMovie, isLoading, checkSavedMovies, moviesSavedList }) {
 
    const [movieIsSaved, setMovieIsSaved] = useState(false);
    const [savedMovieId, setSavedMovieId] = useState(null);
@@ -41,11 +41,7 @@ function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
       const image = `${MOVIES_URL}${movie.image.url}`;
 
       if (!movieIsSaved) {
-         mainApi.addMovie({ country, director, duration, year, description, trailerLink, image, movieId, nameRU, nameEN, thumbnail })
-            .then((movies) => {
-               checkSavedMovies();
-            })
-            .catch((err) => console.log(err));
+         addMovie({ country, director, duration, year, description, trailerLink, image, movieId, nameRU, nameEN, thumbnail })
       }
    }
 
@@ -69,11 +65,7 @@ function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
    }
 
    function handleDeleteMovie() {
-      mainApi.deleteMovie(savedMovieId)
-         .then((movies) => {
-            checkSavedMovies();
-         })
-         .catch((err) => console.log(err));
+      deleteMovie(savedMovieId)
    }
 
    return (
@@ -93,7 +85,7 @@ function MoviesCard({ movie, location, checkSavedMovies, moviesSavedList }) {
             <img className='movies-card__img' src={movie.image.url ? (`${MOVIES_URL}${movie.image.url}`) : (movie.image)} alt={movie.nameRU} />
          </a>
 
-         <ButtonSaveMovie location={location} handleSaveMovie={handleSaveMovie} MOVIES_URL={MOVIES_URL} movieIsSaved={movieIsSaved} handleDeleteMovie={handleDeleteMovie} />
+         <ButtonSaveMovie location={location} isLoading={isLoading} handleSaveMovie={handleSaveMovie} MOVIES_URL={MOVIES_URL} movieIsSaved={movieIsSaved} handleDeleteMovie={handleDeleteMovie} />
 
       </li>
    )

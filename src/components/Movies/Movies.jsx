@@ -3,7 +3,7 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 import { useState, useEffect } from 'react';
 import Preloader from '../Preloader/Preloader';
 
-function Movies({ setTextSearchError, moviesList, isLoading, width, location, textSearchError, setIsLoading, isValid, setIsValid, checkSavedMovies, moviesSavedList }) {
+function Movies({ setTextSearchError, moviesList, isLoading, addMovie, width, location, deleteMovie, textSearchError, setIsLoading, isValid, setIsValid, checkSavedMovies, moviesSavedList }) {
    const [failedSearch, setFailedSearch] = useState(false);
    const [searchValue, setSearchValue] = useState('');
    const [currentMoviesList, setCurrentMoviesList] = useState([]);
@@ -198,7 +198,7 @@ function Movies({ setTextSearchError, moviesList, isLoading, width, location, te
 
                         <ul className='list movies__list'>
                            {currentMoviesList.map((element) =>
-                              <MoviesCard movie={element} key={element.id || element._id} location={location} checkSavedMovies={checkSavedMovies} moviesSavedList={moviesSavedList} />)}
+                              <MoviesCard addMovie={addMovie} movie={element} isLoading={isLoading} deleteMovie={deleteMovie} key={element.id || element._id} location={location} checkSavedMovies={checkSavedMovies} moviesSavedList={moviesSavedList} />)}
                         </ul >
 
                         {((location.pathname === '/movies') && (currentMoviesList.length >= quantityMovies)) ? (<button type="button" className='button movies__button-add-more-film' onClick={() => { handleAddMoreMovies() }} > Ещё</button>) : ''}

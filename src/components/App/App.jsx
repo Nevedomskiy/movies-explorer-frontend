@@ -121,11 +121,20 @@ function App() {
          });
    }
 
+   function removeItemById(array, id) {
+      const index = array.findIndex((item) => item.id === id);
+      if (index !== -1) {
+         array.splice(index, 1);
+      }
+      return array;
+   }
+
    const deleteMovie = (id) => {
       setIsLoading(true);
       mainApi.deleteMovie(id)
          .then((movies) => {
             setIsLoading(false);
+            setListIdNewCards(removeItemById(listIdNewCards, id))
          })
          .catch((err) => {
             setIsLoading(false);

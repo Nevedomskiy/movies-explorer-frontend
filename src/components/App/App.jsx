@@ -69,6 +69,7 @@ function App() {
    }
 
    const checkSavedMovies = () => {
+      setIsLoading(true);
       mainApi.getSavedMovies()
          .then((movies) => {
             setSavedMovies(movies);
@@ -104,11 +105,11 @@ function App() {
       setIsLoading(true);
       mainApi.addMovie(data)
          .then((movies) => {
-            setLoggedIn(false);
+            setIsLoading(false);
             checkSavedMovies();
          })
          .catch((err) => {
-            setLoggedIn(false);
+            setIsLoading(false);
             console.log(err)
          });
    }
@@ -118,10 +119,10 @@ function App() {
       mainApi.deleteMovie(id)
          .then((movies) => {
             checkSavedMovies();
-            setLoggedIn(false);
+            setIsLoading(false);
          })
          .catch((err) => {
-            setLoggedIn(false);
+            setIsLoading(false);
             console.log(err)
          });
    }

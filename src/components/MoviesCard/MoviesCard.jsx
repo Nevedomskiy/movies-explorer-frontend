@@ -27,7 +27,7 @@ function MoviesCard({ movie, location, addMovie, deleteMovie, isLoading, listIdN
    function handleMovieId() {
       const check = listIdNewCards.find((element) => element.movieId === movie.id);
       if ((location.pathname === '/movies') && (check !== undefined)) {
-         setSavedMovieId(check._id);
+         setSavedMovieId(check.id);
          return
       } else {
          setSavedMovieId(movie._id);

@@ -226,7 +226,7 @@ function App() {
                         <ProtectedRouteElement
                            loggedIn={loggedIn}
                            moviesList={allMovies}
-                           moviesSavedList={savedMovies}
+                           listIdNewCards={listIdNewCards}
                            isValid={isValidSearch}
                            setIsValid={setIsValidSearch}
                            isLoading={isLoading}
@@ -236,7 +236,6 @@ function App() {
                            location={location}
                            setIsLoading={setIsLoading}
                            element={Movies}
-                           checkSavedMovies={checkSavedMovies}
                            setTextSearchError={setTextSearchError}
                            textSearchError={textSearchError}
                         >
@@ -257,8 +256,6 @@ function App() {
                            location={location}
                            element={Movies}
                            deleteMovie={deleteMovie}
-                           moviesSavedList={savedMovies}
-                           checkSavedMovies={checkSavedMovies}
                            setTextSearchError={setTextSearchError}
                            textSearchError={textSearchError}
                         >

@@ -124,7 +124,7 @@ function App() {
       mainApi.deleteMovie(id)
          .then(() => {
             setIsLoading(false);
-            setSavedMovies(savedMovies.filter((el) => el.id !== id));
+            setSavedMovies(savedMovies.filter((el) => el._id !== id));
             setListIdNewCards(listIdNewCards.filter((el) => el.id !== id))
          })
          .catch((err) => {

@@ -3,7 +3,7 @@ import { INPUT_LIST_lOGIN } from '../../utils/constants/constants';
 import useInput from '../../utils/Validation/Validation';
 import FormSign from '../../blocks/FormSign/FormSign';
 
-function Login({ logIn, textServerError, setTextServerError, isLoading }) {
+function Login({ logIn, location, textServerError, setTextServerError, isLoading }) {
 
    const email = useInput('', {
       isEmpty: true,
@@ -34,6 +34,7 @@ function Login({ logIn, textServerError, setTextServerError, isLoading }) {
             textLink={'Регистрация'}
             linkValue={'sign-up'}
             email={email}
+            location={location}
             password={password}
             textServerError={textServerError}
             setTextServerError={setTextServerError}

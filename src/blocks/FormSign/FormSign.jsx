@@ -3,7 +3,7 @@ import ButtonHome from '../ButtonHome/ButtonHome';
 import './FormSign.css';
 import { ERROR_MESSAGE } from '../../utils/constants/constants';
 
-function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, handleSubmit, isLoading, textLink, linkValue, modific, email, password, name, textServerError }) {
+function FormSign({ title, inputList, location, nameButtonSubmit, textAfterButton, handleSubmit, isLoading, textLink, linkValue, modific, email, password, name, textServerError }) {
 
    const handleValue = (type) => {
       if (type === 'password') {
@@ -36,8 +36,14 @@ function FormSign({ title, inputList, nameButtonSubmit, textAfterButton, handleS
          noValidate
          onSubmit={(e) => {
             handleSubmit(e);
-            email.onExit();
-            name.onExit();
+            if (location.pathname === '/sign-in') {
+               email.onExit();
+               password.onExit();
+            } else {
+               email.onExit();
+               password.onExit();
+               name.onExit();
+            }
          }}
       >
          <ButtonHome modification={'form-sign__button-home'}></ButtonHome>

@@ -3,7 +3,7 @@ import { INPUT_LIST_REGISTER } from '../../utils/constants/constants';
 import FormSign from '../../blocks/FormSign/FormSign';
 import useInput from '../../utils/Validation/Validation';
 
-function Register({ register, setTextServerError, textServerError, isLoading }) {
+function Register({ register, location, setTextServerError, textServerError, isLoading }) {
 
    const email = useInput('', {
       isEmpty: true,
@@ -44,6 +44,7 @@ function Register({ register, setTextServerError, textServerError, isLoading }) 
             email={email}
             password={password}
             name={name}
+            location={location}
             textServerError={textServerError}
             isLoading={isLoading}
          >

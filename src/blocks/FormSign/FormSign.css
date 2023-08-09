@@ -3,6 +3,7 @@
    align-items: stretch;
    display: grid;
    grid-template-rows: auto minmax(42px, 1fr) auto;
+   grid-template-columns: 260px;
    flex-direction: column;
    justify-content: center;
 }
@@ -125,6 +126,7 @@
    .form-sign__container {
       justify-content: stretch;
       grid-template-rows: auto minmax(159px, 1fr) auto;
+      grid-template-columns: 396px;
    }
 
    .form-sign__list {

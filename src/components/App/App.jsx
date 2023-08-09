@@ -197,7 +197,7 @@ function App() {
       <CurrentUserContext.Provider value={currentUser}>
 
          <div className='bodywork' >
-            <div className={`page ${location.pathname ?? 'page_main'}`} >
+            <div className={`page ${location.pathname === '/' ?? 'page_main'}`} >
                <Header loggedIn={loggedIn} />
 
                <Routes >

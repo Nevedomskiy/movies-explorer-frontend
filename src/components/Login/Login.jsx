@@ -1,5 +1,5 @@
 import './Login.css';
-import { inputListLogin } from '../../utils/constants/constants';
+import { INPUT_LIST_lOGIN } from '../../utils/constants/constants';
 import useInput from '../../utils/Validation/Validation';
 import FormSign from '../../blocks/FormSign/FormSign';
 
@@ -27,7 +27,7 @@ function Login({ logIn, textServerError, setTextServerError, isLoading }) {
       <div className='login'>
 
          <FormSign
-            inputList={inputListLogin}
+            inputList={INPUT_LIST_lOGIN}
             title={'Рады видеть!'}
             nameButtonSubmit={'Войти'}
             textAfterButton={'Ещё не зарегистрированы? '}

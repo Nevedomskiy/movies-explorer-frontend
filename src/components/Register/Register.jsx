@@ -1,5 +1,5 @@
 import './Register.css';
-import { inputListRegister } from '../../utils/constants/constants';
+import { INPUT_LIST_REGISTER } from '../../utils/constants/constants';
 import FormSign from '../../blocks/FormSign/FormSign';
 import useInput from '../../utils/Validation/Validation';
 
@@ -32,7 +32,7 @@ function Register({ register, setTextServerError, textServerError, isLoading }) 
       <div className='register'>
 
          <FormSign
-            inputList={inputListRegister}
+            inputList={INPUT_LIST_REGISTER}
             title={'Добро пожаловать!'}
             nameButtonSubmit={'Зарегистрироваться'}
             textAfterButton={'Уже зарегистрированы? '}

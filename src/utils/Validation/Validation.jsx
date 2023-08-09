@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { VALIDATION_RE } from "../constants/constants";
 
 function useValidation(value, validations) {
    const [isEmpty, setIsEmpty] = useState(true);
@@ -22,13 +23,11 @@ function useValidation(value, validations) {
                   value.length > validations[validation] ? setMaxLengthError(true) : setMaxLengthError(false)
                   break;
                case 'isEmail':
-                  const reEmail = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
-                  reEmail.test(String(value).toLowerCase()) ? setIsEmail(false) : setIsEmail(true)
+                  VALIDATION_RE.EMAIL.test(String(value).toLowerCase()) ? setIsEmail(false) : setIsEmail(true)
                   break;
                case 'isName':
                   // eslint-disable-next-line no-useless-escape
-                  const reName = /^[\u0400-\u04FFa-zA-Z\s\-]+$/;
-                  reName.test(String(value).toLowerCase()) ? setIsName(false) : setIsName(true)
+                  VALIDATION_RE.NAME.test(String(value).toLowerCase()) ? setIsName(false) : setIsName(true)
                   break;
                // no default
             }

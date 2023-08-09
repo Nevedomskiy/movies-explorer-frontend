@@ -40,7 +40,7 @@ export const ERROR_MESSAGE = {
    NOT_FOUND: 'Ничего не найдено ',
    SERVER_OUT: 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
    ENTER_VALUE: 'Нужно ввести ключевое слово',
-   
+
 };
 
 export const SUCCESSFUL_MESSAGE = {
@@ -58,4 +58,9 @@ export const NUMBER_OF_CARDS = {
    L: 5,
    X: 8,
    XL: 12,
+};
+
+export const VALIDATION_RE = {
+   EMAIL: /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/,
+   NAME: /^[\u0400-\u04FFa-zA-Z\s\-]+$/,
 };

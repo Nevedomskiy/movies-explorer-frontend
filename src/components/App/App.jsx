@@ -33,10 +33,14 @@ function App() {
    const [succesReq, setSuccesReq] = useState(false);
 
    useEffect(() => {
+      handleUserInfo();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, []);
+
+   useEffect(() => {
       if (loggedIn) {
          checkSavedMovies();
          heandleAllMovies();
-         handleUserInfo();
       }
       setTextServerError('');
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -129,6 +133,7 @@ function App() {
             setIsLoading(false);
             setLoggedIn(true);
             navigate('/movies', { replace: true });
+            handleUserInfo();
          })
          .catch((err) => {
             err.then(({ message }) => {

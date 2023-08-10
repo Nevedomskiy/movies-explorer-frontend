@@ -37,7 +37,7 @@ function App() {
       handleUserInfo();
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
-   console.log(loggedIn)
+
    useEffect(() => {
       if (loggedIn) {
          // if (location.pathname === '/saved-movies') {
@@ -106,7 +106,9 @@ function App() {
    const addMovie = (data) => {
       setIsLoading(true);
       mainApi.addMovie(data)
+
          .then((movies) => {
+            console.log(movies)
             setIsLoading(false);
             setListIdNewCards([...listIdNewCards, {
                movieId: data.movieId,

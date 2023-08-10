@@ -105,14 +105,9 @@ function App() {
    const addMovie = (data) => {
       setIsLoading(true);
       mainApi.addMovie(data)
-
          .then((movies) => {
-            console.log(movies)
             setIsLoading(false);
-            setSavedMovies([...savedMovies, {
-               movieId: data.movieId,
-               id: movies._id
-            }]);
+            setSavedMovies([...savedMovies, movies]);
          })
          .catch((err) => {
             setIsLoading(false);
@@ -244,6 +239,7 @@ function App() {
                            isLoading={isLoading}
                            setIsLoading={setIsLoading}
                            moviesList={savedMovies}
+                           savedMovies={savedMovies}
                            location={location}
                            element={Movies}
                            deleteMovie={deleteMovie}

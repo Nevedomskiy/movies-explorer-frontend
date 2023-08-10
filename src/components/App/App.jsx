@@ -33,16 +33,10 @@ function App() {
    const [succesReq, setSuccesReq] = useState(false);
 
    useEffect(() => {
-      handleUserInfo();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, []);
-
-   useEffect(() => {
       if (loggedIn) {
-         // if (location.pathname === '/saved-movies') {
          checkSavedMovies();
          heandleAllMovies();
-         // }
+         handleUserInfo();
       }
       setTextServerError('');
       // eslint-disable-next-line react-hooks/exhaustive-deps

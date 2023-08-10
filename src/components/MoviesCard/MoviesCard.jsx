@@ -22,7 +22,7 @@ function MoviesCard({ movie, moviesList, location, addMovie, deleteMovie, isLoad
          handleMovieId();
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [moviesList])
+   }, [savedMovies])
 
    function handleMovieId() {
       const check = savedMovies.find((element) => element.movieId === movie.id);

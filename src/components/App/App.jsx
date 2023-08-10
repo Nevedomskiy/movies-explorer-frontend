@@ -35,19 +35,19 @@ function App() {
 
    useEffect(() => {
       handleUserInfo();
-      heandleAllMovies();
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
-
+   console.log(loggedIn)
    useEffect(() => {
       if (loggedIn) {
-         if (location.pathname === '/saved-movies') {
-            checkSavedMovies();
-         }
+         // if (location.pathname === '/saved-movies') {
+         checkSavedMovies();
+         heandleAllMovies();
+         // }
       }
       setTextServerError('');
       // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [loggedIn, location]);
+   }, [loggedIn]);
 
    function handleUserInfo() {
       mainApi.getUserInfo()

@@ -131,7 +131,6 @@ function App() {
       mainApi.authorize(email, password)
          .then((res) => {
             setIsLoading(false);
-            setLoggedIn(true);
             navigate('/movies', { replace: true });
             handleUserInfo();
          })

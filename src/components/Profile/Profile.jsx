@@ -9,8 +9,6 @@ function Profile({ logOut, editProfile, textServerError, activeInputs, setActive
 
    const userData = useContext(CurrentUserContext);
 
-   console.log(userData);
-
    const email = useInput('', {
       isEmpty: true,
       isEmail: true,

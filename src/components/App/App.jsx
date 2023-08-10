@@ -31,7 +31,6 @@ function App() {
    const [textServerError, setTextServerError] = useState('');
    const [activeInputs, setActiveInputs] = useState(false);
    const [succesReq, setSuccesReq] = useState(false);
-   const [listIdNewCards, setListIdNewCards] = useState([]);
 
    useEffect(() => {
       handleUserInfo();
@@ -110,7 +109,7 @@ function App() {
          .then((movies) => {
             console.log(movies)
             setIsLoading(false);
-            setListIdNewCards([...listIdNewCards, {
+            setSavedMovies([...savedMovies, {
                movieId: data.movieId,
                id: movies._id
             }]);
@@ -127,7 +126,6 @@ function App() {
          .then(() => {
             setIsLoading(false);
             setSavedMovies(savedMovies.filter((el) => el._id !== id));
-            setListIdNewCards(listIdNewCards.filter((el) => el.id !== id))
          })
          .catch((err) => {
             setIsLoading(false);
@@ -219,7 +217,7 @@ function App() {
                         <ProtectedRouteElement
                            loggedIn={loggedIn}
                            moviesList={allMovies}
-                           listIdNewCards={listIdNewCards}
+                           savedMovies={savedMovies}
                            isValid={isValidSearch}
                            setIsValid={setIsValidSearch}
                            isLoading={isLoading}
@@ -243,7 +241,6 @@ function App() {
                            width={width}
                            isValid={isValidSearch}
                            setIsValid={setIsValidSearch}
-                           listIdNewCards={listIdNewCards}
                            isLoading={isLoading}
                            setIsLoading={setIsLoading}
                            moviesList={savedMovies}

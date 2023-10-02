@@ -15,5 +15,5 @@ export const useResize = () => {
 
   return {
     width,
-    };
+  };
 };

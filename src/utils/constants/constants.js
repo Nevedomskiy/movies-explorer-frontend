@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://diplom.backend.nomoredomains.xyz';
+export const BASE_URL = 'https://api-movies-vbt0.onrender.com';
 export const MOVIES_URL = 'https://api.nomoreparties.co';
 
 export const INPUT_LIST_REGISTER = [

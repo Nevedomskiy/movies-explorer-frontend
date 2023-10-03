@@ -38,7 +38,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (loggedIn) {
+    if (document.cookie) {
+      // console.log(document.cookie)
       checkSavedMovies();
       heandleAllMovies();
     }
@@ -57,7 +58,6 @@ function App() {
         setCurrentUser({});
         setLoggedIn(false);
         localStorage.clear();
-        console.log(err);
       });
   }
 

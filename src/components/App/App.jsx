@@ -38,7 +38,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (document.cookie) {
+    if (loggedIn) {
       // console.log(document.cookie)
       checkSavedMovies();
       heandleAllMovies();
